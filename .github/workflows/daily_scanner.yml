@@ -2,8 +2,8 @@ name: Daily SA Scanner
 
 on:
   schedule:
-    - cron: '0 6 * * 1-5'    # 06:00 UTC Wochentags (vor US-Marktöffnung)
-    - cron: '0 13 * * 1-5'   # 13:00 UTC Wochentags (Mittag US-Zeit)
+    - cron: '0 6 * * 1-5'
+    - cron: '0 13 * * 1-5'
   workflow_dispatch:
     inputs:
       no_claude:
@@ -11,7 +11,7 @@ on:
         type: boolean
         default: false
       tickers:
-        description: 'Specific tickers (space-separated, e.g. "VST PLTR")'
+        description: 'Specific tickers (e.g. "VST PLTR")'
         type: string
         default: ''
 
@@ -58,21 +58,15 @@ jobs:
           import os
           required = ['ANTHROPIC_API_KEY', 'TRADIER_API_KEY', 'FINNHUB_API_KEY']
           missing  = [k for k in required if not os.environ.get(k)]
-          optional = ['EIA_API_KEY', 'FRED_API_KEY']
-          missing_opt = [k for k in optional if not os.environ.get(k)]
           if missing:
               print(f'ERROR: Missing required secrets: {missing}')
               exit(1)
-          if missing_opt:
-              print(f'WARNING: Missing optional secrets: {missing_opt}')
           print('Secret validation OK')
           "
         env:
           ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
           TRADIER_API_KEY:   ${{ secrets.TRADIER_API_KEY }}
           FINNHUB_API_KEY:   ${{ secrets.FINNHUB_API_KEY }}
-          EIA_API_KEY:       ${{ secrets.EIA_API_KEY }}
-          FRED_API_KEY:      ${{ secrets.FRED_API_KEY }}
 
       - name: Create directories
         run: |
@@ -100,16 +94,47 @@ jobs:
           FRED_API_KEY:      ${{ secrets.FRED_API_KEY }}
         run: python main.py ${{ steps.cli.outputs.args }}
 
-      - name: Load stats for commit message
+      - name: Load stats
         id: stats
         run: |
           if [ -f /tmp/scanner_stats.env ]; then
             cat /tmp/scanner_stats.env >> $GITHUB_ENV
           else
-            echo "SIGNAL_COUNT=0" >> $GITHUB_ENV
+            echo "SIGNAL_COUNT=0"   >> $GITHUB_ENV
             echo "REGIME_MODE=UNKNOWN" >> $GITHUB_ENV
-            echo "CANDIDATE_COUNT=0" >> $GITHUB_ENV
+            echo "CANDIDATE_COUNT=0"  >> $GITHUB_ENV
           fi
+
+      - name: Send email notification (only if cards generated)
+        if: env.SIGNAL_COUNT != '0'
+        env:
+          ANTHROPIC_API_KEY:  ${{ secrets.ANTHROPIC_API_KEY }}
+          TRADIER_API_KEY:    ${{ secrets.TRADIER_API_KEY }}
+          FINNHUB_API_KEY:    ${{ secrets.FINNHUB_API_KEY }}
+          EIA_API_KEY:        ${{ secrets.EIA_API_KEY }}
+          FRED_API_KEY:       ${{ secrets.FRED_API_KEY }}
+          GMAIL_USER:         ${{ secrets.GMAIL_USER }}
+          GMAIL_APP_PASSWORD: ${{ secrets.GMAIL_APP_PASSWORD }}
+          NOTIFY_EMAIL:       ${{ secrets.NOTIFY_EMAIL }}
+        run: |
+          python -c "
+          import sys, json, sqlite3, logging
+          from pathlib import Path
+          sys.path.insert(0, '.')
+          logging.basicConfig(level=logging.INFO)
+          from scanner.output.email_notifier import load_todays_cards, send_email
+          from scanner.utils.state_manager import StateManager
+          cards = load_todays_cards()
+          if cards:
+              with StateManager() as sm:
+                  import json as j
+                  regime_path = Path('data/signals/regime.json')
+                  regime = j.loads(regime_path.read_text()) if regime_path.exists() else {}
+              result = send_email(cards, regime)
+              print(f'Email sent: {result} | {len(cards)} cards')
+          else:
+              print('No PASS cards found in DB')
+          "
 
       - name: Commit state
         uses: stefanzweifel/git-auto-commit-action@v5
@@ -129,5 +154,4 @@ jobs:
           path: |
             data/scanner.db
             data/signals/
-            data/cards/
           retention-days: 7
