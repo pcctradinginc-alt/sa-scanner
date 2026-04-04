@@ -1,0 +1,12 @@
+__pycache__/
+*.pyc
+*.pyo
+.venv/
+venv/
+.env
+*.key
+config_local.py
+data/cache/
+*.cache
+data/historical/raw_*.json
+.DS_Store
