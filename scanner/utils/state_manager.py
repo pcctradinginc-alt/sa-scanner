@@ -124,7 +124,7 @@ class StateManager:
         )
         self.conn.commit()
 
-    # ── IV HISTORY (Tradier-basiert) ────────────────────────────
+    # ── IV HISTORY ───────────────────────────────────────────────
 
     def store_iv(self, ticker: str, iv: float, source: str = "tradier"):
         today = datetime.utcnow().date().isoformat()
@@ -167,7 +167,7 @@ class StateManager:
             "current_iv":  current_iv,
         }
 
-    # ── REGIME ──────────────────────────────────────────────────
+    # ── REGIME ───────────────────────────────────────────────────
 
     def store_regime(self, regime: dict):
         self.conn.execute(
@@ -175,7 +175,7 @@ class StateManager:
             (
                 datetime.utcnow().date().isoformat(),
                 regime["mode"],
-                regime.get("iv_rank", 50),
+                regime.get("iv_rank_avg", 50),
                 regime.get("energy_breadth", 0.5),
                 regime.get("capex_trend", "unknown"),
                 regime.get("regime_stability", 0.5),
@@ -196,7 +196,28 @@ class StateManager:
             return "falling_two_quarters"
         return rows[0]["capex_trend"] if rows else "unknown"
 
-    # ── FILING TRACKER ───────────────────────────────────────────
+    def get_regime_trend(self, days: int = 30) -> dict:
+        cutoff = (datetime.utcnow() - timedelta(days=days)).date().isoformat()
+        rows = self.conn.execute(
+            """SELECT mode, COUNT(*) as count
+               FROM regime_history
+               WHERE date >= ?
+               GROUP BY mode""",
+            (cutoff,)
+        ).fetchall()
+        total = sum(r["count"] for r in rows)
+        if total == 0:
+            return {"trend": "UNKNOWN", "stress_pct": 0, "normal_pct": 100}
+        stress_count = next((r["count"] for r in rows if r["mode"] == "STRESS"), 0)
+        stress_pct = stress_count / total * 100
+        return {
+            "trend":         "DETERIORATING" if stress_pct > 30 else "STABLE",
+            "stress_pct":    round(stress_pct, 1),
+            "normal_pct":    round(100 - stress_pct, 1),
+            "days_analyzed": days,
+        }
+
+    # ── FILING TRACKER ────────────────────────────────────────────
 
     def get_last_filing_date(self, entity: str) -> Optional[str]:
         row = self.conn.execute(
@@ -205,16 +226,18 @@ class StateManager:
         ).fetchone()
         return row["last_filing_date"] if row else None
 
-    def update_filing(self, entity: str, cik: str, date: str, url: str, cls: str):
+    def update_filing(self, entity: str, cik: str, date: str,
+                      url: str, cls: str):
         self.conn.execute(
             """INSERT OR REPLACE INTO filing_tracker
-               (entity, cik, last_filing_date, last_filing_url, last_filing_class, updated_at)
+               (entity, cik, last_filing_date, last_filing_url,
+                last_filing_class, updated_at)
                VALUES (?, ?, ?, ?, ?, ?)""",
             (entity, cik, date, url, cls, datetime.utcnow().isoformat())
         )
         self.conn.commit()
 
-    # ── KATECHON TRACKER ─────────────────────────────────────────
+    # ── KATECHON TRACKER ──────────────────────────────────────────
 
     def can_use_katechon_bonus(self) -> bool:
         quarter = f"{datetime.utcnow().year}-Q{(datetime.utcnow().month - 1) // 3 + 1}"
@@ -235,31 +258,40 @@ class StateManager:
         )
         self.conn.commit()
 
-    # ── SIGNALS & CARDS ──────────────────────────────────────────
+    # ── SIGNALS & CARDS ───────────────────────────────────────────
 
-    def store_signal(self, ticker: str, conviction: float, gate_status: str,
-                     regime_mode: str, bottleneck_type: str, full_data: dict):
+    def store_signal(self, ticker: str, conviction: float,
+                     gate_status: str, regime_mode: str,
+                     bottleneck_type: str, full_data: dict):
         self.conn.execute(
             """INSERT INTO signals
                (run_id, date, ticker, conviction, gate_status,
                 regime_mode, bottleneck_type, full_json)
                VALUES (?, ?, ?, ?, ?, ?, ?, ?)""",
-            (self._run_id, datetime.utcnow().date().isoformat(),
-             ticker, conviction, gate_status, regime_mode,
-             bottleneck_type, json.dumps(full_data))
+            (
+                self._run_id,
+                datetime.utcnow().date().isoformat(),
+                ticker, conviction, gate_status,
+                regime_mode, bottleneck_type,
+                json.dumps(full_data),
+            )
         )
         self.conn.commit()
 
-    def store_trading_card(self, ticker: str, conviction: float, gate_status: str,
-                           laufzeit: int, card_data: dict, html_path: str = None):
+    def store_trading_card(self, ticker: str, conviction: float,
+                           gate_status: str, laufzeit: int,
+                           card_data: dict, html_path: str = None):
         self.conn.execute(
             """INSERT INTO trading_cards
                (run_id, date, ticker, conviction, gate_status,
                 laufzeit_months, card_json, html_path)
                VALUES (?, ?, ?, ?, ?, ?, ?, ?)""",
-            (self._run_id, datetime.utcnow().date().isoformat(),
-             ticker, conviction, gate_status, laufzeit,
-             json.dumps(card_data), html_path)
+            (
+                self._run_id,
+                datetime.utcnow().date().isoformat(),
+                ticker, conviction, gate_status,
+                laufzeit, json.dumps(card_data), html_path,
+            )
         )
         self.conn.commit()
 
@@ -269,11 +301,14 @@ class StateManager:
         ).fetchall()
         return [dict(r) for r in rows]
 
-    def check_portfolio_limits(self, new_ticker: str, new_sector: str) -> tuple:
+    def check_portfolio_limits(self, new_ticker: str,
+                                new_sector: str) -> tuple:
         positions = self.get_active_positions()
         if len(positions) >= Config.MAX_ACTIVE_POSITIONS:
             return False, "MAX_3_POSITIONS_REACHED"
-        same_sector = sum(1 for p in positions if p.get("sector") == new_sector)
+        same_sector = sum(
+            1 for p in positions if p.get("sector") == new_sector
+        )
         if same_sector >= Config.MAX_SAME_SECTOR_POSITIONS:
             return False, "SECTOR_CONCENTRATION_RISK"
         if positions:
@@ -282,7 +317,7 @@ class StateManager:
                 return False, "PORTFOLIO_AVG_CONVICTION_TOO_LOW"
         return True, "OK"
 
-    # ── RUN LOG ──────────────────────────────────────────────────
+    # ── RUN LOG ───────────────────────────────────────────────────
 
     def log_run_stats(self, candidates: int, claude_calls: int,
                       cards_generated: int, regime_mode: str,
@@ -296,13 +331,17 @@ class StateManager:
                cards_generated = ?,
                errors          = ?
                WHERE run_id = ?""",
-            (datetime.utcnow().isoformat(), regime_mode,
-             candidates, claude_calls, cards_generated,
-             json.dumps(errors or []), self._run_id)
+            (
+                datetime.utcnow().isoformat(),
+                regime_mode, candidates,
+                claude_calls, cards_generated,
+                json.dumps(errors or []),
+                self._run_id,
+            )
         )
         self.conn.commit()
 
-    # ── GIT COMMIT ───────────────────────────────────────────────
+    # ── GIT COMMIT ────────────────────────────────────────────────
 
     def commit_state(self, extra_msg: str = "") -> bool:
         try:
@@ -312,16 +351,21 @@ class StateManager:
             env["GIT_COMMITTER_NAME"]  = "SA Scanner"
             env["GIT_COMMITTER_EMAIL"] = "scanner@github-actions.local"
 
-            subprocess.run(["git", "add", "data/", "dashboard/"],
-                           check=True, env=env, capture_output=True)
+            subprocess.run(
+                ["git", "add", "data/", "dashboard/"],
+                check=True, env=env, capture_output=True
+            )
 
-            diff = subprocess.run(["git", "diff", "--staged", "--quiet"], env=env)
+            diff = subprocess.run(
+                ["git", "diff", "--staged", "--quiet"], env=env
+            )
             if diff.returncode == 0:
                 logger.info("No changes to commit")
                 return True
 
             row = self.conn.execute(
-                "SELECT cards_generated, claude_calls, candidates FROM run_log WHERE run_id = ?",
+                """SELECT cards_generated, claude_calls, candidates
+                   FROM run_log WHERE run_id = ?""",
                 (self._run_id,)
             ).fetchone()
 
@@ -334,10 +378,14 @@ class StateManager:
             if extra_msg:
                 msg += f" | {extra_msg}"
 
-            subprocess.run(["git", "commit", "-m", msg],
-                           check=True, env=env, capture_output=True)
-            subprocess.run(["git", "push"],
-                           check=True, env=env, capture_output=True)
+            subprocess.run(
+                ["git", "commit", "-m", msg],
+                check=True, env=env, capture_output=True
+            )
+            subprocess.run(
+                ["git", "push"],
+                check=True, env=env, capture_output=True
+            )
 
             self.conn.execute(
                 "UPDATE run_log SET git_committed = 1 WHERE run_id = ?",
@@ -348,11 +396,15 @@ class StateManager:
             return True
 
         except subprocess.CalledProcessError as e:
-            logger.error(f"Git commit failed: {e.stderr.decode() if e.stderr else e}")
+            logger.error(
+                f"Git commit failed: {e.stderr.decode() if e.stderr else e}"
+            )
             return False
         except Exception as e:
             logger.error(f"Commit error: {e}")
             return False
+
+    # ── CONTEXT MANAGER ───────────────────────────────────────────
 
     def close(self):
         if hasattr(self, "conn") and self.conn:
