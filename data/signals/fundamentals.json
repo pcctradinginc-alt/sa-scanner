@@ -1,0 +1,29 @@
+{
+  "hyperscaler_capex": {
+    "by_ticker": {
+      "MSFT": {
+        "error": "Insufficient data"
+      },
+      "GOOGL": {
+        "error": "Insufficient data"
+      },
+      "AMZN": {
+        "error": "Insufficient data"
+      },
+      "META": {
+        "error": "Insufficient data"
+      },
+      "NVDA": {
+        "error": "Insufficient data"
+      }
+    },
+    "avg_growth_yoy": null,
+    "capex_trend": "unknown",
+    "empirical_point": 0,
+    "fetched_at": "2026-04-04T06:39:48.250971"
+  },
+  "nvda_revenue": {
+    "growth_yoy": null,
+    "empirical_point": 0
+  }
+}

@@ -1,0 +1,11 @@
+{
+  "energy_breadth": "OK",
+  "eia": "PARTIAL",
+  "fred": "OK",
+  "finnhub_capex": "PARTIAL",
+  "rss": "0 articles",
+  "tradier": "OK",
+  "errors": [],
+  "fetched_at": "2026-04-04T06:41:55.802639",
+  "shulman_empirical_score": 0
+}

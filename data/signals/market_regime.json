@@ -1,0 +1,126 @@
+{
+  "energy_breadth": {
+    "energy_breadth": 0.8,
+    "above_200d": 12,
+    "total_checked": 15,
+    "details": {
+      "VST": {
+        "current": 151.18,
+        "ma200": 180.52,
+        "above": "False"
+      },
+      "CEG": {
+        "current": 272.82,
+        "ma200": 328.5,
+        "above": "False"
+      },
+      "NRG": {
+        "current": 152.69,
+        "ma200": 158.66,
+        "above": "False"
+      },
+      "XEL": {
+        "current": 80.74,
+        "ma200": 75.08,
+        "above": "True"
+      },
+      "SO": {
+        "current": 97.45,
+        "ma200": 91.18,
+        "above": "True"
+      },
+      "DUK": {
+        "current": 132.22,
+        "ma200": 120.98,
+        "above": "True"
+      },
+      "NEE": {
+        "current": 93.15,
+        "ma200": 80.23,
+        "above": "True"
+      },
+      "AEP": {
+        "current": 132.68,
+        "ma200": 115.58,
+        "above": "True"
+      },
+      "EXC": {
+        "current": 49.33,
+        "ma200": 44.66,
+        "above": "True"
+      },
+      "ETR": {
+        "current": 114.9,
+        "ma200": 93.11,
+        "above": "True"
+      },
+      "D": {
+        "current": 62.77,
+        "ma200": 59.12,
+        "above": "True"
+      },
+      "PCG": {
+        "current": 17.77,
+        "ma200": 15.69,
+        "above": "True"
+      },
+      "ES": {
+        "current": 69.47,
+        "ma200": 67.19,
+        "above": "True"
+      },
+      "FE": {
+        "current": 51.31,
+        "ma200": 44.84,
+        "above": "True"
+      },
+      "PPL": {
+        "current": 38.64,
+        "ma200": 35.69,
+        "above": "True"
+      }
+    },
+    "fetched_at": "2026-04-04T06:39:35.985622"
+  },
+  "hyperscaler_capex": {
+    "by_ticker": {
+      "MSFT": {
+        "error": "Insufficient data"
+      },
+      "GOOGL": {
+        "error": "Insufficient data"
+      },
+      "AMZN": {
+        "error": "Insufficient data"
+      },
+      "META": {
+        "error": "Insufficient data"
+      },
+      "NVDA": {
+        "error": "Insufficient data"
+      }
+    },
+    "avg_growth_yoy": null,
+    "capex_trend": "unknown",
+    "empirical_point": 0,
+    "fetched_at": "2026-04-04T06:39:48.250971"
+  },
+  "fred": {
+    "electric_power_production": {
+      "latest": 119.09,
+      "year_ago": 116.56,
+      "growth_yoy": 0.0217,
+      "period": "2026-02-01"
+    },
+    "industrial_production": {
+      "latest": 102.55,
+      "year_ago": 101.1,
+      "growth_yoy": 0.0144,
+      "period": "2026-02-01"
+    },
+    "fetched_at": "2026-04-04T06:39:44.108593"
+  },
+  "eia": {
+    "growth_yoy": null
+  }
+}
