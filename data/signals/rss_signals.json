@@ -21,7 +21,7 @@
     "source": "Axios_Tech",
     "credibility": 0.76,
     "title": "AI boom drives clash between grid power vs. energy \"islands\"",
-    "summary": "<p><strong>HOUSTON</strong> \u2014 A high-stakes fight is emerging as the AI boom accelerates: Should data centers plug into the grid, or operate as energy \"islands\"?</p><p><strong>Why it matters</strong>: The debate is shaping power flows and multibillion-dollar investments, as data centers rival entire cities in their electricity demand.</p><hr /><p><strong>Driving the news:</strong> Chevron <a href=\"https://www.chevron.com/newsroom/2026/q1/chevron-statement-regarding-exclusivity-agreement-with-mic",
+    "summary": "<p><strong>HOUSTON</strong> \u2014 A high-stakes fight is emerging as the AI boom accelerates: Should data centers plug into the grid, or operate as energy \"islands\"?</p><p><strong>Why it matters:</strong> The debate is shaping power flows and multibillion-dollar investments, as data centers rival entire cities in their electricity demand.</p><hr /><p><strong>Driving the news:</strong> Chevron <a href=\"https://www.chevron.com/newsroom/2026/q1/chevron-statement-regarding-exclusivity-agreement-with-mic",
     "url": "https://www.axios.com/2026/04/03/ai-power-data-centers-energy-grid",
     "published": "2026-04-03T09:00:05",
     "signals": {
@@ -41,10 +41,10 @@
   {
     "source": "Yahoo_Finance",
     "credibility": 0.75,
-    "title": "Nvidia Marvell Alliance Extends AI Platform From Data Centers To Telecoms",
-    "summary": "Nvidia (NasdaqGS:NVDA) announced a US$2b partnership with Marvell focused on connecting Marvell\u2019s custom XPUs and networking products into Nvidia\u2019s NVLink Fusion platform. The agreement extends Nvidia\u2019s AI infrastructure into data centers and telecom networks, including AI powered telecommunications and silicon photonics. The deal also includes work on semi custom AI architectures and AI RAN for 5G and 6G, and involves direct equity investment and ecosystem collaboration. Nvidia has been...",
-    "url": "https://finance.yahoo.com/markets/stocks/articles/nvidia-marvell-alliance-extends-ai-021321929.html?.tsrc=rss",
-    "published": "2026-04-04T02:13:21",
+    "title": "Where Will Nvidia Stock Be in 5 Years?",
+    "summary": "Nvidia transformed from a niche chip designer into the world's most valuable company thanks to the rise of artificial intelligence (AI).",
+    "url": "https://www.fool.com/investing/2026/04/04/where-will-nvidia-stock-be-in-5-years/?.tsrc=rss",
+    "published": "2026-04-04T12:25:00",
     "signals": {
       "thiel": false,
       "shulman": false,
@@ -61,10 +61,10 @@
   {
     "source": "Yahoo_Finance",
     "credibility": 0.75,
-    "title": "Nvidia and Alphabet Both Have Amazing Potential in an AI Era. But Which Stock Is the Better Buy Right Now?",
-    "summary": "Artificial intelligence has been a game changer for both companies. But which one is the better long-term bet?",
-    "url": "https://www.fool.com/investing/2026/04/03/nvidia-and-alphabet-both-have-amazing-potential-in/?.tsrc=rss",
-    "published": "2026-04-04T01:46:00",
+    "title": "5-Star Analyst Raises Nvidia Stock (NVDA) Forecast as Demand for \u2018Hopper and Blackwell AI-Chips Likely to Outstrip Supply\u2019",
+    "summary": "On Thursday, Nvidia stock (NVDA) received a major vote of confidence from analyst Fang Boon Foo from DBS. Holding a prestigious 5-star analyst rating, Foo is known for his accurate forecasts in the tech sector. In his latest update, he reiterated his Buy rating and raised his price target for Nvidia to $220, up from his previous forecast of $180. In his report from Thursday, April 2, Foo highlighted that the company is currently benefiting from a \u201cstrong AI-led growth cycle.\u201d Nvidia Has a Massiv",
+    "url": "https://finance.yahoo.com/markets/stocks/articles/5-star-analyst-raises-nvidia-100927506.html?.tsrc=rss",
+    "published": "2026-04-04T10:09:27",
     "signals": {
       "thiel": false,
       "shulman": false,
@@ -74,8 +74,27 @@
       "salp": false
     },
     "tickers": [
-      "NVDA",
-      "GOOGL"
+      "NVDA"
+    ],
+    "weighted_relevance": 0.75
+  },
+  {
+    "source": "Yahoo_Finance",
+    "credibility": 0.75,
+    "title": "Is Micron the New Nvidia?",
+    "summary": "Micron stock has soared nearly 300% over the last year as memory and storage chips become the latest must-haves for AI development.",
+    "url": "https://www.fool.com/investing/2026/04/04/is-micron-the-new-nvidia/?.tsrc=rss",
+    "published": "2026-04-04T10:05:00",
+    "signals": {
+      "thiel": false,
+      "shulman": false,
+      "contrarian": false,
+      "bottleneck_compute": true,
+      "bottleneck_energy": false,
+      "salp": false
+    },
+    "tickers": [
+      "NVDA"
     ],
     "weighted_relevance": 0.75
   }
