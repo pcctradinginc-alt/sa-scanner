@@ -2,12 +2,11 @@ name: SEC EDGAR 13F Monitor
 
 on:
   schedule:
-    - cron: '0 */6 * * *'   # Alle 6 Stunden (45-Tage-Delay minimieren)
+    - cron: '0 */6 * * *'   # Alle 6 Stunden
   workflow_dispatch:
 
 permissions:
   contents: write
-  actions: write            # Für workflow_dispatch trigger
 
 concurrency:
   group: scanner-state
@@ -16,7 +15,7 @@ concurrency:
 jobs:
   monitor:
     runs-on: ubuntu-latest
-    timeout-minutes: 20
+    timeout-minutes: 45
 
     permissions:
       contents: write
@@ -24,6 +23,7 @@ jobs:
     env:
       PYTHONPATH: ${{ github.workspace }}
       TZ: UTC
+      PYTHONUNBUFFERED: "1"
 
     steps:
       - uses: actions/checkout@v4
@@ -36,12 +36,15 @@ jobs:
           python-version: '3.11'
           cache: 'pip'
 
-      - run: pip install -r requirements.txt
+      - name: Install dependencies
+        run: pip install -r requirements.txt
 
       - name: Create directories
-        run: mkdir -p data/signals data/cards data/historical data/cache dashboard/cards
+        run: |
+          mkdir -p data/signals data/cards data/historical data/cache
+          mkdir -p dashboard/cards
 
-      - name: Run EDGAR monitor
+      - name: Check for new filings
         id: edgar
         env:
           ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
@@ -51,40 +54,79 @@ jobs:
           FRED_API_KEY:      ${{ secrets.FRED_API_KEY }}
         run: |
           python main.py --edgar-only
-          # Check ob neues Filing gefunden
-          if python -c "
+
+          # Prüfe ob neues Filing gefunden
+          NEW_FILING=$(python -c "
           import json
           from pathlib import Path
           f = Path('data/signals/sec_filings.json')
           if f.exists():
               data = json.loads(f.read_text())
-              print('true' if data.get('new_filings_found',0) > 0 else 'false')
+              found = data.get('new_filings_found', 0)
+              print('true' if found > 0 else 'false')
           else:
               print('false')
-          "; then
-            echo "new_filing=true" >> $GITHUB_OUTPUT
+          ")
+          echo "new_filing=$NEW_FILING" >> $GITHUB_OUTPUT
+          echo "New filing detected: $NEW_FILING"
+
+          # Filing-Details für Log
+          python -c "
+          import json
+          from pathlib import Path
+          f = Path('data/signals/sec_filings.json')
+          if f.exists():
+              data = json.loads(f.read_text())
+              filings = data.get('new_filings', [])
+              for filing in filings[:5]:
+                  print(f\"  → {filing['entity']} | {filing['filing_type']} | {filing['signal_strength']}\")
+              new_tickers = data.get('new_tickers', [])
+              if new_tickers:
+                  print(f'  New Tickers: {new_tickers}')
+          "
+
+      - name: Run full pipeline if new filing detected
+        if: steps.edgar.outputs.new_filing == 'true'
+        env:
+          ANTHROPIC_API_KEY:  ${{ secrets.ANTHROPIC_API_KEY }}
+          TRADIER_API_KEY:    ${{ secrets.TRADIER_API_KEY }}
+          FINNHUB_API_KEY:    ${{ secrets.FINNHUB_API_KEY }}
+          EIA_API_KEY:        ${{ secrets.EIA_API_KEY }}
+          FRED_API_KEY:       ${{ secrets.FRED_API_KEY }}
+          GMAIL_USER:         ${{ secrets.GMAIL_USER }}
+          GMAIL_APP_PASSWORD: ${{ secrets.GMAIL_APP_PASSWORD }}
+          NOTIFY_EMAIL:       ${{ secrets.NOTIFY_EMAIL }}
+        run: |
+          echo "=== NEW FILING DETECTED — Running priority analysis ==="
+          python main.py
+
+      - name: Load stats
+        id: stats
+        run: |
+          if [ -f /tmp/scanner_stats.env ]; then
+            cat /tmp/scanner_stats.env >> $GITHUB_ENV
           else
-            echo "new_filing=false" >> $GITHUB_OUTPUT
+            echo "SIGNAL_COUNT=0"      >> $GITHUB_ENV
+            echo "REGIME_MODE=UNKNOWN" >> $GITHUB_ENV
+            echo "CANDIDATE_COUNT=0"   >> $GITHUB_ENV
           fi
 
-      - name: Trigger full pipeline if new filing
-        if: steps.edgar.outputs.new_filing == 'true'
-        uses: actions/github-script@v7
-        with:
-          script: |
-            await github.rest.actions.createWorkflowDispatch({
-              owner: context.repo.owner,
-              repo: context.repo.repo,
-              workflow_id: 'daily_scanner.yml',
-              ref: 'main',
-            });
-            console.log('Full pipeline triggered due to new 13F filing');
-
-      - name: Commit EDGAR state
+      - name: Commit state
         uses: stefanzweifel/git-auto-commit-action@v5
         with:
-          commit_message: "EDGAR monitor | ${{ steps.edgar.outputs.new_filing == 'true' && 'NEW 13F FILING DETECTED' || 'No new filings' }}"
-          file_pattern: 'data/signals/sec_filings.json data/scanner.db'
+          commit_message: |
+            EDGAR Monitor | Filing: ${{ steps.edgar.outputs.new_filing }} | Cards: ${{ env.SIGNAL_COUNT }} | ${{ env.REGIME_MODE }}
+          file_pattern: 'data/ dashboard/'
           commit_user_name: SA Scanner Bot
           commit_user_email: scanner@github-actions.local
           skip_dirty_check: false
+
+      - name: Upload debug on failure
+        if: failure()
+        uses: actions/upload-artifact@v4
+        with:
+          name: edgar-debug-${{ github.run_number }}
+          path: |
+            data/scanner.db
+            data/signals/
+          retention-days: 7
