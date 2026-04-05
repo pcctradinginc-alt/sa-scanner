@@ -80,7 +80,7 @@
         "above": "True"
       }
     },
-    "fetched_at": "2026-04-05T06:01:33.012617"
+    "fetched_at": "2026-04-05T08:09:58.776902"
   },
   "hyperscaler_capex": {
     "by_ticker": {
@@ -103,10 +103,10 @@
     "avg_growth_yoy": null,
     "capex_trend": "unknown",
     "empirical_point": 0,
-    "fetched_at": "2026-04-05T06:01:45.222863"
+    "fetched_at": "2026-04-05T08:10:08.777062"
   },
   "fred": {
-    "fetched_at": "2026-04-05T06:01:41.174341"
+    "fetched_at": "2026-04-05T08:10:04.164897"
   },
   "eia": {
     "growth_yoy": null

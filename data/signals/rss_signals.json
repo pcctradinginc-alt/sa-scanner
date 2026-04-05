@@ -2,6 +2,66 @@
   {
     "source": "Yahoo_Finance",
     "credibility": 0.75,
+    "title": "Foxconn first-quarter revenue jumps 30% y/y",
+    "summary": "Taiwan's Foxconn, the \u200cworld's largest contract \u200celectronics maker and Nvidia's \u200bbiggest server maker, reported on Sunday a jump of \u200c29.7% in \u2060first-quarter revenue year on year, \u2060fuelled by strong AI-related demand. Revenue for \u200bthe quarter \u200bfrom \u200bJanuary to \u200cMarch was T$2.13 trillion ($66.60 billion), Foxconn said in a statement, versus an LSEG \u200cSmartEstimate of \u200bT$2.148 trillion \u200bthat \u200bgives greater \u200cweight to forecasts from \u200banalysts \u200bwho are more consistently accurate. ($1 = 31.9800 \u200bTaiwan",
+    "url": "https://finance.yahoo.com/markets/stocks/articles/foxconn-first-quarter-revenue-jumps-074035924.html?.tsrc=rss",
+    "published": "2026-04-05T07:40:35",
+    "signals": {
+      "thiel": false,
+      "shulman": false,
+      "contrarian": false,
+      "bottleneck_compute": true,
+      "bottleneck_energy": false,
+      "salp": false
+    },
+    "tickers": [
+      "NVDA"
+    ],
+    "weighted_relevance": 0.75
+  },
+  {
+    "source": "Yahoo_Finance",
+    "credibility": 0.75,
+    "title": "Nvidia vs. CoreWeave: The Better AI Supercycle Stock Might Surprise You",
+    "summary": "The choice between the two may come down to investment approaches.",
+    "url": "https://www.fool.com/investing/2026/04/05/nvidia-vs-coreweave-the-better-ai-supercycle-stock/?.tsrc=rss",
+    "published": "2026-04-05T07:35:00",
+    "signals": {
+      "thiel": false,
+      "shulman": false,
+      "contrarian": false,
+      "bottleneck_compute": true,
+      "bottleneck_energy": false,
+      "salp": false
+    },
+    "tickers": [
+      "NVDA"
+    ],
+    "weighted_relevance": 0.75
+  },
+  {
+    "source": "Yahoo_Finance",
+    "credibility": 0.75,
+    "title": "Were You Wrong to Sell Nvidia? Here's What GTC 2026 Revealed About the Next 2 Years.",
+    "summary": "Management thinks that Nvidia sales are about to go through the roof.",
+    "url": "https://www.fool.com/investing/2026/04/05/were-you-wrong-to-sell-nvidia-heres-what-gtc-2026/?.tsrc=rss",
+    "published": "2026-04-05T06:40:00",
+    "signals": {
+      "thiel": false,
+      "shulman": false,
+      "contrarian": false,
+      "bottleneck_compute": true,
+      "bottleneck_energy": false,
+      "salp": false
+    },
+    "tickers": [
+      "NVDA"
+    ],
+    "weighted_relevance": 0.75
+  },
+  {
+    "source": "Yahoo_Finance",
+    "credibility": 0.75,
     "title": "Jim Cramer Says \u201cNVIDIA Deserves a Premium Price-to-Earnings Multiple\u201d",
     "summary": "NVIDIA Corporation (NASDAQ:NVDA) is among the stocks in focus, as Jim Cramer analyzed the broader market impact of the recent AI data center rally. Cramer said that the company \u201creally hasn\u2019t done much of late,\u201d as he remarked: It\u2019s worth filling you in on the disappointment\u2026 Because I want you to understand my skepticism now [\u2026]",
     "url": "https://finance.yahoo.com/markets/stocks/articles/jim-cramer-says-nvidia-deserves-225741088.html?.tsrc=rss",
@@ -35,47 +95,6 @@
       "salp": false
     },
     "tickers": [],
-    "weighted_relevance": 0.75
-  },
-  {
-    "source": "Yahoo_Finance",
-    "credibility": 0.75,
-    "title": "TSMC vs. Nvidia: Which AI Supercycle Growth Stock Is the Better Long-Term Buy?",
-    "summary": "Both Nvidia and TSMC should be solid stocks to own, but one looks like the better long-term buy.",
-    "url": "https://www.fool.com/investing/2026/04/04/tsmc-nvidia-which-ai-supercycle-growth-stock-buy/?.tsrc=rss",
-    "published": "2026-04-04T20:50:00",
-    "signals": {
-      "thiel": false,
-      "shulman": false,
-      "contrarian": false,
-      "bottleneck_compute": true,
-      "bottleneck_energy": false,
-      "salp": false
-    },
-    "tickers": [
-      "TSM",
-      "NVDA"
-    ],
-    "weighted_relevance": 0.75
-  },
-  {
-    "source": "Yahoo_Finance",
-    "credibility": 0.75,
-    "title": "1 Artificial Intelligence (AI) Stock That Could Be Worth a Fortune by 2030",
-    "summary": "Nvidia's growth trajectory could go parabolic.",
-    "url": "https://www.fool.com/investing/2026/04/04/1-artificial-intelligence-ai-stock-that-could-be-w/?.tsrc=rss",
-    "published": "2026-04-04T19:20:00",
-    "signals": {
-      "thiel": false,
-      "shulman": false,
-      "contrarian": false,
-      "bottleneck_compute": true,
-      "bottleneck_energy": false,
-      "salp": false
-    },
-    "tickers": [
-      "NVDA"
-    ],
     "weighted_relevance": 0.75
   }
 ]

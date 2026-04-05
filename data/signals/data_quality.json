@@ -3,9 +3,9 @@
   "eia": "PARTIAL",
   "fred": "ERROR",
   "finnhub_capex": "PARTIAL",
-  "rss": "4 articles",
+  "rss": "5 articles",
   "tradier": "OK",
   "errors": [],
-  "fetched_at": "2026-04-05T06:03:55.432357",
+  "fetched_at": "2026-04-05T08:12:19.247705",
   "shulman_empirical_score": 0
 }
