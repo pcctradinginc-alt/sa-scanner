@@ -5,87 +5,90 @@
     "total_checked": 15,
     "details": {
       "VST": {
-        "current": 151.18,
-        "ma200": 180.52,
+        "current": 151.24,
+        "ma200": 180.39,
         "above": false
       },
       "CEG": {
-        "current": 272.82,
-        "ma200": 328.5,
+        "current": 274.86,
+        "ma200": 328.35,
         "above": false
       },
       "NRG": {
-        "current": 152.69,
+        "current": 150.26,
         "ma200": 158.66,
         "above": false
       },
       "XEL": {
-        "current": 80.74,
-        "ma200": 75.08,
+        "current": 80.49,
+        "ma200": 75.16,
         "above": true
       },
       "SO": {
-        "current": 97.45,
-        "ma200": 91.18,
+        "current": 97.21,
+        "ma200": 91.24,
         "above": true
       },
       "DUK": {
-        "current": 132.22,
-        "ma200": 120.98,
+        "current": 131.73,
+        "ma200": 121.08,
         "above": true
       },
       "NEE": {
-        "current": 93.15,
-        "ma200": 80.23,
+        "current": 92.91,
+        "ma200": 80.35,
         "above": true
       },
       "AEP": {
-        "current": 132.68,
-        "ma200": 115.58,
+        "current": 132.5,
+        "ma200": 115.74,
         "above": true
       },
       "EXC": {
-        "current": 49.33,
-        "ma200": 44.66,
+        "current": 49.1,
+        "ma200": 44.7,
         "above": true
       },
       "ETR": {
-        "current": 114.9,
-        "ma200": 93.11,
+        "current": 114.83,
+        "ma200": 93.29,
         "above": true
       },
       "D": {
-        "current": 62.77,
-        "ma200": 59.12,
+        "current": 62.41,
+        "ma200": 59.18,
         "above": true
       },
       "PCG": {
-        "current": 17.77,
-        "ma200": 15.69,
+        "current": 17.7,
+        "ma200": 15.71,
         "above": true
       },
       "ES": {
-        "current": 69.47,
-        "ma200": 67.19,
+        "current": 69.24,
+        "ma200": 67.23,
         "above": true
       },
       "FE": {
-        "current": 51.31,
-        "ma200": 44.84,
+        "current": 51.08,
+        "ma200": 44.9,
         "above": true
       },
       "PPL": {
-        "current": 38.64,
-        "ma200": 35.69,
+        "current": 38.76,
+        "ma200": 35.72,
         "above": true
       }
     },
-    "fetched_at": "2026-04-06T08:45:01.380854"
+    "fetched_at": "2026-04-06T16:29:35.333947"
   },
   "hyperscaler_capex": {
     "fred_capex": {
-      "data_gap": true,
-      "error": "400 Client Error: Bad Request for url: https://api.stlouisfed.org/fred/series/observations?series_id=PNFIQ&api_key=35eef949b71aa59c6b22e9e515090d0c&file_type=json&observation_start=2024-10-03&sort_order=desc&limit=8"
+      "growth_yoy": 0.0789,
+      "capex_trend": "rising",
+      "period": "2025-10-01",
+      "series": "PNFI",
+      "data_gap": false
     },
     "finnhub_capex": {
       "by_ticker": {
@@ -109,32 +112,44 @@
       "avg_growth": null,
       "data_gap": true
     },
-    "capex_trend": "unknown",
-    "avg_growth_yoy": null,
+    "capex_trend": "rising",
+    "avg_growth_yoy": 0.0789,
     "empirical_point": 0,
-    "data_gap": true,
-    "primary_source": "fred_a169rc1q027sbea",
-    "fetched_at": "2026-04-06T08:45:12.491609"
+    "data_gap": false,
+    "primary_source": "fred",
+    "fetched_at": "2026-04-06T16:29:46.472871"
   },
   "fred": {
     "electric_power_production": {
-      "data_gap": true,
-      "obs_count": 12
+      "latest": 119.09,
+      "year_ago": 116.56,
+      "growth_yoy": 0.0217,
+      "period": "2026-02-01",
+      "data_gap": false
     },
     "industrial_production": {
-      "data_gap": true,
-      "obs_count": 12
+      "latest": 102.55,
+      "year_ago": 101.1,
+      "growth_yoy": 0.0144,
+      "period": "2026-02-01",
+      "data_gap": false
     },
     "cpi_inflation": {
-      "data_gap": true,
-      "obs_count": 11
+      "latest": 327.46,
+      "year_ago": 318.96,
+      "growth_yoy": 0.0266,
+      "period": "2026-02-01",
+      "data_gap": false
     },
-    "fetched_at": "2026-04-06T08:45:07.391191"
+    "fetched_at": "2026-04-06T16:29:41.331337"
   },
   "eia": {
-    "growth_yoy": null,
+    "growth_yoy": 0.0217,
+    "latest_period": "2026-02-01",
+    "source": "fred_ipg2211a2n",
+    "shulman_signal": false,
     "empirical_point": 0,
-    "data_gap": true,
-    "months": 1
+    "data_gap": false,
+    "fetched_at": "2026-04-06T16:29:40.157985"
   }
 }
