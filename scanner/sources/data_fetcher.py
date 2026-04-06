@@ -776,7 +776,7 @@ class DataFetcher:
             },
             "data_quality.json":    all_data.get("data_quality", {}),
             "shulman_empirical.json": {
-                "score":       empirical   := all_data.get("shulman_empirical_score", 0),
+                "score":       all_data.get("shulman_empirical_score", 0),
                 "eia_point":   all_data["eia"].get("empirical_point", 0),
                 "capex_point": all_data["hyperscaler_capex"].get("empirical_point", 0),
                 "nvda_point":  all_data["nvda_revenue"].get("empirical_point", 0),
