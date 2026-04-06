@@ -2,5 +2,12 @@
   "score": 0,
   "eia_point": 0,
   "capex_point": 0,
-  "nvda_point": 0
+  "nvda_point": 0,
+  "data_gaps": {
+    "eia_gap": true,
+    "capex_gap": true,
+    "nvda_gap": true,
+    "any_gap": true,
+    "all_gaps": true
+  }
 }

@@ -1,3 +1,6 @@
 {
-  "growth_yoy": null
+  "growth_yoy": null,
+  "empirical_point": 0,
+  "data_gap": true,
+  "months_available": 1
 }

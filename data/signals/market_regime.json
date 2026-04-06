@@ -7,108 +7,131 @@
       "VST": {
         "current": 151.18,
         "ma200": 180.52,
-        "above": "False"
+        "above": false
       },
       "CEG": {
         "current": 272.82,
         "ma200": 328.5,
-        "above": "False"
+        "above": false
       },
       "NRG": {
         "current": 152.69,
         "ma200": 158.66,
-        "above": "False"
+        "above": false
       },
       "XEL": {
         "current": 80.74,
         "ma200": 75.08,
-        "above": "True"
+        "above": true
       },
       "SO": {
         "current": 97.45,
         "ma200": 91.18,
-        "above": "True"
+        "above": true
       },
       "DUK": {
         "current": 132.22,
         "ma200": 120.98,
-        "above": "True"
+        "above": true
       },
       "NEE": {
         "current": 93.15,
         "ma200": 80.23,
-        "above": "True"
+        "above": true
       },
       "AEP": {
         "current": 132.68,
         "ma200": 115.58,
-        "above": "True"
+        "above": true
       },
       "EXC": {
         "current": 49.33,
         "ma200": 44.66,
-        "above": "True"
+        "above": true
       },
       "ETR": {
         "current": 114.9,
         "ma200": 93.11,
-        "above": "True"
+        "above": true
       },
       "D": {
         "current": 62.77,
         "ma200": 59.12,
-        "above": "True"
+        "above": true
       },
       "PCG": {
         "current": 17.77,
         "ma200": 15.69,
-        "above": "True"
+        "above": true
       },
       "ES": {
         "current": 69.47,
         "ma200": 67.19,
-        "above": "True"
+        "above": true
       },
       "FE": {
         "current": 51.31,
         "ma200": 44.84,
-        "above": "True"
+        "above": true
       },
       "PPL": {
         "current": 38.64,
         "ma200": 35.69,
-        "above": "True"
+        "above": true
       }
     },
-    "fetched_at": "2026-04-05T14:10:40.268480"
+    "fetched_at": "2026-04-06T08:33:46.160460"
   },
   "hyperscaler_capex": {
     "by_ticker": {
       "MSFT": {
-        "error": "Insufficient data"
+        "data_gap": true,
+        "reason": "finnhub_free_tier_no_capex"
       },
       "GOOGL": {
-        "error": "Insufficient data"
+        "data_gap": true,
+        "reason": "finnhub_free_tier_no_capex"
       },
       "AMZN": {
-        "error": "Insufficient data"
+        "data_gap": true,
+        "reason": "finnhub_free_tier_no_capex"
       },
       "META": {
-        "error": "Insufficient data"
+        "data_gap": true,
+        "reason": "finnhub_free_tier_no_capex"
       },
       "NVDA": {
-        "error": "Insufficient data"
+        "data_gap": true,
+        "reason": "finnhub_free_tier_no_capex"
       }
     },
     "avg_growth_yoy": null,
     "capex_trend": "unknown",
     "empirical_point": 0,
-    "fetched_at": "2026-04-05T14:10:49.890890"
+    "data_gap": true,
+    "valid_tickers": 0,
+    "total_tickers": 5,
+    "fetched_at": "2026-04-06T08:33:59.666367"
   },
   "fred": {
-    "fetched_at": "2026-04-05T14:10:45.837107"
+    "electric_power_production": {
+      "data_gap": true,
+      "obs_count": 12
+    },
+    "industrial_production": {
+      "data_gap": true,
+      "obs_count": 12
+    },
+    "cpi_inflation": {
+      "data_gap": true,
+      "obs_count": 11
+    },
+    "fetched_at": "2026-04-06T08:33:55.543449"
   },
   "eia": {
-    "growth_yoy": null
+    "growth_yoy": null,
+    "empirical_point": 0,
+    "data_gap": true,
+    "months_available": 1
   }
 }

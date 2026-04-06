@@ -1,31 +1,33 @@
 [
   {
-    "source": "Yahoo_Finance",
-    "credibility": 0.75,
-    "title": "The 1 Stat That Proves Nvidia Remains a Screaming Buy Below $200",
-    "summary": "The AI infrastructure buildout keeps accelerating. Hyperscalers and enterprises spent record sums on data-center chips last year, and spending shows no sign of peaking. Yet Nvidia (NASDAQ:NVDA) shares trade under $200, as they have since last November. Yet, one number explains why this is not the top, but rather the entry point savvy investors should ... The 1 Stat That Proves Nvidia Remains a Screaming Buy Below $200",
-    "url": "https://247wallst.com/investing/2026/04/05/the-1-stat-that-proves-nvidia-remains-a-screaming-buy-below-200/?.tsrc=rss",
-    "published": "2026-04-05T13:32:40",
+    "source": "Axios_Tech",
+    "credibility": 0.76,
+    "title": "Iran mediators make last-ditch push for 45-day ceasefire",
+    "summary": "<p>The U.S., <a href=\"https://www.axios.com/world/iran\" target=\"_blank\">Iran</a> and a group of regional mediators are discussing the terms for a potential 45-day ceasefire that could lead to a permanent end to the war, according to four U.S., Israeli and regional sources with knowledge of the talks.</p><p><strong>Why it matters:</strong> The sources said the chances for <a href=\"https://www.axios.com/2026/04/05/trump-iran-deal-power-plants\" target=\"_blank\">reaching a partial deal</a> over the n",
+    "url": "https://www.axios.com/2026/04/06/iran-war-us-tehran-ceasefire-talks",
+    "published": "2026-04-06T01:58:16",
     "signals": {
       "thiel": false,
       "shulman": false,
       "contrarian": false,
-      "bottleneck_compute": true,
-      "bottleneck_energy": false,
+      "bottleneck_compute": false,
+      "bottleneck_energy": true,
       "salp": false
     },
+    "signal_count": 1,
     "tickers": [
-      "NVDA"
+      "VST"
     ],
-    "weighted_relevance": 0.75
+    "quality_score": 0.978,
+    "weighted_relevance": 0.9779618114914245
   },
   {
     "source": "Yahoo_Finance",
     "credibility": 0.75,
-    "title": "Is This ETF the Safest Way to Benefit From AI?",
-    "summary": "Every major AI buildout has needed one thing before the servers could run: reliable power. The electricity grid is the binding constraint on how fast AI can scale, making utilities one of the most structurally important beneficiaries of the AI era, even if the sector rarely gets mentioned alongside Nvidia (NASDAQ:NVDA) or Microsoft (NASDAQ:MSFT). What ... Is This ETF the Safest Way to Benefit From AI?",
-    "url": "https://247wallst.com/investing/2026/04/05/is-this-etf-the-safest-way-to-benefit-from-ai/?.tsrc=rss",
-    "published": "2026-04-05T11:10:10",
+    "title": "How The Nvidia (NVDA) Narrative Is Shifting With US$1t AI Orders And Valuation Debates",
+    "summary": "Nvidia\u2019s fair value estimate has been adjusted slightly from US$269.23 to US$268.22, signaling only a very small change in the underlying model. That fine tuning sits alongside research focused on AI demand, the US$1t order visibility through 2027, and differing views on how much of that story is already reflected in the share price. As you read on, you will see how this updated narrative is taking shape and what to watch to keep up with it. Analyst Price Targets don't always capture the full...",
+    "url": "https://finance.yahoo.com/markets/stocks/articles/nvidia-nvda-narrative-shifting-us-060508868.html?.tsrc=rss",
+    "published": "2026-04-06T06:05:08",
     "signals": {
       "thiel": false,
       "shulman": false,
@@ -34,10 +36,11 @@
       "bottleneck_energy": false,
       "salp": false
     },
+    "signal_count": 1,
     "tickers": [
-      "NVDA",
-      "MSFT"
+      "NVDA"
     ],
-    "weighted_relevance": 0.75
+    "quality_score": 0.9524,
+    "weighted_relevance": 0.9523952890649693
   }
 ]
