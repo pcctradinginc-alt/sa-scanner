@@ -1,7 +1,12 @@
 """
 scanner/signals/shulman_layer.py
-Shulman-Metriken mit ehrlicher Trennung zwischen
-quantitativen Proxies und qualitativer Extraktion.
+
+FIXES v2:
+    R3: Explizite Unterscheidung zwischen DATA GAP und echtem Negativsignal.
+        "Daten fehlen" ≠ "Schwellenwert verfehlt"
+        Wenn Daten fehlen: Shulman-Gewicht auf 25% (statt 50%) reduziert
+        und Data-Gap-Flag im Output gesetzt.
+        Wenn Daten vorhanden aber Score < Schwellenwert: normales Signal.
 """
 
 import logging
@@ -37,6 +42,84 @@ class ShulmanLayer:
 
         empirical_score = eia_point + capex_point + nvda_point
 
+        # ── R3 FIX: DATA GAP TRACKING ────────────────────────────
+        # Unterscheidung: fehlen Daten oder ist der Score wirklich 0?
+        data_gaps = all_data.get("shulman_data_gaps", {})
+        eia_gap   = data_gaps.get("eia_gap", False)
+        capex_gap = data_gaps.get("capex_gap", False)
+        nvda_gap  = data_gaps.get("nvda_gap", False)
+        any_gap   = data_gaps.get("any_gap", False)
+        all_gaps  = data_gaps.get("all_gaps", False)
+
+        # Anzahl der Datenpunkte mit echten Daten (nicht Gap)
+        available_datapoints = sum([
+            not eia_gap,
+            not capex_gap,
+            not nvda_gap,
+        ])
+
+        # R3: Logging der Ursache für Score 0
+        if empirical_score == 0:
+            if all_gaps:
+                logger.warning(
+                    f"Shulman [{ticker}]: empirical=0/3 — "
+                    f"ALL DATA GAPS (no API data available). "
+                    f"This is a data availability issue, NOT a negative signal."
+                )
+            elif any_gap:
+                gap_list = []
+                if eia_gap:   gap_list.append("EIA")
+                if capex_gap: gap_list.append("CapEx")
+                if nvda_gap:  gap_list.append("NVDA")
+                logger.warning(
+                    f"Shulman [{ticker}]: empirical=0/3 — "
+                    f"DATA GAPS: {gap_list} | "
+                    f"Available: {available_datapoints}/3 datapoints. "
+                    f"Score 0 may reflect missing data, not negative signal."
+                )
+            else:
+                logger.info(
+                    f"Shulman [{ticker}]: empirical=0/3 — "
+                    f"All data available, thresholds not met. "
+                    f"This IS a genuine negative signal."
+                )
+
+        # ── GEWICHTS-ANPASSUNG (R3 FIX) ──────────────────────────
+        # Drei Stufen statt zwei:
+        # Score >= 2 + Daten verfügbar: volles Gewicht
+        # Score < 2 + Daten verfügbar: halbes Gewicht (echtes Signal)
+        # Daten fehlen (Gap): Viertel-Gewicht (Unsicherheit, kein Signal)
+
+        if empirical_score >= Config.SHULMAN_EMPIRICAL_FULL_WEIGHT:
+            weight_modifier    = 1.0
+            weight_reason      = "FULL_WEIGHT_empirical_confirmed"
+            conviction_bonus   = (
+                Config.SHULMAN_EMPIRICAL_BONUS
+                if empirical_score >= 3 else 0.0
+            )
+        elif all_gaps:
+            # R3: Alle Daten fehlen — minimales Gewicht,
+            # kein Einfluss auf Score
+            weight_modifier    = 0.25
+            weight_reason      = "QUARTER_WEIGHT_all_data_gaps"
+            conviction_bonus   = 0.0
+            logger.warning(
+                f"Shulman [{ticker}]: weight reduced to 25% "
+                f"due to complete data unavailability"
+            )
+        elif any_gap and empirical_score == 0:
+            # R3: Teilweise Daten fehlen und Score 0
+            # Könnte echter Score oder Data Gap sein — mittlere Unsicherheit
+            weight_modifier    = 0.35
+            weight_reason      = "REDUCED_WEIGHT_partial_data_gaps_score_zero"
+            conviction_bonus   = 0.0
+        else:
+            # Daten verfügbar, Schwellenwert nicht erreicht
+            # Echtes Negativsignal — halbes Gewicht
+            weight_modifier    = 0.5
+            weight_reason      = "HALF_WEIGHT_threshold_not_met"
+            conviction_bonus   = 0.0
+
         # ── QUALITATIVE EXTRAKTION AUS RSS ───────────────────────
         rss_articles     = all_data.get("rss", [])
         all_text         = " ".join([
@@ -45,18 +128,31 @@ class ShulmanLayer:
             if a.get("signals", {}).get("shulman")
         ]).lower()
 
-        forum_keywords_found = [kw for kw in SHULMAN_FORUM_KEYWORDS
-                                if kw.lower() in all_text]
-        shulman_articles     = [a for a in rss_articles
-                                if a.get("signals", {}).get("shulman")]
-        ige_language         = any(k in all_text for k in
-                                   ["intelligence explosion", "recursive self-improvement",
-                                    "automated research"])
-        doubling_language    = any(k in all_text for k in
-                                   ["doubling times", "robot doublings", "doubling rate"])
+        forum_keywords_found = [
+            kw for kw in SHULMAN_FORUM_KEYWORDS
+            if kw.lower() in all_text
+        ]
+        shulman_articles     = [
+            a for a in rss_articles
+            if a.get("signals", {}).get("shulman")
+        ]
+        ige_language         = any(
+            k in all_text for k in [
+                "intelligence explosion",
+                "recursive self-improvement",
+                "automated research",
+            ]
+        )
+        doubling_language    = any(
+            k in all_text for k in [
+                "doubling times", "robot doublings", "doubling rate"
+            ]
+        )
 
         # ── SALP-BEGLEITTEXT-BONUS ───────────────────────────────
-        shulman_bonus = all_data.get("shulman_empirical", {}).get("salp_begleit_bonus", 0.0)
+        shulman_bonus = all_data.get(
+            "shulman_empirical", {}
+        ).get("salp_begleit_bonus", 0.0)
 
         # ── SEKTOR-MULTIPLIKATOR ─────────────────────────────────
         sektor_mult = SEKTOR_WEIGHTS.get(sector, 0.10)
@@ -64,52 +160,70 @@ class ShulmanLayer:
         # ── SHULMAN SUB-SCORE (1-10) ─────────────────────────────
         base_score = 1.0
 
-        # Empirische Punkte
-        base_score += empirical_score * 2.0  # Max +6 bei Score 3
-
+        # Empirische Punkte — nur aus verfügbaren Daten
+        if available_datapoints > 0:
+            # Normalisiere auf verfügbare Datenpunkte
+            normalized_empirical = (
+                empirical_score / available_datapoints
+                if available_datapoints > 0 else 0
+            )
+            base_score += normalized_empirical * 4.0  # Max +4 bei perfektem Score
+        
         # Qualitative Signale (max +2)
         if forum_keywords_found:
             base_score += min(len(forum_keywords_found) * 0.5, 1.5)
         if ige_language:
             base_score += 0.5
 
+        # Data Gaps reduzieren den Score leicht
+        if all_gaps:
+            base_score = min(base_score, 3.0)  # Cap bei Datenlücken
+
         shulman_score = round(min(base_score, 10.0), 1)
 
-        # ── GEWICHTS-ANPASSUNG ───────────────────────────────────
-        weight_modifier = (
-            0.5 if empirical_score < Config.SHULMAN_EMPIRICAL_FULL_WEIGHT else
-            1.0
+        logger.info(
+            f"Shulman [{ticker}]: score={shulman_score} | "
+            f"empirical={empirical_score}/3 | "
+            f"available_datapoints={available_datapoints}/3 | "
+            f"weight_mod={weight_modifier} ({weight_reason}) | "
+            f"forum_kw={len(forum_keywords_found)} | "
+            f"gaps: EIA={eia_gap} CapEx={capex_gap} NVDA={nvda_gap}"
         )
-        conviction_bonus = (
-            Config.SHULMAN_EMPIRICAL_BONUS if empirical_score >= 3 else 0.0
-        )
-
-        logger.info(f"Shulman [{ticker}]: score={shulman_score} | "
-                    f"empirical={empirical_score}/3 | "
-                    f"weight_mod={weight_modifier} | "
-                    f"forum_kw={len(forum_keywords_found)}")
 
         return {
-            "shulman_score":        shulman_score,
-            "empirical_score":      empirical_score,
-            "weight_modifier":      weight_modifier,
-            "conviction_bonus":     conviction_bonus,
-            "shulman_bonus":        shulman_bonus,
-            # Quantitative Proxies
-            "eia_empirical_point":  eia_point,
-            "capex_empirical_point":capex_point,
-            "nvda_empirical_point": nvda_point,
-            # Qualitativ — explizit nicht quantifiziert
+            "shulman_score":          shulman_score,
+            "empirical_score":        empirical_score,
+            "weight_modifier":        weight_modifier,
+            "weight_reason":          weight_reason,
+            "conviction_bonus":       conviction_bonus,
+            "shulman_bonus":          shulman_bonus,
+            # Quantitative Proxies mit Gap-Info
+            "eia_empirical_point":    eia_point,
+            "capex_empirical_point":  capex_point,
+            "nvda_empirical_point":   nvda_point,
+            "available_datapoints":   available_datapoints,
+            # R3: Data Gap Flags
+            "data_gaps": {
+                "eia_gap":    eia_gap,
+                "capex_gap":  capex_gap,
+                "nvda_gap":   nvda_gap,
+                "any_gap":    any_gap,
+                "all_gaps":   all_gaps,
+            },
+            # Qualitativ
             "qualitative": {
                 "forum_keywords_found": forum_keywords_found,
                 "shulman_articles":     len(shulman_articles),
                 "ige_language":         ige_language,
                 "doubling_language":    doubling_language,
-                "confidence":           "LOW",  # Immer LOW für qualitative Signale
+                "confidence":           (
+                    "LOW" if all_gaps else
+                    "MEDIUM" if any_gap else
+                    "DATA_DRIVEN"
+                ),
             },
-            # Sektor
-            "sektor_multiplikator": sektor_mult,
-            "sektor":               sector,
+            "sektor_multiplikator":  sektor_mult,
+            "sektor":                sector,
             # Nicht messbare Metriken — explizit None
             "robot_doublings_verified": None,
             "flops_per_dollar_growth":  None,
