@@ -432,7 +432,64 @@ class ClaudeAnalyzer:
                         raw = part
                         break
 
-            result = json.loads(raw)
+            # ── R-01: SCHEMA-VALIDATION + KORREKTER FALLBACK ──────
+            # Post-Condition: jeder Pre-Filter-PASS erzeugt immer
+            # einen store_signal-Eintrag — auch bei Claude-Fehler.
+            try:
+                parsed = json.loads(raw)
+
+                # Pflichtfelder prüfen
+                required = [
+                    "ticker", "conviction_total", "conviction_gate",
+                    "scores", "rationale", "option"
+                ]
+                missing = [f for f in required if f not in parsed]
+                if missing:
+                    raise ValueError(f"Missing fields: {missing}")
+
+                # Typ + Range-Validierung
+                ct = parsed.get("conviction_total", -1)
+                if not isinstance(ct, (int, float)):
+                    raise ValueError("conviction_total must be numeric")
+                if ct < 0 or ct > 10:
+                    raise ValueError(f"conviction_total out of range: {ct}")
+
+                result = parsed
+                result["schema_valid"] = True
+
+            except (json.JSONDecodeError, ValueError, KeyError) as e:
+                logger.error(
+                    f"Claude schema violation {ticker}: {e} | "
+                    f"raw[:200]={raw[:200]}"
+                )
+                # R-01 KORREKTUR: Fallback mit conviction_total=0.0
+                # NICHT pre_score — unterschiedliche Skalen!
+                result = {
+                    "ticker":           ticker,
+                    "sector":           sector,
+                    "conviction_total": 0.0,
+                    "conviction_gate":  "CLAUDE_PARSE_FAILED",
+                    "schema_valid":     False,
+                    "fallback":         True,
+                    "fallback_reason":  str(e),
+                    "pre_filter_score": pre_score,
+                    "rationale": (
+                        f"Claude JSON invalid: {e}. "
+                        f"Pre-filter score was {pre_score:.1f}. "
+                        f"No trade recommendation possible."
+                    ),
+                    "scores": {}, "option": {},
+                    "gegen_szenario": "N/A — parse error",
+                    "signal_tags": ["PARSE_ERROR"],
+                    "analyzed_at": datetime.utcnow().isoformat(),
+                }
+                # Post-Condition: store_signal immer aufrufen
+                state_manager.store_signal(
+                    ticker, 0.0, "CLAUDE_PARSE_FAILED",
+                    regime.get("mode", "NORMAL"),
+                    "UNKNOWN", result,
+                )
+                return result
 
             ok, reason = state_manager.check_portfolio_limits(ticker, sector)
             result["portfolio_check"]  = {"passed": ok, "reason": reason}
@@ -444,9 +501,6 @@ class ClaudeAnalyzer:
 
             return result
 
-        except json.JSONDecodeError as e:
-            logger.error(f"JSON parse error {ticker}: {e}")
-            return None
         except Exception as e:
             logger.error(f"Claude error {ticker}: {e}")
             return None
