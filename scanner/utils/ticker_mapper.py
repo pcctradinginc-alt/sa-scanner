@@ -1,7 +1,14 @@
 """
 scanner/utils/ticker_mapper.py
-CIK → Ticker → Firmenname → Sektor Mapping.
+
+FIXES v2:
+    R8: Erweiterte Synonym-Liste für RSS-Ticker-Extraktion.
+        Artikel die "GPU-Hersteller", "KI-Chip" oder "Energieversorger"
+        schreiben ohne Firmennamen werden jetzt korrekt gemappt.
+        Direkte $TICKER Erkennung + Firmennamen + Synonyme.
 """
+
+import re
 
 CIK_TO_TICKER = {
     "0001045810": "NVDA",
@@ -13,11 +20,16 @@ CIK_TO_TICKER = {
 }
 
 NAME_TO_TICKER = {
+    # Energie-Infrastruktur
     "Palantir":             "PLTR",
     "Vistra":               "VST",
     "Vistra Energy":        "VST",
     "Constellation Energy": "CEG",
+    "Constellation":        "CEG",
     "NRG Energy":           "NRG",
+    "NRG":                  "NRG",
+    "Talen Energy":         "TLN",
+    # Compute Hardware
     "Nvidia":               "NVDA",
     "NVIDIA":               "NVDA",
     "Microsoft":            "MSFT",
@@ -28,8 +40,12 @@ NAME_TO_TICKER = {
     "Broadcom":             "AVGO",
     "Taiwan Semiconductor": "TSM",
     "TSMC":                 "TSM",
+    # Defense
     "Lockheed":             "LMT",
+    "Lockheed Martin":      "LMT",
     "Raytheon":             "RTX",
+    "RTX":                  "RTX",
+    # Private (kein Ticker)
     "Anduril":              None,
     "OpenAI":               None,
     "Anthropic":            None,
@@ -38,10 +54,55 @@ NAME_TO_TICKER = {
     "Thiel Capital":        None,
 }
 
+# R8 FIX: Synonyme und generische Beschreibungen
+# Deutsch + Englisch — häufig in Finanzmedien
+SYNONYM_TO_TICKER = {
+    # NVDA Synonyme
+    "gpu-hersteller":           "NVDA",
+    "ki-chip":                  "NVDA",
+    "ai chip":                  "NVDA",
+    "gpu maker":                "NVDA",
+    "chip giant":               "NVDA",
+    "graphics chip":            "NVDA",
+    "ki-prozessor":             "NVDA",
+    "datacenter chip":          "NVDA",
+    "data center chip":         "NVDA",
+    "h100":                     "NVDA",
+    "h200":                     "NVDA",
+    "blackwell":                "NVDA",
+    "hopper":                   "NVDA",
+    # VST / CEG Synonyme
+    "nuclear power plant":      "VST",
+    "kernkraftwerk":            "VST",
+    "atomkraftwerk":            "VST",
+    "nuclear energy":           "CEG",
+    "kernenergie":              "CEG",
+    "zero-carbon power":        "CEG",
+    "carbon-free energy":       "CEG",
+    # PLTR Synonyme
+    "palantir software":        "PLTR",
+    "ai warfare":               "PLTR",
+    "sovereign ai platform":    "PLTR",
+    "government ai":            "PLTR",
+    "defense ai":               "PLTR",
+    # Energie allgemein → beide
+    "hyperscaler power":        "VST",
+    "data center energy":       "VST",
+    "rechenzentrum energie":    "VST",
+    "stromversorgung ki":       "VST",
+    "energy infrastructure":    "VST",
+    # Defense
+    "autonomous weapons":       "LMT",
+    "defense contractor":       "LMT",
+    "pentagon contract":        "PLTR",
+    "dod contract":             "PLTR",
+}
+
 TICKER_TO_SECTOR = {
     "VST":  "energy_infrastructure",
     "CEG":  "energy_infrastructure",
     "NRG":  "energy_infrastructure",
+    "TLN":  "energy_infrastructure",
     "XEL":  "energy_infrastructure",
     "NEE":  "energy_infrastructure",
     "PLTR": "sovereign_ai_defense",
@@ -58,6 +119,7 @@ TICKER_TO_SECTOR = {
 
 
 class TickerMapper:
+
     def cik_to_ticker(self, cik: str) -> str | None:
         return CIK_TO_TICKER.get(cik.zfill(10))
 
@@ -71,12 +133,33 @@ class TickerMapper:
         return TICKER_TO_SECTOR.get(ticker, "unknown")
 
     def extract_tickers_from_text(self, text: str) -> list:
-        found = []
-        for name, ticker in NAME_TO_TICKER.items():
-            if ticker and name.lower() in text.lower():
-                found.append(ticker)
-        # Direkte $TICKER Erkennung
-        import re
+        """
+        R8 FIX: Erweiterte Ticker-Extraktion mit Synonymen.
+        Reihenfolge: $TICKER → Firmenname → Synonyme
+        """
+        found = set()
+        text_lower = text.lower()
+
+        # 1. Direkte $TICKER Erkennung
         direct = re.findall(r'\$([A-Z]{2,5})\b', text)
-        found.extend(direct)
-        return list(set(found))
+        found.update(direct)
+
+        # 2. Firmennamen
+        for name, ticker in NAME_TO_TICKER.items():
+            if ticker and name.lower() in text_lower:
+                found.add(ticker)
+
+        # 3. R8 FIX: Synonyme und generische Beschreibungen
+        for synonym, ticker in SYNONYM_TO_TICKER.items():
+            if ticker and synonym.lower() in text_lower:
+                found.add(ticker)
+
+        # Ungültige Ticker-Symbole filtern
+        blacklist = {
+            "AI", "US", "EU", "UK", "SEC", "LLC", "INC",
+            "CORP", "LTD", "LP", "ETF", "USA", "CEO", "CFO",
+            "IPO", "ESG", "GDP", "CPI",
+        }
+        found -= blacklist
+
+        return list(found)
