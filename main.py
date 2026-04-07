@@ -121,9 +121,11 @@ def run_full_pipeline(args=None):
             detector = RegimeDetector()
             regime   = detector.detect(all_data, sm)
 
+            iv_avg = regime.get('iv_rank_avg')
+            iv_str = f"{iv_avg:.1f}%" if iv_avg is not None else "N/A (warmup)"
             logger.info(
                 f"Regime: {regime['mode']} | "
-                f"IV-Rank: {regime.get('iv_rank_avg', 50):.1f}% | "
+                f"IV-Rank: {iv_str} | "
                 f"Energy: {regime.get('energy_breadth', 0.5):.0%} | "
                 f"Threshold: {regime.get('conviction_threshold', 7.5)}"
             )
