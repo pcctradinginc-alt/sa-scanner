@@ -2,7 +2,7 @@ name: SEC EDGAR 13F Monitor
 
 on:
   schedule:
-    - cron: '0 */6 * * *'   # Alle 6 Stunden
+    - cron: '0 */6 * * *'
   workflow_dispatch:
 
 permissions:
@@ -29,7 +29,7 @@ jobs:
       - uses: actions/checkout@v4
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
-          fetch-depth: 1
+          fetch-depth: 0
 
       - uses: actions/setup-python@v4
         with:
@@ -44,6 +44,12 @@ jobs:
           mkdir -p data/signals data/cards data/historical data/cache
           mkdir -p dashboard/cards
 
+      - name: Pull latest changes
+        run: |
+          git config --global user.email "scanner@github-actions.local"
+          git config --global user.name "SA Scanner Bot"
+          git pull --rebase origin main || true
+
       - name: Check for new filings
         id: edgar
         env:
@@ -55,7 +61,6 @@ jobs:
         run: |
           python main.py --edgar-only
 
-          # Prüfe ob neues Filing gefunden
           NEW_FILING=$(python -c "
           import json
           from pathlib import Path
@@ -70,7 +75,6 @@ jobs:
           echo "new_filing=$NEW_FILING" >> $GITHUB_OUTPUT
           echo "New filing detected: $NEW_FILING"
 
-          # Filing-Details für Log
           python -c "
           import json
           from pathlib import Path
@@ -120,6 +124,7 @@ jobs:
           commit_user_name: SA Scanner Bot
           commit_user_email: scanner@github-actions.local
           skip_dirty_check: false
+          push_options: '--force-with-lease'
 
       - name: Upload debug on failure
         if: failure()
