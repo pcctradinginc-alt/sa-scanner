@@ -1,5 +1,53 @@
 [
   {
+    "source": "CNBC_Tech",
+    "credibility": 0.83,
+    "title": "Alphabet, Meta, Amazon, Nvidia lead tech rally after Trump announces ceasefire with Iran",
+    "summary": "President Donald Trump's Iran ceasefire announcement provided some relief to Wall Street and tech stocks shared in the rally.",
+    "url": "https://www.cnbc.com/2026/04/08/alphabet-nvidia-microsoft-tech-stocks-iran-ceasefire.html",
+    "published": "2026-04-08T16:19:14",
+    "signals": {
+      "thiel": false,
+      "shulman": false,
+      "contrarian": false,
+      "bottleneck_compute": true,
+      "bottleneck_energy": false,
+      "salp": false
+    },
+    "signal_count": 1,
+    "tickers": [
+      "AMZN",
+      "META",
+      "GOOGL",
+      "NVDA"
+    ],
+    "quality_score": 1.1664,
+    "weighted_relevance": 1.1664090926877464
+  },
+  {
+    "source": "CNBC_Tech",
+    "credibility": 0.83,
+    "title": "AI's next bottleneck: Why even the best chips made in the U.S. take a round trip to Taiwan",
+    "summary": "Nvidia has reserved the majority of TSMC\u2019s most advanced packaging capacity. The lesser-known chipmaking step may become the next bottleneck for AI.",
+    "url": "https://www.cnbc.com/2026/04/08/tsmc-nvidia-advanced-packaging-intel.html",
+    "published": "2026-04-08T12:41:22",
+    "signals": {
+      "thiel": false,
+      "shulman": false,
+      "contrarian": false,
+      "bottleneck_compute": true,
+      "bottleneck_energy": false,
+      "salp": false
+    },
+    "signal_count": 1,
+    "tickers": [
+      "TSM",
+      "NVDA"
+    ],
+    "quality_score": 1.1664,
+    "weighted_relevance": 1.1664090926877464
+  },
+  {
     "source": "Axios_Tech",
     "credibility": 0.76,
     "title": "Anthropic's newest AI model could wreak havoc. Most in power aren't ready",
@@ -16,11 +64,11 @@
     },
     "signal_count": 1,
     "tickers": [
+      "MSFT",
       "AMZN",
       "AVGO",
-      "GOOGL",
       "NVDA",
-      "MSFT"
+      "GOOGL"
     ],
     "quality_score": 0.978,
     "weighted_relevance": 0.9779618114914245
@@ -49,7 +97,7 @@
     "source": "Axios_Tech",
     "credibility": 0.76,
     "title": "Anthropic withholds Mythos Preview model because its hacking is too powerful",
-    "summary": "<p>Anthropic is rolling out a preview of its new Mythos model only to a handpicked group of tech and cybersecurity companies over concerns about its <a href=\"https://www.axios.com/2026/03/29/claude-mythos-anthropic-cyberattack-ai-agents\" target=\"_blank\">ability to find and exploit security flaws</a>, the company said Tuesday.</p><p><strong>Why it matters:</strong> Anthropic is so worried about the damage its own model could cause that it's refusing to release it publicly until there are safeguar",
+    "summary": "<p>Anthropic is rolling out a preview of its new Mythos model only to a handpicked group of tech and cybersecurity companies over concerns about its <a href=\"https://www.axios.com/2026/03/29/claude-mythos-anthropic-cyberattack-ai-agents\" target=\"_blank\">ability to find and exploit security flaws</a>, the company said Tuesday.</p><p><strong>Why it matters:</strong> Anthropic is so worried about the damage Mythos could cause that it's refusing to release it publicly until there are safeguards to c",
     "url": "https://www.axios.com/2026/04/07/anthropic-mythos-preview-cybersecurity-risks",
     "published": "2026-04-07T18:00:05",
     "signals": {
@@ -62,81 +110,14 @@
     },
     "signal_count": 1,
     "tickers": [
+      "MSFT",
       "AMZN",
       "AVGO",
-      "GOOGL",
       "NVDA",
-      "MSFT"
+      "GOOGL"
     ],
     "quality_score": 0.978,
     "weighted_relevance": 0.9779618114914245
-  },
-  {
-    "source": "Yahoo_Finance",
-    "credibility": 0.75,
-    "title": "Nvidia, Apple, and Alphabet Could Help This Marvelous Vanguard ETF Turn $250,000 Into $1 Million After the Stock Market Sell-Off",
-    "summary": "Investors have an opportunity to buy a basket of America's most valuable stocks at a discount.",
-    "url": "https://www.fool.com/investing/2026/04/08/nvidia-alphabet-vanguard-etf-250000-to-1-million/?.tsrc=rss",
-    "published": "2026-04-08T08:15:00",
-    "signals": {
-      "thiel": false,
-      "shulman": false,
-      "contrarian": false,
-      "bottleneck_compute": true,
-      "bottleneck_energy": false,
-      "salp": false
-    },
-    "signal_count": 1,
-    "tickers": [
-      "GOOGL",
-      "NVDA"
-    ],
-    "quality_score": 0.9524,
-    "weighted_relevance": 0.9523952890649693
-  },
-  {
-    "source": "Yahoo_Finance",
-    "credibility": 0.75,
-    "title": "Nvidia Stock Jumps as Two-Week Peace Deal Drives Market Higher",
-    "summary": "Shares in the chip maker rise as the cease-fire deal between the U.S. and Iran sparks a broad market rally.",
-    "url": "https://finance.yahoo.com/m/a7a56374-eea8-3e07-a746-6620dd1e5b1a/nvidia-stock-jumps-as.html?.tsrc=rss",
-    "published": "2026-04-08T08:12:00",
-    "signals": {
-      "thiel": false,
-      "shulman": false,
-      "contrarian": false,
-      "bottleneck_compute": true,
-      "bottleneck_energy": false,
-      "salp": false
-    },
-    "signal_count": 1,
-    "tickers": [
-      "NVDA"
-    ],
-    "quality_score": 0.9524,
-    "weighted_relevance": 0.9523952890649693
-  },
-  {
-    "source": "Yahoo_Finance",
-    "credibility": 0.75,
-    "title": "Nvidia Stock Just Got Hit by a Shift Not Seen in 13 years. Here's What Investors Should Do Next",
-    "summary": "The tide has turned decidedly against the AI chipmaker. Don't expect it to stay that way for long.",
-    "url": "https://www.fool.com/investing/2026/04/08/nvidia-stock-just-got-hit-by-a-shift-not-seen-in-1/?.tsrc=rss",
-    "published": "2026-04-08T07:22:00",
-    "signals": {
-      "thiel": false,
-      "shulman": false,
-      "contrarian": false,
-      "bottleneck_compute": true,
-      "bottleneck_energy": false,
-      "salp": false
-    },
-    "signal_count": 1,
-    "tickers": [
-      "NVDA"
-    ],
-    "quality_score": 0.9524,
-    "weighted_relevance": 0.9523952890649693
   },
   {
     "source": "Seeking_Alpha_NVDA",

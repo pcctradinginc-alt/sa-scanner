@@ -2,9 +2,9 @@
   "mode": "NORMAL",
   "iv_rank_avg": null,
   "iv_confidence": "INSUFFICIENT_DATA",
-  "energy_breadth": 0.8,
+  "energy_breadth": 0.867,
   "capex_trend": "rising",
-  "regime_stability": 0.411,
+  "regime_stability": 0.444,
   "conviction_threshold": 7.5,
   "weights": {
     "salp": 0.4,
@@ -16,5 +16,5 @@
   },
   "stress_reasons": [],
   "regime_score": 8.5,
-  "determined_at": "2026-04-08T09:57:46.735093"
+  "determined_at": "2026-04-08T16:49:33.355792"
 }
