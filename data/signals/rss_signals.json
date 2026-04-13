@@ -1,99 +1,11 @@
 [
   {
-    "source": "CNBC_Investing",
-    "credibility": 0.84,
-    "title": "TSMC posts 35% jump in revenue to new record high as AI chip demand stays strong",
-    "summary": "TSMC is benefiting from sustained demand for advanced semiconductors from its key customers like Apple and Nvidia.",
-    "url": "https://www.cnbc.com/2026/04/10/tsmc-q1-record-revenue-ai-chip-demand-strong.html",
-    "published": "2026-04-10T13:53:44",
-    "signals": {
-      "thiel": false,
-      "shulman": false,
-      "contrarian": false,
-      "bottleneck_compute": true,
-      "bottleneck_energy": false,
-      "salp": false
-    },
-    "signal_count": 1,
-    "tickers": [
-      "TSM",
-      "NVDA"
-    ],
-    "quality_score": 1.1947,
-    "weighted_relevance": 1.1946846506030973
-  },
-  {
-    "source": "CNBC_Tech",
-    "credibility": 0.83,
-    "title": "TSMC posts 35% jump in revenue to new record high as AI chip demand stays strong",
-    "summary": "TSMC is benefiting from sustained demand for advanced semiconductors from its key customers like Apple and Nvidia.",
-    "url": "https://www.cnbc.com/2026/04/10/tsmc-q1-record-revenue-ai-chip-demand-strong.html",
-    "published": "2026-04-10T13:53:44",
-    "signals": {
-      "thiel": false,
-      "shulman": false,
-      "contrarian": false,
-      "bottleneck_compute": true,
-      "bottleneck_energy": false,
-      "salp": false
-    },
-    "signal_count": 1,
-    "tickers": [
-      "TSM",
-      "NVDA"
-    ],
-    "quality_score": 1.1664,
-    "weighted_relevance": 1.1664090926877464
-  },
-  {
-    "source": "CNBC_Tech",
-    "credibility": 0.83,
-    "title": "OpenAI halts UK stargate project amid regulatory and energy price concerns",
-    "summary": "The major AI infrastructure was announced in September in partnership was with Nvidia and Nscale.",
-    "url": "https://www.cnbc.com/2026/04/09/openai-halts-uk-stargate-project.html",
-    "published": "2026-04-09T11:42:23",
-    "signals": {
-      "thiel": false,
-      "shulman": false,
-      "contrarian": false,
-      "bottleneck_compute": true,
-      "bottleneck_energy": false,
-      "salp": false
-    },
-    "signal_count": 1,
-    "tickers": [
-      "NVDA"
-    ],
-    "quality_score": 1.1664,
-    "weighted_relevance": 1.1664090926877464
-  },
-  {
-    "source": "Axios_Tech",
-    "credibility": 0.76,
-    "title": "Trump can't quit NATO alone. But he can hurt it.",
-    "summary": "<p><a href=\"https://www.axios.com/politics-policy/donald-trump\" target=\"_blank\">President Trump</a> can't abandon <a href=\"https://www.axios.com/2026/04/08/rutte-trump-nato-iran-hormuz\" target=\"_blank\">NATO</a><strong> </strong>on his own, but he can still turn the relationship toxic as he rails at American allies who sat out his Iran war.</p><p><strong>The big picture: </strong>America has been the backbone of the transatlantic alliance since 1949, but experts warn Trump's rhetoric and behavior",
-    "url": "https://www.axios.com/2026/04/10/trump-nato-withdraw-allies-hurt",
-    "published": "2026-04-10T13:43:41",
-    "signals": {
-      "thiel": true,
-      "shulman": false,
-      "contrarian": false,
-      "bottleneck_compute": false,
-      "bottleneck_energy": false,
-      "salp": false
-    },
-    "signal_count": 1,
-    "tickers": [],
-    "quality_score": 0.978,
-    "weighted_relevance": 0.9779618114914245
-  },
-  {
     "source": "Yahoo_Finance",
     "credibility": 0.75,
-    "title": "Stock Market Today: Dow Wavers On Surprise CPI Inflation Data; Nvidia Chipmaker TSMC Jumps (Live Coverage)",
-    "summary": "Stock Market Today: The Dow Jones index wavered Friday on a surprise CPI inflation report. Nvidia chipmaker TSMC jumped on strong sales.",
-    "url": "https://finance.yahoo.com/m/4ee0e1e2-41cf-353b-8d26-7dc9317db118/stock-market-today%3A-dow.html?.tsrc=rss",
-    "published": "2026-04-10T15:12:23",
+    "title": "These Stocks Are Today\u2019s Movers: Goldman Sachs, Sandisk, Exxon Mobil, Nvidia, Ideaya, and More",
+    "summary": "Sandisk rises as the flash memory product supplier is set to join the Nasdaq 100 before the market opens on April 20.",
+    "url": "https://finance.yahoo.com/m/98cc54e5-02ac-37f4-82c6-0b0d4539cb2b/these-stocks-are-today%E2%80%99s.html?.tsrc=rss",
+    "published": "2026-04-13T10:00:00",
     "signals": {
       "thiel": false,
       "shulman": false,
@@ -104,7 +16,6 @@
     },
     "signal_count": 1,
     "tickers": [
-      "TSM",
       "NVDA"
     ],
     "quality_score": 0.9524,
@@ -113,10 +24,10 @@
   {
     "source": "Yahoo_Finance",
     "credibility": 0.75,
-    "title": "CoreWeave Rallies As Meta And Anthropic Deals Shape AI Valuation Narrative",
-    "summary": "CoreWeave (NasdaqGS:CRWV) has signed an expanded, multi year $21b AI cloud infrastructure agreement with Meta Platforms running through December 2032. The deal includes deployments of NVIDIA's Vera Rubin platform and lifts Meta's total commitment with CoreWeave to $35b. CoreWeave has also entered a new multi year cloud infrastructure agreement with Anthropic for AI model workloads. These contracts position CoreWeave as a key provider to two of the most prominent AI model and platform...",
-    "url": "https://finance.yahoo.com/markets/stocks/articles/coreweave-rallies-meta-anthropic-deals-151022398.html?.tsrc=rss",
-    "published": "2026-04-10T15:10:22",
+    "title": "Amazon Has Become an E-commerce and Cloud Computing Behemoth. Now It's Set Its Sights on Another Billion-Dollar Market. And It Could Spell Trouble for Nvidia.",
+    "summary": "Amazon and Nvidia are both key players in the AI space today.",
+    "url": "https://www.fool.com/investing/2026/04/13/amazon-has-become-an-e-commerce-and-cloud-computin/?.tsrc=rss",
+    "published": "2026-04-13T09:22:00",
     "signals": {
       "thiel": false,
       "shulman": false,
@@ -128,7 +39,7 @@
     "signal_count": 1,
     "tickers": [
       "NVDA",
-      "META"
+      "AMZN"
     ],
     "quality_score": 0.9524,
     "weighted_relevance": 0.9523952890649693
@@ -136,32 +47,10 @@
   {
     "source": "Yahoo_Finance",
     "credibility": 0.75,
-    "title": "TSMC's Q1 Revenue Beats as AI Demand Weathers the War",
-    "summary": "March sales surged 45% as the world's largest chipmaker shows AI orders held firm.",
-    "url": "https://finance.yahoo.com/markets/stocks/articles/tsmcs-q1-revenue-beats-ai-144549465.html?.tsrc=rss",
-    "published": "2026-04-10T14:45:49",
-    "signals": {
-      "thiel": false,
-      "shulman": false,
-      "contrarian": false,
-      "bottleneck_compute": true,
-      "bottleneck_energy": false,
-      "salp": false
-    },
-    "signal_count": 1,
-    "tickers": [
-      "TSM"
-    ],
-    "quality_score": 0.9524,
-    "weighted_relevance": 0.9523952890649693
-  },
-  {
-    "source": "Yahoo_Finance",
-    "credibility": 0.75,
-    "title": "Nvidia Chip Controls Face New Questions",
-    "summary": "China report raises concerns over enforcement",
-    "url": "https://finance.yahoo.com/markets/stocks/articles/nvidia-chip-controls-face-questions-143355501.html?.tsrc=rss",
-    "published": "2026-04-10T14:33:55",
+    "title": "Nvidia Stock Slips. It\u2019s Stuck in a Range and the Iran War Is Just One Reason.",
+    "summary": "Nvidia  shares\u00a0are still struggling to break out of their monthslong trading range.  The chip maker is being held back by geopolitical concerns as well as competition and production worries.  Nvidia was down 1.1% at $186.55 in premarket trading Monday.",
+    "url": "https://finance.yahoo.com/m/f573856a-ccf4-349c-bae2-00f9db410a82/nvidia-stock-slips.-it%E2%80%99s.html?.tsrc=rss",
+    "published": "2026-04-13T09:12:00",
     "signals": {
       "thiel": false,
       "shulman": false,
@@ -176,49 +65,5 @@
     ],
     "quality_score": 0.9524,
     "weighted_relevance": 0.9523952890649693
-  },
-  {
-    "source": "Seeking_Alpha_NVDA",
-    "credibility": 0.7,
-    "title": "China AI firm reveals $92M of banned Nvidia chip servers: report",
-    "summary": "",
-    "url": "https://seekingalpha.com/symbol/NVDA/news?source=feed_symbol_NVDA",
-    "published": "2026-04-10T08:04:04",
-    "signals": {
-      "thiel": false,
-      "shulman": false,
-      "contrarian": false,
-      "bottleneck_compute": true,
-      "bottleneck_energy": false,
-      "salp": false
-    },
-    "signal_count": 1,
-    "tickers": [
-      "NVDA"
-    ],
-    "quality_score": 0.8296,
-    "weighted_relevance": 0.8296421184743731
-  },
-  {
-    "source": "Seeking_Alpha_NVDA",
-    "credibility": 0.7,
-    "title": "Nvidia: Why 2026 Could Be A Game Changer",
-    "summary": "",
-    "url": "https://seekingalpha.com/article/4888727-nvidia-why-2026-could-be-a-game-changer?source=feed_symbol_NVDA",
-    "published": "2026-04-09T13:00:00",
-    "signals": {
-      "thiel": false,
-      "shulman": false,
-      "contrarian": false,
-      "bottleneck_compute": true,
-      "bottleneck_energy": false,
-      "salp": false
-    },
-    "signal_count": 1,
-    "tickers": [
-      "NVDA"
-    ],
-    "quality_score": 0.8296,
-    "weighted_relevance": 0.8296421184743731
   }
 ]
