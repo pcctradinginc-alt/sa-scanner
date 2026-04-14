@@ -5,82 +5,82 @@
     "total_checked": 15,
     "details": {
       "VST": {
-        "current": 158.2,
-        "ma200": 179.66,
+        "current": 164.62,
+        "ma200": 179.53,
         "above": false
       },
       "CEG": {
-        "current": 291.72,
-        "ma200": 327.65,
+        "current": 296.2,
+        "ma200": 327.52,
         "above": false
       },
       "NRG": {
-        "current": 170.24,
-        "ma200": 158.92,
+        "current": 174.69,
+        "ma200": 158.99,
         "above": true
       },
       "XEL": {
-        "current": 80.45,
-        "ma200": 75.55,
+        "current": 79.33,
+        "ma200": 75.62,
         "above": true
       },
       "SO": {
-        "current": 95.93,
-        "ma200": 91.46,
+        "current": 95.43,
+        "ma200": 91.5,
         "above": true
       },
       "DUK": {
-        "current": 130.4,
-        "ma200": 121.55,
+        "current": 129.1,
+        "ma200": 121.63,
         "above": true
       },
       "NEE": {
-        "current": 92.3,
-        "ma200": 80.95,
+        "current": 91.1,
+        "ma200": 81.06,
         "above": true
       },
       "AEP": {
-        "current": 134.46,
-        "ma200": 116.63,
+        "current": 134.2,
+        "ma200": 116.8,
         "above": true
       },
       "EXC": {
-        "current": 48.15,
-        "ma200": 44.88,
+        "current": 48.1,
+        "ma200": 44.92,
         "above": true
       },
       "ETR": {
-        "current": 115.33,
-        "ma200": 94.17,
+        "current": 115.18,
+        "ma200": 94.35,
         "above": true
       },
       "D": {
-        "current": 62.97,
-        "ma200": 59.43,
+        "current": 63.04,
+        "ma200": 59.48,
         "above": true
       },
       "PCG": {
-        "current": 17.74,
-        "ma200": 15.82,
+        "current": 17.64,
+        "ma200": 15.84,
         "above": true
       },
       "ES": {
-        "current": 68.68,
-        "ma200": 67.46,
+        "current": 68.63,
+        "ma200": 67.49,
         "above": true
       },
       "FE": {
-        "current": 51.05,
-        "ma200": 45.21,
+        "current": 50.95,
+        "ma200": 45.28,
         "above": true
       },
       "PPL": {
-        "current": 39.5,
-        "ma200": 35.88,
+        "current": 39.36,
+        "ma200": 35.91,
         "above": true
       }
     },
-    "fetched_at": "2026-04-14T10:46:53.688838"
+    "fetched_at": "2026-04-14T16:48:16.247486"
   },
   "hyperscaler_capex": {
     "fred_capex": {
@@ -117,7 +117,7 @@
     "empirical_point": 0,
     "data_gap": false,
     "primary_source": "fred",
-    "fetched_at": "2026-04-14T10:47:05.207376"
+    "fetched_at": "2026-04-14T16:48:27.615629"
   },
   "fred": {
     "electric_power_production": {
@@ -128,11 +128,8 @@
       "data_gap": false
     },
     "industrial_production": {
-      "latest": 102.55,
-      "year_ago": 101.1,
-      "growth_yoy": 0.0144,
-      "period": "2026-02-01",
-      "data_gap": false
+      "error": "500 Server Error: Internal Server Error for url: https://api.stlouisfed.org/fred/series/observations?series_id=INDPRO&api_key=35eef949b71aa59c6b22e9e515090d0c&file_type=json&observation_start=2024-08-22&sort_order=desc&limit=20",
+      "data_gap": true
     },
     "cpi_inflation": {
       "latest": 330.29,
@@ -141,7 +138,7 @@
       "period": "2026-03-01",
       "data_gap": false
     },
-    "fetched_at": "2026-04-14T10:47:00.107393"
+    "fetched_at": "2026-04-14T16:48:22.750380"
   },
   "eia": {
     "growth_yoy": 0.0217,
@@ -150,6 +147,6 @@
     "shulman_signal": false,
     "empirical_point": 0,
     "data_gap": false,
-    "fetched_at": "2026-04-14T10:46:58.868283"
+    "fetched_at": "2026-04-14T16:48:21.147072"
   }
 }
