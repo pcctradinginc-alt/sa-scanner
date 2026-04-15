@@ -2,6 +2,50 @@
   {
     "source": "CNBC_Tech",
     "credibility": 0.83,
+    "title": "Chip giants AMD, Qualcomm and Arm back driverless car startup Wayve with fresh funds",
+    "summary": "Wayve now has major semiconductor names, including Nvidia, as shareholders as it looks to sell its technology to automakers who may be using different chips.",
+    "url": "https://www.cnbc.com/2026/04/15/wayve-fund-raise-amd-qualcomm-arm.html",
+    "published": "2026-04-15T13:00:01",
+    "signals": {
+      "thiel": false,
+      "shulman": false,
+      "contrarian": false,
+      "bottleneck_compute": true,
+      "bottleneck_energy": false,
+      "salp": false
+    },
+    "signal_count": 1,
+    "tickers": [
+      "NVDA"
+    ],
+    "quality_score": 1.1664,
+    "weighted_relevance": 1.1664090926877464
+  },
+  {
+    "source": "CNBC_Tech",
+    "credibility": 0.83,
+    "title": "OpenAI pulls back from Stargate Norway data center deal as Microsoft takes over",
+    "summary": "The AI startup is now in discussions with Microsoft about renting compute capacity",
+    "url": "https://www.cnbc.com/2026/04/15/openai-stargate-norway-project-microsoft.html",
+    "published": "2026-04-15T12:29:04",
+    "signals": {
+      "thiel": false,
+      "shulman": false,
+      "contrarian": false,
+      "bottleneck_compute": true,
+      "bottleneck_energy": false,
+      "salp": false
+    },
+    "signal_count": 1,
+    "tickers": [
+      "MSFT"
+    ],
+    "quality_score": 1.1664,
+    "weighted_relevance": 1.1664090926877464
+  },
+  {
+    "source": "CNBC_Tech",
+    "credibility": 0.83,
     "title": "Nvidia stock is on a 10-day winning streak and up 18% over that stretch",
     "summary": "Nvidia denied rumors that it's in talks to buy a large PC company, telling CNBC in a statement that it's \"not engaged in discussions.\"",
     "url": "https://www.cnbc.com/2026/04/14/nvidia-stock-nvda-ai-streak.html",
@@ -25,7 +69,7 @@
     "source": "Axios_Tech",
     "credibility": 0.76,
     "title": "IMF says Iran war \"halted\" global economic momentum, expects hotter inflation",
-    "summary": "<p>The Iran war brought global economic momentum to a halt, the <a href=\"https://www.axios.com/2026/04/09/supply-chain-energy-iran-imf\" target=\"_blank\">International Monetary Fund</a> said on Tuesday, providing new projections for slower growth and higher inflation.</p><p><strong>Why it matters: </strong>It is the latest major economic institution to warn about stagflation-like global economic fallout from the war. The conflict upended what was shaping up to be a solid year for the global econom",
+    "summary": "<p>The Iran war brought global economic momentum to a halt, the <a href=\"https://www.axios.com/2026/04/09/supply-chain-energy-iran-imf\" target=\"_blank\">International Monetary Fund</a> said Tuesday, providing new projections for slower growth and higher inflation.</p><p><strong>Why it matters: </strong>It is the latest major economic institution to warn about stagflation-like global economic fallout from the war. The conflict upended what was shaping up to be a solid year for the global economy.<",
     "url": "https://www.axios.com/2026/04/14/imf-iran-inflation-economy",
     "published": "2026-04-14T13:01:04",
     "signals": {
@@ -46,33 +90,10 @@
   {
     "source": "Yahoo_Finance",
     "credibility": 0.75,
-    "title": "Dow Jones Futures: Nasdaq Win Streak Hits 10 Days As Nvidia, Google Flash Buy Signals; What To Do Now",
-    "summary": "The stock market rally powers higher with the Nasdaq and Nvidia up for 10 days. Here's what to do now. ASML beat views overnight.",
-    "url": "https://finance.yahoo.com/m/eca7c0e2-0be2-3fcd-82d4-5949478b56f5/dow-jones-futures%3A-nasdaq-win.html?.tsrc=rss",
-    "published": "2026-04-15T10:35:20",
-    "signals": {
-      "thiel": false,
-      "shulman": false,
-      "contrarian": false,
-      "bottleneck_compute": true,
-      "bottleneck_energy": false,
-      "salp": false
-    },
-    "signal_count": 1,
-    "tickers": [
-      "NVDA",
-      "GOOGL"
-    ],
-    "quality_score": 0.9524,
-    "weighted_relevance": 0.9523952890649693
-  },
-  {
-    "source": "Yahoo_Finance",
-    "credibility": 0.75,
-    "title": "Quantum stocks surge as Nvidia launches new AI models",
-    "summary": "Investing.com -- Shares in quantum computing companies rose in premarket trading Wednesday after Nvidia unveiled the world\u2019s first family of open-source quantum AI models, designed to accelerate progress in the space.",
-    "url": "https://finance.yahoo.com/sectors/technology/articles/quantum-stocks-surge-nvidia-launches-101936882.html?.tsrc=rss",
-    "published": "2026-04-15T10:19:36",
+    "title": "Why Rigetti Computing Stock Keeps Going Up",
+    "summary": "What's good news for Nvidia could be great news for Rigetti.",
+    "url": "https://www.fool.com/investing/2026/04/15/why-rigetti-computing-stock-keeps-going-up/?.tsrc=rss",
+    "published": "2026-04-15T16:23:23",
     "signals": {
       "thiel": false,
       "shulman": false,
@@ -91,10 +112,10 @@
   {
     "source": "Yahoo_Finance",
     "credibility": 0.75,
-    "title": "US Senator Warren voices concern over Nvidia's acquisition of Slurm",
-    "summary": "U.S. Democratic Senator Elizabeth Warren sent a letter to the U.S. secretaries of the Department of Energy and Department of Defense on Tuesday, questioning them about Nvidia's acquisition \u200cof SchedMD, which makes Slurm software.  Warren's letter to Energy Department Secretary Chris Wright and Defense Department Secretary Pete \u200cHegseth expressed worries about Nvidia's acquisition of SchedMD and requested \"information about the government's dependency on NVIDIA hardware and software.\"",
-    "url": "https://finance.yahoo.com/sectors/technology/articles/us-senator-warren-voices-concern-100555487.html?.tsrc=rss",
-    "published": "2026-04-15T10:05:55",
+    "title": "Mirantis Automates AI Factory Deployments with k0rdent AI and NVIDIA Run:ai",
+    "summary": "CAMPBELL, Calif., April 15, 2026--Mirantis, delivering Kubernetes-native infrastructure for AI, today announced the company is enabling enterprises and neocloud providers to deploy production-ready AI platforms in minutes, not weeks which is achieved by automated deployment and lifecycle management of NVIDIA Run:ai through the Mirantis k0rdent AI platform. The integration closes the gap between GPU infrastructure provisioning and a fully operational AI factory.",
+    "url": "https://finance.yahoo.com/sectors/technology/articles/mirantis-automates-ai-factory-deployments-160000960.html?.tsrc=rss",
+    "published": "2026-04-15T16:00:00",
     "signals": {
       "thiel": false,
       "shulman": false,
@@ -113,10 +134,10 @@
   {
     "source": "Yahoo_Finance",
     "credibility": 0.75,
-    "title": "ASML lifts 2026 forecast as surging AI chip demand boosts new orders",
-    "summary": "<p>STORY: ASML reported stronger-than-expected first-quarter earnings on Wednesday (April 15).</p><p>It hit $3.2 billion on sales of $10.3 billion - up from the same period a year ago.</p><p>The world's largest supplier of chipmaking tools also raised its revenue outlook for the year.</p><p>It comes as the AI boom lifted demand for the firm's equipment.</p><p>ASML is the only provider of the EUV lithography tools needed to print cutting-edge AI chips for firms like Nvidia.</p><p>The stronger for",
-    "url": "https://finance.yahoo.com/video/asml-lifts-2026-forecast-surging-100345649.html?.tsrc=rss",
-    "published": "2026-04-15T10:03:45",
+    "title": "Nvidia Rode the Chip Sector to a 6-Month Breakout: Can It Lead Now?",
+    "summary": "Nvidia stock price broke a 6-month channel but the chip sector outpaced it by 24 points. A proprietary tool reveals who drove the move.",
+    "url": "https://beincrypto.com/nvidia-stock-price-breakout-soxx-sector-analysis/?.tsrc=rss",
+    "published": "2026-04-15T16:00:00",
     "signals": {
       "thiel": false,
       "shulman": false,
@@ -135,10 +156,10 @@
   {
     "source": "Yahoo_Finance",
     "credibility": 0.75,
-    "title": "FriendliAI and Samsung Cloud Platform Forge Strategic Alliance to Power Frontier Model AI Inference on NVIDIA B300 GPUs",
-    "summary": "SAN FRANCISCO, April 15, 2026--FriendliAI, The Frontier AI Inference Cloud, is collaborating with Samsung SDS, a leading GPU infrastructure-as-a-service (IaaS) provider in South Korea, to deliver frontier model AI inference services to global startups and enterprises. The initiative brings together FriendliAI's high-performance inference stack and Samsung Cloud Platform (SCP)'s scalable NVIDIA B300 GPU infrastructure.",
-    "url": "https://finance.yahoo.com/sectors/technology/articles/friendliai-samsung-cloud-platform-forge-100000000.html?.tsrc=rss",
-    "published": "2026-04-15T10:00:00",
+    "title": "Why D-Wave Quantum Stock Keeps Going Up",
+    "summary": "D-Wave stock is on a tear. Nvidia is the reason -- whether D-Wave likes it or not.",
+    "url": "https://www.fool.com/investing/2026/04/15/why-d-wave-quantum-stock-keeps-going-up/?.tsrc=rss",
+    "published": "2026-04-15T15:44:32",
     "signals": {
       "thiel": false,
       "shulman": false,
@@ -155,12 +176,12 @@
     "weighted_relevance": 0.9523952890649693
   },
   {
-    "source": "Yahoo_Finance",
-    "credibility": 0.75,
-    "title": "Nokia and Orange advance AI\u2011RAN innovation with NVIDIA",
-    "summary": "Nokia and Orange advance AI\u2011RAN innovation with NVIDIA Nokia and Orange expand their strategic relationship to jointly co\u2011create and co\u2011innovate AI\u2011RAN use cases, supported by NVIDIA AI infrastructure.Collaboration explores how the AI-RAN solution can enable greater spectral efficiency, AI-enhanced radio performance with predictive optimization, and AI-processing for new services such as integrated sensing and communication (ISAC).Innovation initiative supports Orange\u2019s evolution toward flexible",
-    "url": "https://finance.yahoo.com/sectors/technology/articles/nokia-orange-advance-ai-ran-090000872.html?.tsrc=rss",
-    "published": "2026-04-15T09:00:00",
+    "source": "Seeking_Alpha_NVDA",
+    "credibility": 0.7,
+    "title": "Nvidia's Moat Vulnerable As Anthropic And Elon Musk Build Chips",
+    "summary": "",
+    "url": "https://seekingalpha.com/article/4890916-nvidia-moat-vulnerable-as-anthropic-and-elon-musk-build-chips?source=feed_symbol_NVDA",
+    "published": "2026-04-15T15:19:35",
     "signals": {
       "thiel": false,
       "shulman": false,
@@ -173,8 +194,52 @@
     "tickers": [
       "NVDA"
     ],
-    "quality_score": 0.9524,
-    "weighted_relevance": 0.9523952890649693
+    "quality_score": 0.8296,
+    "weighted_relevance": 0.8296421184743731
+  },
+  {
+    "source": "Seeking_Alpha_NVDA",
+    "credibility": 0.7,
+    "title": "Senator Warren sees 'risks' to Nvidia's SchedMD deal in letter to Hegseth, Wright",
+    "summary": "",
+    "url": "https://seekingalpha.com/symbol/NVDA/news?source=feed_symbol_NVDA",
+    "published": "2026-04-15T14:31:53",
+    "signals": {
+      "thiel": false,
+      "shulman": false,
+      "contrarian": false,
+      "bottleneck_compute": true,
+      "bottleneck_energy": false,
+      "salp": false
+    },
+    "signal_count": 1,
+    "tickers": [
+      "NVDA"
+    ],
+    "quality_score": 0.8296,
+    "weighted_relevance": 0.8296421184743731
+  },
+  {
+    "source": "Seeking_Alpha_NVDA",
+    "credibility": 0.7,
+    "title": "Snapshot of Quant and Wall St. ratings for quantum computing stocks after Nvidia's latest push",
+    "summary": "",
+    "url": "https://seekingalpha.com/symbol/NVDA/news?source=feed_symbol_NVDA",
+    "published": "2026-04-15T11:02:48",
+    "signals": {
+      "thiel": false,
+      "shulman": false,
+      "contrarian": false,
+      "bottleneck_compute": true,
+      "bottleneck_energy": false,
+      "salp": false
+    },
+    "signal_count": 1,
+    "tickers": [
+      "NVDA"
+    ],
+    "quality_score": 0.8296,
+    "weighted_relevance": 0.8296421184743731
   },
   {
     "source": "Seeking_Alpha_NVDA",
@@ -237,8 +302,8 @@
     },
     "signal_count": 1,
     "tickers": [
-      "NVDA",
-      "MSFT"
+      "MSFT",
+      "NVDA"
     ],
     "quality_score": 0.8296,
     "weighted_relevance": 0.8296421184743731
