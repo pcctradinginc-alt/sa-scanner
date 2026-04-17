@@ -5,7 +5,7 @@
     "title": "TSMC first-quarter profit rises 58%, beats estimates as AI demand fuels record run",
     "summary": "TSMC reported another quarter of record profit, with the company expecting AI demand to continue to grow.",
     "url": "https://www.cnbc.com/2026/04/16/tsmc-q1-profit-58-percent-ai-chip-demand-record.html",
-    "published": "2026-04-16T12:23:25",
+    "published": "2026-04-17T04:17:57",
     "signals": {
       "thiel": false,
       "shulman": false,
@@ -24,10 +24,10 @@
   {
     "source": "CNBC_Tech",
     "credibility": 0.83,
-    "title": "Quantum stocks on pace for a massive week after Nvidia debuts AI models to boost the tech",
-    "summary": "Hyperscalers Alphabet, Amazon and Microsoft have been investing heavily in chips to power quantum computing",
-    "url": "https://www.cnbc.com/2026/04/16/quantum-stocks-nvidia-ai-models.html",
-    "published": "2026-04-16T15:13:30",
+    "title": "Nvidia rival tells CNBC it's seeking at least $100 million in funding as European AI chip market booms",
+    "summary": "Investor interest for AI chip startups is rising, but big challenges remain for the nascent sector.",
+    "url": "https://www.cnbc.com/2026/04/17/nvidia-rivals-chip-market-funding-ai-asml-euclyd.html",
+    "published": "2026-04-17T07:23:22",
     "signals": {
       "thiel": false,
       "shulman": false,
@@ -38,10 +38,55 @@
     },
     "signal_count": 1,
     "tickers": [
-      "GOOGL",
+      "NVDA"
+    ],
+    "quality_score": 1.1664,
+    "weighted_relevance": 1.1664090926877464
+  },
+  {
+    "source": "CNBC_Tech",
+    "credibility": 0.83,
+    "title": "Here's our monthly update on all 31 portfolio stocks, including 3 on the buy list",
+    "summary": "Jim Cramer gave his latest thinking on all 31 stocks owned by the CNBC Investing Club, including Nvidia, Apple, and Microsoft.",
+    "url": "https://www.cnbc.com/2026/04/16/heres-our-april-update-on-all-31-portfolio-stocks-including-4-buys.html",
+    "published": "2026-04-16T19:14:37",
+    "signals": {
+      "thiel": false,
+      "shulman": false,
+      "contrarian": false,
+      "bottleneck_compute": true,
+      "bottleneck_energy": false,
+      "salp": false
+    },
+    "signal_count": 1,
+    "tickers": [
       "MSFT",
-      "NVDA",
-      "AMZN"
+      "NVDA"
+    ],
+    "quality_score": 1.1664,
+    "weighted_relevance": 1.1664090926877464
+  },
+  {
+    "source": "CNBC_Tech",
+    "credibility": 0.83,
+    "title": "Quantum stocks on pace for a massive week after Nvidia debuts AI models to boost the tech",
+    "summary": "Hyperscalers Alphabet, Amazon and Microsoft have been investing heavily in chips to power quantum computing",
+    "url": "https://www.cnbc.com/2026/04/16/quantum-stocks-nvidia-ai-models.html",
+    "published": "2026-04-16T20:15:50",
+    "signals": {
+      "thiel": false,
+      "shulman": false,
+      "contrarian": false,
+      "bottleneck_compute": true,
+      "bottleneck_energy": false,
+      "salp": false
+    },
+    "signal_count": 1,
+    "tickers": [
+      "MSFT",
+      "GOOGL",
+      "AMZN",
+      "NVDA"
     ],
     "quality_score": 1.1664,
     "weighted_relevance": 1.1664090926877464
@@ -50,9 +95,9 @@
     "source": "CNBC_Tech",
     "credibility": 0.83,
     "title": "TSMC and ASML post-earnings stock moves could be a sign of what's to come from chip companies",
-    "summary": "Two of the biggest chipmakers, TSMC and ASML, failed to catch major tailwinds from strong earnings. It could be a bellwether for the chip industry as a whole.",
+    "summary": "Two of the biggest chipmakers, TSMC and ASML, failed to catch major tail winds from strong earnings. It could be a bellwether for the chip industry as a whole.",
     "url": "https://www.cnbc.com/2026/04/16/taiwan-semi-tsm-asml-stock-earnings-ai-chips.html",
-    "published": "2026-04-16T17:08:47",
+    "published": "2026-04-16T18:03:42",
     "signals": {
       "thiel": false,
       "shulman": false,
@@ -74,7 +119,7 @@
     "title": "TSMC first-quarter profit rises 58%, beats estimates as AI demand fuels record run",
     "summary": "TSMC reported another quarter of record profit, with the company expecting AI demand to continue to grow.",
     "url": "https://www.cnbc.com/2026/04/16/tsmc-q1-profit-58-percent-ai-chip-demand-record.html",
-    "published": "2026-04-16T12:23:25",
+    "published": "2026-04-17T04:17:57",
     "signals": {
       "thiel": false,
       "shulman": false,
@@ -91,256 +136,12 @@
     "weighted_relevance": 1.1664090926877464
   },
   {
-    "source": "CNBC_Tech",
-    "credibility": 0.83,
-    "title": "Nvidia's long-awaited stock breakout is proof that patience pays off",
-    "summary": "Every weekday, the Investing Club releases the Homestretch; an actionable afternoon update just in time for the last hour of trading.",
-    "url": "https://www.cnbc.com/2026/04/15/nvidias-long-awaited-stock-breakout-is-proof-that-patience-pays-off.html",
-    "published": "2026-04-15T19:01:12",
-    "signals": {
-      "thiel": false,
-      "shulman": false,
-      "contrarian": false,
-      "bottleneck_compute": true,
-      "bottleneck_energy": false,
-      "salp": false
-    },
-    "signal_count": 1,
-    "tickers": [
-      "NVDA"
-    ],
-    "quality_score": 1.1664,
-    "weighted_relevance": 1.1664090926877464
-  },
-  {
-    "source": "CNBC_Tech",
-    "credibility": 0.83,
-    "title": "Chip giants AMD, Qualcomm and Arm back driverless car startup Wayve with fresh funds",
-    "summary": "Wayve now has major semiconductor names, including Nvidia, as shareholders as it looks to sell its technology to automakers who may be using different chips.",
-    "url": "https://www.cnbc.com/2026/04/15/wayve-fund-raise-amd-qualcomm-arm.html",
-    "published": "2026-04-15T13:00:01",
-    "signals": {
-      "thiel": false,
-      "shulman": false,
-      "contrarian": false,
-      "bottleneck_compute": true,
-      "bottleneck_energy": false,
-      "salp": false
-    },
-    "signal_count": 1,
-    "tickers": [
-      "NVDA"
-    ],
-    "quality_score": 1.1664,
-    "weighted_relevance": 1.1664090926877464
-  },
-  {
-    "source": "CNBC_Tech",
-    "credibility": 0.83,
-    "title": "OpenAI pulls back from Stargate Norway data center deal as Microsoft takes over",
-    "summary": "The AI startup is now in discussions with Microsoft about renting compute capacity",
-    "url": "https://www.cnbc.com/2026/04/15/openai-stargate-norway-project-microsoft.html",
-    "published": "2026-04-15T12:29:04",
-    "signals": {
-      "thiel": false,
-      "shulman": false,
-      "contrarian": false,
-      "bottleneck_compute": true,
-      "bottleneck_energy": false,
-      "salp": false
-    },
-    "signal_count": 1,
-    "tickers": [
-      "MSFT"
-    ],
-    "quality_score": 1.1664,
-    "weighted_relevance": 1.1664090926877464
-  },
-  {
     "source": "Yahoo_Finance",
     "credibility": 0.75,
-    "title": "Nvidia CEO Urges US-China AI Dialogue As $10 Billion Anthropic Tie Deepens",
-    "summary": "Huang highlights cooperation needs while export limits persist and Nvidia expands investment and supply commitments to Anthropic.",
-    "url": "https://finance.yahoo.com/sectors/technology/articles/nvidia-ceo-urges-us-china-173807022.html?.tsrc=rss",
-    "published": "2026-04-16T17:38:07",
-    "signals": {
-      "thiel": false,
-      "shulman": false,
-      "contrarian": false,
-      "bottleneck_compute": true,
-      "bottleneck_energy": false,
-      "salp": false
-    },
-    "signal_count": 1,
-    "tickers": [
-      "NVDA"
-    ],
-    "quality_score": 0.9524,
-    "weighted_relevance": 0.9523952890649693
-  },
-  {
-    "source": "Yahoo_Finance",
-    "credibility": 0.75,
-    "title": "From PayPal to Palantir: What Peter Thiel's Track Record Means for Patient Shareholders Today",
-    "summary": "The Silicon Valley investor co-founded both world-changing tech companies.",
-    "url": "https://www.fool.com/investing/2026/04/16/from-paypal-to-palantir-what-peter-thiels-track-re/?.tsrc=rss",
-    "published": "2026-04-16T17:30:00",
-    "signals": {
-      "thiel": true,
-      "shulman": false,
-      "contrarian": false,
-      "bottleneck_compute": false,
-      "bottleneck_energy": false,
-      "salp": false
-    },
-    "signal_count": 1,
-    "tickers": [
-      "PLTR"
-    ],
-    "quality_score": 0.9524,
-    "weighted_relevance": 0.9523952890649693
-  },
-  {
-    "source": "Yahoo_Finance",
-    "credibility": 0.75,
-    "title": "Marvell's AI Role Expands As Nvidia Joins Microsoft And Amazon",
-    "summary": "Nvidia has agreed to invest $2b in Marvell Technology (NasdaqGS:MRVL) and expand their work together around the NVLink Fusion ecosystem for high-speed AI data center interconnects. Marvell is also collaborating with Microsoft and Amazon on custom AI chips, supplying core technology and engineering support. These agreements place Marvell in a central role across multiple hyperscale cloud providers as AI infrastructure spending evolves. Marvell, long known for data infrastructure and...",
-    "url": "https://finance.yahoo.com/markets/stocks/articles/marvells-ai-role-expands-nvidia-170318934.html?.tsrc=rss",
-    "published": "2026-04-16T17:03:18",
-    "signals": {
-      "thiel": false,
-      "shulman": false,
-      "contrarian": false,
-      "bottleneck_compute": true,
-      "bottleneck_energy": false,
-      "salp": false
-    },
-    "signal_count": 1,
-    "tickers": [
-      "MSFT",
-      "NVDA",
-      "AMZN"
-    ],
-    "quality_score": 0.9524,
-    "weighted_relevance": 0.9523952890649693
-  },
-  {
-    "source": "Yahoo_Finance",
-    "credibility": 0.75,
-    "title": "Backdoor AI Play And Cool Nvidia Partner Warms Up A Breakout",
-    "summary": "A key collaborator with Nvidia on AI infrastructure, Trane Technologies looks to forge a breakout in new market uptrend.",
-    "url": "https://finance.yahoo.com/m/d9b81941-4fca-3a44-9529-e940319fc3c9/backdoor-ai-play-and-cool.html?.tsrc=rss",
-    "published": "2026-04-16T16:55:14",
-    "signals": {
-      "thiel": false,
-      "shulman": false,
-      "contrarian": false,
-      "bottleneck_compute": true,
-      "bottleneck_energy": false,
-      "salp": false
-    },
-    "signal_count": 1,
-    "tickers": [
-      "NVDA"
-    ],
-    "quality_score": 0.9524,
-    "weighted_relevance": 0.9523952890649693
-  },
-  {
-    "source": "Yahoo_Finance",
-    "credibility": 0.75,
-    "title": "Michael Burry Thinks Anthropic is Eating the Lunch of Palantir \u2014 Is He Right?",
-    "summary": "Dr. Michael Burry of The Big Short fame doesn\u2019t seem to be willing to back down as a bear in the epic tug-of-war with Palantir (NASDAQ:PLTR) shareholders and the great CEO Alex Karp. Undoubtedly, Burry seemed to have been getting his way, with shares of Palantir plunging viciously into a bear market amid one of ... Michael Burry Thinks Anthropic is Eating the Lunch of Palantir \u2014 Is He Right?",
-    "url": "https://247wallst.com/investing/2026/04/16/michael-burry-thinks-anthropic-is-eating-the-lunch-of-palantir-is-he-right/?.tsrc=rss",
-    "published": "2026-04-16T16:53:12",
-    "signals": {
-      "thiel": true,
-      "shulman": false,
-      "contrarian": false,
-      "bottleneck_compute": false,
-      "bottleneck_energy": false,
-      "salp": false
-    },
-    "signal_count": 1,
-    "tickers": [
-      "PLTR"
-    ],
-    "quality_score": 0.9524,
-    "weighted_relevance": 0.9523952890649693
-  },
-  {
-    "source": "Yahoo_Finance",
-    "credibility": 0.75,
-    "title": "Jim Cramer Still Hasn\u2019t Figured Out Why NVIDIA (NVDA) Stock is Down",
-    "summary": "We recently published Jim Cramer Said Allbirds Management Are \u201cJokers\u201d & Discussed These 18 Stocks. Nvidia Corporation (NASDAQ:NVDA) is one of the stocks discussed by Jim Cramer. Nvidia Corporation (NASDAQ:NVDA) is one of Jim Cramer\u2019s favorite stocks. Despite the fact that the shares have struggled lately, as reflected by them being up by a modest [\u2026]",
-    "url": "https://finance.yahoo.com/markets/stocks/articles/jim-cramer-still-hasn-t-164445479.html?.tsrc=rss",
-    "published": "2026-04-16T16:44:45",
-    "signals": {
-      "thiel": false,
-      "shulman": false,
-      "contrarian": false,
-      "bottleneck_compute": true,
-      "bottleneck_energy": false,
-      "salp": false
-    },
-    "signal_count": 1,
-    "tickers": [
-      "NVDA"
-    ],
-    "quality_score": 0.9524,
-    "weighted_relevance": 0.9523952890649693
-  },
-  {
-    "source": "Yahoo_Finance",
-    "credibility": 0.75,
-    "title": "Nvidia's explosive rally faces one big test soon",
-    "summary": "Be on the lookout, Nvidia bulls.",
-    "url": "https://finance.yahoo.com/news/nvidias-explosive-rally-faces-one-big-test-soon-163054893.html?.tsrc=rss",
-    "published": "2026-04-16T16:30:54",
-    "signals": {
-      "thiel": false,
-      "shulman": false,
-      "contrarian": false,
-      "bottleneck_compute": true,
-      "bottleneck_energy": false,
-      "salp": false
-    },
-    "signal_count": 1,
-    "tickers": [
-      "NVDA"
-    ],
-    "quality_score": 0.9524,
-    "weighted_relevance": 0.9523952890649693
-  },
-  {
-    "source": "Yahoo_Finance",
-    "credibility": 0.75,
-    "title": "As Iran Keeps Oil Markets on Edge, 3 North American Pipeline Stocks Look Hard to Replace",
-    "summary": "These pipeline companies operate irreplaceable energy infrastructure across North America.",
-    "url": "https://www.fool.com/investing/2026/04/16/as-iran-keeps-oil-markets-on-edge-3-north-american/?.tsrc=rss",
-    "published": "2026-04-16T16:28:00",
-    "signals": {
-      "thiel": false,
-      "shulman": false,
-      "contrarian": false,
-      "bottleneck_compute": false,
-      "bottleneck_energy": true,
-      "salp": false
-    },
-    "signal_count": 1,
-    "tickers": [
-      "VST"
-    ],
-    "quality_score": 0.9524,
-    "weighted_relevance": 0.9523952890649693
-  },
-  {
-    "source": "Seeking_Alpha_NVDA",
-    "credibility": 0.7,
-    "title": "Cadence Design rises as it unveils Google Cloud, Nvidia deals",
-    "summary": "",
-    "url": "https://seekingalpha.com/symbol/NVDA/news?source=feed_symbol_NVDA",
-    "published": "2026-04-15T18:42:14",
+    "title": "$3.36 Trn AI in Medicine Market Research and Global Forecasts, 2026-2040: Google DeepMind, IBM Watson Health, NVIDIA, Tempus, and PathAI Dominate Through Substantial Investments",
+    "summary": "AI is transforming medicine by improving diagnostics, personalized treatments, and operational efficiency. Key opportunities include AI-powered drug discovery, precision medicine, wearables for real-time monitoring, and predictive analytics. These innovations target chronic and genetic diseases, fueling market growth despite challenges like data privacy. AI in Medicine Market AI in Medicine Market Dublin, April 17, 2026 (GLOBE NEWSWIRE) -- The \"AI in Medicine Market, till 2040: Distribution by T",
+    "url": "https://finance.yahoo.com/sectors/healthcare/articles/3-36-trn-ai-medicine-092500769.html?.tsrc=rss",
+    "published": "2026-04-17T09:25:00",
     "signals": {
       "thiel": false,
       "shulman": false,
@@ -354,16 +155,128 @@
       "GOOGL",
       "NVDA"
     ],
-    "quality_score": 0.8296,
-    "weighted_relevance": 0.8296421184743731
+    "quality_score": 0.9524,
+    "weighted_relevance": 0.9523952890649693
+  },
+  {
+    "source": "Yahoo_Finance",
+    "credibility": 0.75,
+    "title": "Is NVIDIA\u2019s (NVDA) Open Quantum AI Push Quietly Redefining Its Core Infrastructure Moat?",
+    "summary": "Earlier this week, NVIDIA unveiled NVIDIA Ising, the world\u2019s first open-source quantum AI model family aimed at tackling quantum processor calibration and error correction, with early adoption across leading quantum hardware makers, universities, and research labs. By inserting its AI stack into the core control layer of emerging quantum systems, NVIDIA is positioning GPUs and CUDA-Q as foundational infrastructure for future hybrid quantum\u2013classical supercomputers. We\u2019ll now examine how...",
+    "url": "https://finance.yahoo.com/sectors/technology/articles/nvidia-nvda-open-quantum-ai-090806879.html?.tsrc=rss",
+    "published": "2026-04-17T09:08:06",
+    "signals": {
+      "thiel": false,
+      "shulman": false,
+      "contrarian": false,
+      "bottleneck_compute": true,
+      "bottleneck_energy": false,
+      "salp": false
+    },
+    "signal_count": 1,
+    "tickers": [
+      "NVDA"
+    ],
+    "quality_score": 0.9524,
+    "weighted_relevance": 0.9523952890649693
+  },
+  {
+    "source": "Yahoo_Finance",
+    "credibility": 0.75,
+    "title": "Think AMD, Broadcom, or Alphabet Is Nvidia's Biggest Competitor for AI Data Center Space? Think Again...",
+    "summary": "The No. 1 risk to Nvidia's artificial intelligence (AI) hardware supremacy arguably comes from within.",
+    "url": "https://www.fool.com/investing/2026/04/17/think-amd-avgo-or-googl-is-nvda-biggest-ai-threat/?.tsrc=rss",
+    "published": "2026-04-17T08:26:00",
+    "signals": {
+      "thiel": false,
+      "shulman": false,
+      "contrarian": false,
+      "bottleneck_compute": true,
+      "bottleneck_energy": false,
+      "salp": false
+    },
+    "signal_count": 1,
+    "tickers": [
+      "GOOGL",
+      "NVDA",
+      "AVGO"
+    ],
+    "quality_score": 0.9524,
+    "weighted_relevance": 0.9523952890649693
+  },
+  {
+    "source": "Yahoo_Finance",
+    "credibility": 0.75,
+    "title": "IQVIA.ai Launch With NVIDIA Puts IQVIA\u2019s AI Valuation In Focus",
+    "summary": "IQVIA Holdings (NYSE:IQV) has launched IQVIA.ai, a proprietary AI platform built in partnership with NVIDIA. The platform is designed to support new applications across life sciences operations, from research to commercial activities. IQVIA, a major player in clinical research and healthcare data services, is moving deeper into AI with IQVIA.ai, aiming to apply advanced computing to the complex demands of life sciences. For readers tracking NYSE:IQV, this development sits at the...",
+    "url": "https://finance.yahoo.com/sectors/healthcare/articles/iqvia-ai-launch-nvidia-puts-080400913.html?.tsrc=rss",
+    "published": "2026-04-17T08:04:00",
+    "signals": {
+      "thiel": false,
+      "shulman": false,
+      "contrarian": false,
+      "bottleneck_compute": true,
+      "bottleneck_energy": false,
+      "salp": false
+    },
+    "signal_count": 1,
+    "tickers": [
+      "NVDA"
+    ],
+    "quality_score": 0.9524,
+    "weighted_relevance": 0.9523952890649693
+  },
+  {
+    "source": "Yahoo_Finance",
+    "credibility": 0.75,
+    "title": "Taiwan Semiconductor Manufacturing Co Ltd (TSM) Q1 2026 Earnings Call Highlights: Strong ...",
+    "summary": "TSMC reports a 6.4% increase in revenue and robust demand for 3-nanometer technology, despite challenges in smartphone and automotive segments.",
+    "url": "https://finance.yahoo.com/markets/stocks/articles/taiwan-semiconductor-manufacturing-co-ltd-070039540.html?.tsrc=rss",
+    "published": "2026-04-17T07:00:39",
+    "signals": {
+      "thiel": false,
+      "shulman": false,
+      "contrarian": false,
+      "bottleneck_compute": true,
+      "bottleneck_energy": false,
+      "salp": false
+    },
+    "signal_count": 1,
+    "tickers": [
+      "TSM"
+    ],
+    "quality_score": 0.9524,
+    "weighted_relevance": 0.9523952890649693
+  },
+  {
+    "source": "Yahoo_Finance",
+    "credibility": 0.75,
+    "title": "Himax and onsemi Stocks Trade Up, What You Need To Know",
+    "summary": "A number of stocks jumped in the afternoon session after industry bellwether Taiwan Semiconductor Manufacturing Co. (TSMC) reported a substantial 58% jump in quarterly profit and forecasted strong future sales, fueled by booming demand for artificial intelligence (AI).",
+    "url": "https://finance.yahoo.com/markets/stocks/articles/himax-onsemi-stocks-trade-know-062627852.html?.tsrc=rss",
+    "published": "2026-04-17T06:26:27",
+    "signals": {
+      "thiel": false,
+      "shulman": false,
+      "contrarian": false,
+      "bottleneck_compute": true,
+      "bottleneck_energy": false,
+      "salp": false
+    },
+    "signal_count": 1,
+    "tickers": [
+      "TSM"
+    ],
+    "quality_score": 0.9524,
+    "weighted_relevance": 0.9523952890649693
   },
   {
     "source": "Seeking_Alpha_NVDA",
     "credibility": 0.7,
-    "title": "Nvidia And AMD: Trim Your Hare, Buy A Tortoise",
+    "title": "Nvidia: I'm Finally Convinced (Rating Upgrade)",
     "summary": "",
-    "url": "https://seekingalpha.com/article/4890971-nvidia-and-amd-trim-your-hare-buy-a-tortoise?source=feed_symbol_NVDA",
-    "published": "2026-04-15T16:59:31",
+    "url": "https://seekingalpha.com/article/4891415-nvidia-im-finally-convinced-rating-upgrade?source=feed_symbol_NVDA",
+    "published": "2026-04-16T23:16:11",
     "signals": {
       "thiel": false,
       "shulman": false,
@@ -382,98 +295,10 @@
   {
     "source": "Seeking_Alpha_NVDA",
     "credibility": 0.7,
-    "title": "Nvidia's Moat Vulnerable As Anthropic And Elon Musk Build Chips",
+    "title": "Nvidia And Its Real Value",
     "summary": "",
-    "url": "https://seekingalpha.com/article/4890916-nvidia-moat-vulnerable-as-anthropic-and-elon-musk-build-chips?source=feed_symbol_NVDA",
-    "published": "2026-04-15T15:19:35",
-    "signals": {
-      "thiel": false,
-      "shulman": false,
-      "contrarian": false,
-      "bottleneck_compute": true,
-      "bottleneck_energy": false,
-      "salp": false
-    },
-    "signal_count": 1,
-    "tickers": [
-      "NVDA"
-    ],
-    "quality_score": 0.8296,
-    "weighted_relevance": 0.8296421184743731
-  },
-  {
-    "source": "Seeking_Alpha_NVDA",
-    "credibility": 0.7,
-    "title": "Senator Warren sees 'risks' to Nvidia's SchedMD deal in letter to Hegseth, Wright",
-    "summary": "",
-    "url": "https://seekingalpha.com/symbol/NVDA/news?source=feed_symbol_NVDA",
-    "published": "2026-04-15T14:31:53",
-    "signals": {
-      "thiel": false,
-      "shulman": false,
-      "contrarian": false,
-      "bottleneck_compute": true,
-      "bottleneck_energy": false,
-      "salp": false
-    },
-    "signal_count": 1,
-    "tickers": [
-      "NVDA"
-    ],
-    "quality_score": 0.8296,
-    "weighted_relevance": 0.8296421184743731
-  },
-  {
-    "source": "Seeking_Alpha_NVDA",
-    "credibility": 0.7,
-    "title": "Snapshot of Quant and Wall St. ratings for quantum computing stocks after Nvidia's latest push",
-    "summary": "",
-    "url": "https://seekingalpha.com/symbol/NVDA/news?source=feed_symbol_NVDA",
-    "published": "2026-04-15T11:02:48",
-    "signals": {
-      "thiel": false,
-      "shulman": false,
-      "contrarian": false,
-      "bottleneck_compute": true,
-      "bottleneck_energy": false,
-      "salp": false
-    },
-    "signal_count": 1,
-    "tickers": [
-      "NVDA"
-    ],
-    "quality_score": 0.8296,
-    "weighted_relevance": 0.8296421184743731
-  },
-  {
-    "source": "Seeking_Alpha_NVDA",
-    "credibility": 0.7,
-    "title": "Nokia and Orange partner on AI-RAN using Nvidia tech",
-    "summary": "",
-    "url": "https://seekingalpha.com/symbol/NVDA/news?source=feed_symbol_NVDA",
-    "published": "2026-04-15T09:36:17",
-    "signals": {
-      "thiel": false,
-      "shulman": false,
-      "contrarian": false,
-      "bottleneck_compute": true,
-      "bottleneck_energy": false,
-      "salp": false
-    },
-    "signal_count": 1,
-    "tickers": [
-      "NVDA"
-    ],
-    "quality_score": 0.8296,
-    "weighted_relevance": 0.8296421184743731
-  },
-  {
-    "source": "Seeking_Alpha_NVDA",
-    "credibility": 0.7,
-    "title": "Nvidia\u2019s newest AI models spark rally in quantum computing stocks; INFQ, QBTS, and XNDU see notable gains",
-    "summary": "",
-    "url": "https://seekingalpha.com/symbol/NVDA/news?source=feed_symbol_NVDA",
-    "published": "2026-04-15T09:13:31",
+    "url": "https://seekingalpha.com/article/4891369-nvidia-and-its-real-value?source=feed_symbol_NVDA",
+    "published": "2026-04-16T19:41:20",
     "signals": {
       "thiel": false,
       "shulman": false,
