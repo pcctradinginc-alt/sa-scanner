@@ -24,6 +24,28 @@
   {
     "source": "CNBC_Tech",
     "credibility": 0.83,
+    "title": "Nvidia AI chip rivals attract record funding as competition heats up",
+    "summary": "A growing crop of startups are set on challenging the chip giant's supremacy.",
+    "url": "https://www.cnbc.com/2026/04/17/nvidia-ai-chip-rivals-funding-euclyd-fractile.html",
+    "published": "2026-04-17T11:22:13",
+    "signals": {
+      "thiel": false,
+      "shulman": false,
+      "contrarian": false,
+      "bottleneck_compute": true,
+      "bottleneck_energy": false,
+      "salp": false
+    },
+    "signal_count": 1,
+    "tickers": [
+      "NVDA"
+    ],
+    "quality_score": 1.1664,
+    "weighted_relevance": 1.1664090926877464
+  },
+  {
+    "source": "CNBC_Tech",
+    "credibility": 0.83,
     "title": "Nvidia rival tells CNBC it's seeking at least $100 million in funding as European AI chip market booms",
     "summary": "Investor interest for AI chip startups is rising, but big challenges remain for the nascent sector.",
     "url": "https://www.cnbc.com/2026/04/17/nvidia-rivals-chip-market-funding-ai-asml-euclyd.html",
@@ -84,8 +106,8 @@
     "signal_count": 1,
     "tickers": [
       "MSFT",
-      "GOOGL",
       "AMZN",
+      "GOOGL",
       "NVDA"
     ],
     "quality_score": 1.1664,
@@ -138,33 +160,10 @@
   {
     "source": "Yahoo_Finance",
     "credibility": 0.75,
-    "title": "$3.36 Trn AI in Medicine Market Research and Global Forecasts, 2026-2040: Google DeepMind, IBM Watson Health, NVIDIA, Tempus, and PathAI Dominate Through Substantial Investments",
-    "summary": "AI is transforming medicine by improving diagnostics, personalized treatments, and operational efficiency. Key opportunities include AI-powered drug discovery, precision medicine, wearables for real-time monitoring, and predictive analytics. These innovations target chronic and genetic diseases, fueling market growth despite challenges like data privacy. AI in Medicine Market AI in Medicine Market Dublin, April 17, 2026 (GLOBE NEWSWIRE) -- The \"AI in Medicine Market, till 2040: Distribution by T",
-    "url": "https://finance.yahoo.com/sectors/healthcare/articles/3-36-trn-ai-medicine-092500769.html?.tsrc=rss",
-    "published": "2026-04-17T09:25:00",
-    "signals": {
-      "thiel": false,
-      "shulman": false,
-      "contrarian": false,
-      "bottleneck_compute": true,
-      "bottleneck_energy": false,
-      "salp": false
-    },
-    "signal_count": 1,
-    "tickers": [
-      "GOOGL",
-      "NVDA"
-    ],
-    "quality_score": 0.9524,
-    "weighted_relevance": 0.9523952890649693
-  },
-  {
-    "source": "Yahoo_Finance",
-    "credibility": 0.75,
-    "title": "Is NVIDIA\u2019s (NVDA) Open Quantum AI Push Quietly Redefining Its Core Infrastructure Moat?",
-    "summary": "Earlier this week, NVIDIA unveiled NVIDIA Ising, the world\u2019s first open-source quantum AI model family aimed at tackling quantum processor calibration and error correction, with early adoption across leading quantum hardware makers, universities, and research labs. By inserting its AI stack into the core control layer of emerging quantum systems, NVIDIA is positioning GPUs and CUDA-Q as foundational infrastructure for future hybrid quantum\u2013classical supercomputers. We\u2019ll now examine how...",
-    "url": "https://finance.yahoo.com/sectors/technology/articles/nvidia-nvda-open-quantum-ai-090806879.html?.tsrc=rss",
-    "published": "2026-04-17T09:08:06",
+    "title": "Nvidia CEO makes surprising admission on OpenAI and Anthropic",
+    "summary": "The CEO of the company that supplies the chips powering the AI boom just admitted he should have owned more of it. Nvidia CEO Jensen Huang said on the Dwarkesh Podcast on April 15 that Nvidia missed the chance to invest early in OpenAI and Anthropic, KuCoin reported. Huang called it a strategic ...",
+    "url": "https://www.thestreet.com/technology/nvidia-ceo-makes-surprising-admission-on-openai-and-anthropic?.tsrc=rss",
+    "published": "2026-04-17T15:55:30",
     "signals": {
       "thiel": false,
       "shulman": false,
@@ -183,10 +182,10 @@
   {
     "source": "Yahoo_Finance",
     "credibility": 0.75,
-    "title": "Think AMD, Broadcom, or Alphabet Is Nvidia's Biggest Competitor for AI Data Center Space? Think Again...",
-    "summary": "The No. 1 risk to Nvidia's artificial intelligence (AI) hardware supremacy arguably comes from within.",
-    "url": "https://www.fool.com/investing/2026/04/17/think-amd-avgo-or-googl-is-nvda-biggest-ai-threat/?.tsrc=rss",
-    "published": "2026-04-17T08:26:00",
+    "title": "AI Chips Used to Be Nvidia\u2019s Game. Now More Winners Are Emerging.",
+    "summary": "Once dominated by Nvidia, the artificial-intelligence boom is now lifting chip stocks from Broadcom and Marvell to Advanced Micro Devices and Intel.",
+    "url": "https://finance.yahoo.com/m/d6accfba-5876-31ae-857c-fa352e716ff5/ai-chips-used-to-be-nvidia%E2%80%99s.html?.tsrc=rss",
+    "published": "2026-04-17T15:19:00",
     "signals": {
       "thiel": false,
       "shulman": false,
@@ -197,9 +196,8 @@
     },
     "signal_count": 1,
     "tickers": [
-      "GOOGL",
-      "NVDA",
-      "AVGO"
+      "AVGO",
+      "NVDA"
     ],
     "quality_score": 0.9524,
     "weighted_relevance": 0.9523952890649693
@@ -207,10 +205,10 @@
   {
     "source": "Yahoo_Finance",
     "credibility": 0.75,
-    "title": "IQVIA.ai Launch With NVIDIA Puts IQVIA\u2019s AI Valuation In Focus",
-    "summary": "IQVIA Holdings (NYSE:IQV) has launched IQVIA.ai, a proprietary AI platform built in partnership with NVIDIA. The platform is designed to support new applications across life sciences operations, from research to commercial activities. IQVIA, a major player in clinical research and healthcare data services, is moving deeper into AI with IQVIA.ai, aiming to apply advanced computing to the complex demands of life sciences. For readers tracking NYSE:IQV, this development sits at the...",
-    "url": "https://finance.yahoo.com/sectors/healthcare/articles/iqvia-ai-launch-nvidia-puts-080400913.html?.tsrc=rss",
-    "published": "2026-04-17T08:04:00",
+    "title": "Jensen Huang Reveals Nvidia's Unique All-In Investment Approach: 'We Don't Pick Winners'",
+    "summary": "Jensen Huang, CEO of Nvidia Corporation, stated that the company\u2019s investment approach is to back a wide array of tech firms, rather than just a select few. While speaking on the \u201cDwarkesh\u201d podcast, aired on Wednesday, Huang clarified, \u201cThere are so many great, amazing foundation model companies, and we try to invest in all of them. We don\u2019t pick winners. We need to support everyone.\u201d Huang cited two reasons for this strategy. First, he believes it\u2019s not Nvidia\u2019s job to pick winners. Second, he",
+    "url": "https://finance.yahoo.com/markets/stocks/articles/jensen-huang-reveals-nvidias-unique-150107745.html?.tsrc=rss",
+    "published": "2026-04-17T15:01:07",
     "signals": {
       "thiel": false,
       "shulman": false,
@@ -229,10 +227,10 @@
   {
     "source": "Yahoo_Finance",
     "credibility": 0.75,
-    "title": "Taiwan Semiconductor Manufacturing Co Ltd (TSM) Q1 2026 Earnings Call Highlights: Strong ...",
-    "summary": "TSMC reports a 6.4% increase in revenue and robust demand for 3-nanometer technology, despite challenges in smartphone and automotive segments.",
-    "url": "https://finance.yahoo.com/markets/stocks/articles/taiwan-semiconductor-manufacturing-co-ltd-070039540.html?.tsrc=rss",
-    "published": "2026-04-17T07:00:39",
+    "title": "Nvidia Stock Is an Analyst\u2019s \u2018Top Pick.\u2019 Can It Catch Up With Intel and AMD?",
+    "summary": "Nvidia stock has had a good run but not nearly as good as AMD and Intel. Oppenheimer's Rick Schafer thinks the tables will turn.",
+    "url": "https://finance.yahoo.com/m/d5c8f04f-0752-3bec-b807-4ad05ee31be9/nvidia-stock-is-an-analyst%E2%80%99s.html?.tsrc=rss",
+    "published": "2026-04-17T14:47:00",
     "signals": {
       "thiel": false,
       "shulman": false,
@@ -243,18 +241,18 @@
     },
     "signal_count": 1,
     "tickers": [
-      "TSM"
+      "NVDA"
     ],
     "quality_score": 0.9524,
     "weighted_relevance": 0.9523952890649693
   },
   {
-    "source": "Yahoo_Finance",
-    "credibility": 0.75,
-    "title": "Himax and onsemi Stocks Trade Up, What You Need To Know",
-    "summary": "A number of stocks jumped in the afternoon session after industry bellwether Taiwan Semiconductor Manufacturing Co. (TSMC) reported a substantial 58% jump in quarterly profit and forecasted strong future sales, fueled by booming demand for artificial intelligence (AI).",
-    "url": "https://finance.yahoo.com/markets/stocks/articles/himax-onsemi-stocks-trade-know-062627852.html?.tsrc=rss",
-    "published": "2026-04-17T06:26:27",
+    "source": "Seeking_Alpha_NVDA",
+    "credibility": 0.7,
+    "title": "Nvidia Stock Looks Like A Buy (Technical Analysis)",
+    "summary": "",
+    "url": "https://seekingalpha.com/article/4891606-nvidia-stock-looks-like-a-buy-technical-analysis?source=feed_symbol_NVDA",
+    "published": "2026-04-17T15:31:56",
     "signals": {
       "thiel": false,
       "shulman": false,
@@ -265,10 +263,10 @@
     },
     "signal_count": 1,
     "tickers": [
-      "TSM"
+      "NVDA"
     ],
-    "quality_score": 0.9524,
-    "weighted_relevance": 0.9523952890649693
+    "quality_score": 0.8296,
+    "weighted_relevance": 0.8296421184743731
   },
   {
     "source": "Seeking_Alpha_NVDA",
