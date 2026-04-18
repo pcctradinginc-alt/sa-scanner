@@ -1,20 +1,22 @@
 {
-  "mode": "NORMAL",
+  "mode": "STRESS",
   "iv_rank_avg": null,
   "iv_confidence": "INSUFFICIENT_DATA",
-  "energy_breadth": 0.867,
+  "energy_breadth": 0.5,
   "capex_trend": "rising",
-  "regime_stability": 0.449,
-  "conviction_threshold": 7.5,
+  "regime_stability": 0.265,
+  "conviction_threshold": 8.0,
   "weights": {
-    "salp": 0.4,
-    "thiel": 0.14,
-    "shulman": 0.15,
-    "multigate": 0.04,
-    "regime": 0.15,
+    "salp": 0.5,
+    "thiel": 0.1,
+    "shulman": 0.13,
+    "multigate": 0.03,
+    "regime": 0.12,
     "contrarian": 0.12
   },
-  "stress_reasons": [],
-  "regime_score": 8.5,
-  "determined_at": "2026-04-17T16:22:06.134328"
+  "stress_reasons": [
+    "Regime stability 0.27 < 0.4"
+  ],
+  "regime_score": 6.5,
+  "determined_at": "2026-04-18T18:35:12.424285"
 }
