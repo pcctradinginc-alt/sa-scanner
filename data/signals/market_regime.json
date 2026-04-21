@@ -38,7 +38,7 @@
     "empirical_point": 0,
     "data_gap": false,
     "primary_source": "fred",
-    "fetched_at": "2026-04-20T16:48:04.285395"
+    "fetched_at": "2026-04-21T08:01:35.082013"
   },
   "fred": {
     "electric_power_production": {
@@ -62,7 +62,7 @@
       "period": "2026-03-01",
       "data_gap": false
     },
-    "fetched_at": "2026-04-20T16:47:59.071748"
+    "fetched_at": "2026-04-21T08:01:27.096577"
   },
   "eia": {
     "growth_yoy": 0.03,
@@ -71,6 +71,6 @@
     "shulman_signal": false,
     "empirical_point": 0,
     "data_gap": false,
-    "fetched_at": "2026-04-20T16:47:57.668651"
+    "fetched_at": "2026-04-21T08:01:22.623513"
   }
 }
