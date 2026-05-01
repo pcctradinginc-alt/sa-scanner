@@ -5,8 +5,11 @@
   },
   "hyperscaler_capex": {
     "fred_capex": {
-      "data_gap": true,
-      "error": "500 Server Error: Internal Server Error for url: https://api.stlouisfed.org/fred/series/observations?series_id=PNFI&api_key=35eef949b71aa59c6b22e9e515090d0c&file_type=json&observation_start=2024-09-07&sort_order=desc&limit=25"
+      "growth_yoy": 0.0862,
+      "capex_trend": "rising",
+      "period": "2026-01-01",
+      "series": "PNFI",
+      "data_gap": false
     },
     "finnhub_capex": {
       "by_ticker": {
@@ -30,12 +33,12 @@
       "avg_growth": null,
       "data_gap": true
     },
-    "capex_trend": "unknown",
-    "avg_growth_yoy": null,
+    "capex_trend": "rising",
+    "avg_growth_yoy": 0.0862,
     "empirical_point": 0,
-    "data_gap": true,
+    "data_gap": false,
     "primary_source": "fred",
-    "fetched_at": "2026-04-30T15:10:16.466896"
+    "fetched_at": "2026-05-01T08:20:44.617526"
   },
   "fred": {
     "electric_power_production": {
@@ -59,7 +62,7 @@
       "period": "2026-03-01",
       "data_gap": false
     },
-    "fetched_at": "2026-04-30T15:10:11.544158"
+    "fetched_at": "2026-05-01T08:20:39.403582"
   },
   "eia": {
     "growth_yoy": 0.03,
@@ -68,6 +71,6 @@
     "shulman_signal": false,
     "empirical_point": 0,
     "data_gap": false,
-    "fetched_at": "2026-04-30T15:10:09.827005"
+    "fetched_at": "2026-05-01T08:20:38.104738"
   }
 }
