@@ -7,41 +7,41 @@
   "CEG": {
     "error": "No expirations",
     "ticker": "CEG",
-    "rsi": 57.4
+    "rsi": 61.2
   },
   "NRG": {
     "error": "No expirations",
     "ticker": "NRG",
-    "rsi": 34.3
+    "rsi": 35.2
   },
   "PLTR": {
     "error": "No expirations",
     "ticker": "PLTR",
-    "rsi": 63.0
+    "rsi": 62.2
   },
   "NVDA": {
     "error": "No expirations",
     "ticker": "NVDA",
-    "rsi": 58.1
+    "rsi": 51.1
   },
   "TSM": {
     "error": "No expirations",
     "ticker": "TSM",
-    "rsi": 63.4
+    "rsi": 60.7
   },
   "AVGO": {
     "error": "No expirations",
     "ticker": "AVGO",
-    "rsi": 69.5
+    "rsi": 66.6
   },
   "LMT": {
     "error": "No expirations",
     "ticker": "LMT",
-    "rsi": 6.6
+    "rsi": 11.9
   },
   "RTX": {
     "error": "No expirations",
     "ticker": "RTX",
-    "rsi": 17.8
+    "rsi": 16.1
   }
 }
