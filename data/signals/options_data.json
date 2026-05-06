@@ -2,46 +2,46 @@
   "VST": {
     "error": "No expirations",
     "ticker": "VST",
-    "rsi": 49.2
+    "rsi": 47.5
   },
   "CEG": {
     "error": "No expirations",
     "ticker": "CEG",
-    "rsi": 62.3
+    "rsi": 61.0
   },
   "NRG": {
     "error": "No expirations",
     "ticker": "NRG",
-    "rsi": 41.7
+    "rsi": 40.1
   },
   "PLTR": {
     "error": "No expirations",
     "ticker": "PLTR",
-    "rsi": 43.7
+    "rsi": 43.4
   },
   "NVDA": {
     "error": "No expirations",
     "ticker": "NVDA",
-    "rsi": 48.6
+    "rsi": 47.6
   },
   "TSM": {
     "error": "No expirations",
     "ticker": "TSM",
-    "rsi": 61.6
+    "rsi": 59.6
   },
   "AVGO": {
     "error": "No expirations",
     "ticker": "AVGO",
-    "rsi": 64.8
+    "rsi": 64.5
   },
   "LMT": {
     "error": "No expirations",
     "ticker": "LMT",
-    "rsi": 10.6
+    "rsi": 10.5
   },
   "RTX": {
     "error": "No expirations",
     "ticker": "RTX",
-    "rsi": 16.1
+    "rsi": 16.3
   }
 }
