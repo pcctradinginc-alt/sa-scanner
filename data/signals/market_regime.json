@@ -38,7 +38,7 @@
     "empirical_point": 0,
     "data_gap": false,
     "primary_source": "fred",
-    "fetched_at": "2026-05-13T08:51:38.536677"
+    "fetched_at": "2026-05-13T15:44:51.297080"
   },
   "fred": {
     "electric_power_production": {
@@ -49,11 +49,8 @@
       "data_gap": false
     },
     "industrial_production": {
-      "latest": 101.79,
-      "year_ago": 101.04,
-      "growth_yoy": 0.0074,
-      "period": "2026-03-01",
-      "data_gap": false
+      "error": "500 Server Error: Internal Server Error for url: https://api.stlouisfed.org/fred/series/observations?series_id=INDPRO&api_key=35eef949b71aa59c6b22e9e515090d0c&file_type=json&observation_start=2024-09-20&sort_order=desc&limit=20",
+      "data_gap": true
     },
     "cpi_inflation": {
       "latest": 332.41,
@@ -62,7 +59,7 @@
       "period": "2026-04-01",
       "data_gap": false
     },
-    "fetched_at": "2026-05-13T08:51:33.366127"
+    "fetched_at": "2026-05-13T15:44:46.113288"
   },
   "eia": {
     "growth_yoy": 0.03,
@@ -71,6 +68,6 @@
     "shulman_signal": false,
     "empirical_point": 0,
     "data_gap": false,
-    "fetched_at": "2026-05-13T08:51:32.036213"
+    "fetched_at": "2026-05-13T15:44:44.721177"
   }
 }
