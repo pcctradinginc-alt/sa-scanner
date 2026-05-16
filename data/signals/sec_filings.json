@@ -1,6 +1,59 @@
 {
-  "new_filings_found": 0,
-  "new_filings": [],
+  "new_filings_found": 4,
+  "new_filings": [
+    {
+      "entity": "thiel_capital",
+      "cik": "0001418819",
+      "filing_type": "8-K",
+      "filing_date": "2026-05-14T07:00:42-04:00",
+      "filing_url": "https://www.sec.gov/Archives/edgar/data/1418819/000141881926000032/0001418819-26-000032-index.htm",
+      "title": "8-K  - Current report",
+      "weight": 1.8,
+      "description": "Material Events (HIGHEST RELEVANCE)",
+      "signal_strength": "UNKNOWN",
+      "positions": [],
+      "classifications": []
+    },
+    {
+      "entity": "thiel_capital",
+      "cik": "0001418819",
+      "filing_type": "8-K",
+      "filing_date": "2026-04-23T07:00:47-04:00",
+      "filing_url": "https://www.sec.gov/Archives/edgar/data/1418819/000141881926000027/0001418819-26-000027-index.htm",
+      "title": "8-K  - Current report",
+      "weight": 1.8,
+      "description": "Material Events (HIGHEST RELEVANCE)",
+      "signal_strength": "UNKNOWN",
+      "positions": [],
+      "classifications": []
+    },
+    {
+      "entity": "thiel_capital",
+      "cik": "0001418819",
+      "filing_type": "8-K",
+      "filing_date": "2026-03-05T16:02:51-05:00",
+      "filing_url": "https://www.sec.gov/Archives/edgar/data/1418819/000141881926000016/0001418819-26-000016-index.htm",
+      "title": "8-K  - Current report",
+      "weight": 1.8,
+      "description": "Material Events (HIGHEST RELEVANCE)",
+      "signal_strength": "UNKNOWN",
+      "positions": [],
+      "classifications": []
+    },
+    {
+      "entity": "thiel_capital",
+      "cik": "0001418819",
+      "filing_type": "8-K",
+      "filing_date": "2026-02-27T16:02:22-05:00",
+      "filing_url": "https://www.sec.gov/Archives/edgar/data/1418819/000141881926000014/0001418819-26-000014-index.htm",
+      "title": "8-K  - Current report",
+      "weight": 1.8,
+      "description": "Material Events (HIGHEST RELEVANCE)",
+      "signal_strength": "UNKNOWN",
+      "positions": [],
+      "classifications": []
+    }
+  ],
   "classifications": [],
   "new_tickers": [],
   "very_strong_signals": [],
@@ -17,10 +70,12 @@
     "SC 13D/A",
     "SC 13G",
     "SC 13G/A",
-    "4"
+    "4",
+    "8-K",
+    "8-K/A"
   ],
   "salp_score_override": 3.0,
-  "trigger_pipeline": false,
+  "trigger_pipeline": true,
   "date_filter_cutoff": "2026-02-15",
-  "checked_at": "2026-05-16T06:30:07.538074"
+  "checked_at": "2026-05-16T06:50:40.052563"
 }

@@ -1,7 +1,7 @@
 {
-  "eia": "OK_FRED",
   "fred": "OK",
-  "tradier": "OK",
+  "eia": "OK_FRED",
+  "tradier": "ALL_FAILED",
   "errors": [
     "energy_breadth: type object 'Config' has no attribute 'ENERGY_TICKERS'",
     "rss: 'set' object has no attribute 'items'"
@@ -14,5 +14,5 @@
     "any_gap": true,
     "all_gaps": false
   },
-  "fetched_at": "2026-05-16T06:27:32.881587"
+  "fetched_at": "2026-05-16T06:52:51.183810"
 }
