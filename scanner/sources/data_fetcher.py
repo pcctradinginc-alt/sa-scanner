@@ -17,6 +17,7 @@ FIXES v4:
 import json
 import logging
 import math
+from concurrent.futures import ThreadPoolExecutor, as_completed
 from datetime import datetime, timedelta
 from pathlib import Path
 
@@ -25,6 +26,7 @@ import requests_cache
 import feedparser
 import yfinance as yf
 import finnhub
+from tenacity import retry, stop_after_attempt, wait_exponential, retry_if_exception_type
 
 from ..utils.config import Config
 from ..utils.rate_limiter import rate_limiter
@@ -34,7 +36,8 @@ from .tradier_client import TradierClient
 logger = logging.getLogger(__name__)
 
 Config.CACHE_DIR.mkdir(parents=True, exist_ok=True)
-requests_cache.install_cache(
+# CachedSession statt globalem install_cache — kein Seiteneffekt auf andere Requests-Nutzer
+_cached_session = requests_cache.CachedSession(
     str(Config.CACHE_DIR / "sa_scanner_cache"),
     expire_after=3600,
 )
@@ -48,6 +51,7 @@ class DataFetcher:
         self.tradier = TradierClient()
         self.fh      = finnhub.Client(api_key=Config.FINNHUB_API_KEY or "")
         self.quality = {}
+        self._session = _cached_session
 
     # ── ENERGY BREADTH ───────────────────────────────────────────
 
@@ -223,7 +227,7 @@ class DataFetcher:
                 "sort_order":        "desc",
                 "limit":             20,  # FIX v4
             }
-            r    = requests.get(url, params=params, timeout=20)
+            r    = self._session.get(url, params=params, timeout=20)
             r.raise_for_status()
             obs  = r.json().get("observations", [])
             valid = [
@@ -266,6 +270,35 @@ class DataFetcher:
 
     # ── FRED MAKRO ───────────────────────────────────────────────
 
+    # Level-Serien: kein YoY-Wachstum, nur Latest-Wert
+    _FRED_LEVEL_SERIES = {"T10Y2Y", "BAMLH0A0HYM2"}
+
+    @retry(
+        stop=stop_after_attempt(3),
+        wait=wait_exponential(multiplier=1, min=2, max=10),
+        retry=retry_if_exception_type(Exception),
+        reraise=True,
+    )
+    def _fred_get(self, series_id: str, days_back: int = 600,
+                  limit: int = 20) -> list:
+        """Einheitlicher FRED-Fetcher mit Retry-Logik."""
+        rate_limiter.wait("fred")
+        url    = "https://api.stlouisfed.org/fred/series/observations"
+        params = {
+            "series_id":         series_id,
+            "api_key":           Config.FRED_API_KEY,
+            "file_type":         "json",
+            "observation_start": (
+                datetime.utcnow() - timedelta(days=days_back)
+            ).strftime("%Y-%m-%d"),
+            "sort_order":        "desc",
+            "limit":             limit,
+        }
+        r = self._session.get(url, params=params, timeout=20)
+        r.raise_for_status()
+        obs = r.json().get("observations", [])
+        return [(o["date"], float(o["value"])) for o in obs if o["value"] != "."]
+
     def get_fred_data(self) -> dict:
         logger.info("Fetching FRED macro data")
         if not Config.FRED_API_KEY:
@@ -273,34 +306,21 @@ class DataFetcher:
             return {"error": "No FRED API key", "data_gap": True}
 
         results = {}
-        series  = {
+        # Growth-Serien: YoY-Wachstum berechnen
+        growth_series = {
             "IPG2211A2N": "electric_power_production",
             "INDPRO":     "industrial_production",
             "CPIAUCSL":   "cpi_inflation",
         }
+        # Level-Serien: nur aktuellen Wert liefern (Spread/Niveau)
+        level_series = {
+            "T10Y2Y":       "yield_curve_spread",
+            "BAMLH0A0HYM2": "hy_credit_spread",
+        }
 
-        for series_id, name in series.items():
+        for series_id, name in growth_series.items():
             try:
-                rate_limiter.wait("fred")
-                url    = "https://api.stlouisfed.org/fred/series/observations"
-                params = {
-                    "series_id":         series_id,
-                    "api_key":           Config.FRED_API_KEY,
-                    "file_type":         "json",
-                    "observation_start": (
-                        datetime.utcnow() - timedelta(days=600)  # FIX v4
-                    ).strftime("%Y-%m-%d"),
-                    "sort_order":        "desc",
-                    "limit":             20,  # FIX v4
-                }
-                r    = requests.get(url, params=params, timeout=20)
-                r.raise_for_status()
-                obs  = r.json().get("observations", [])
-                valid = [
-                    (o["date"], float(o["value"]))
-                    for o in obs if o["value"] != "."
-                ]
-
+                valid = self._fred_get(series_id, days_back=600, limit=20)
                 if len(valid) >= 13:
                     latest   = valid[0][1]
                     year_ago = valid[12][1]
@@ -314,11 +334,25 @@ class DataFetcher:
                     }
                     logger.info(f"FRED {series_id}: {growth:.1%} YoY")
                 else:
-                    logger.warning(
-                        f"FRED {series_id}: {len(valid)} obs — DATA GAP"
-                    )
+                    logger.warning(f"FRED {series_id}: {len(valid)} obs — DATA GAP")
                     results[name] = {"data_gap": True, "obs_count": len(valid)}
+            except Exception as e:
+                logger.warning(f"FRED {series_id}: {e}")
+                results[name] = {"error": str(e), "data_gap": True}
 
+        for series_id, name in level_series.items():
+            try:
+                # Yield curve: tägliche Daten, 90 Tage zurück genügt
+                valid = self._fred_get(series_id, days_back=90, limit=5)
+                if valid:
+                    results[name] = {
+                        "latest":   round(valid[0][1], 4),
+                        "period":   valid[0][0],
+                        "data_gap": False,
+                    }
+                    logger.info(f"FRED {series_id} (level): {valid[0][1]:.3f}")
+                else:
+                    results[name] = {"data_gap": True}
             except Exception as e:
                 logger.warning(f"FRED {series_id}: {e}")
                 results[name] = {"error": str(e), "data_gap": True}
@@ -418,7 +452,7 @@ class DataFetcher:
                 "sort_order":        "desc",
                 "limit":             25,
             }
-            r    = requests.get(url, params=params, timeout=20)
+            r    = self._session.get(url, params=params, timeout=20)
             r.raise_for_status()
             obs  = r.json().get("observations", [])
             valid = [
@@ -672,56 +706,43 @@ class DataFetcher:
     # ── MAIN ORCHESTRATION ───────────────────────────────────────
 
     def fetch_all(self, state_manager, laufzeit_months: int = 6) -> dict:
-        logger.info("=== DataFetcher v4: starting full fetch ===")
+        logger.info("=== DataFetcher v4: starting full fetch (parallel) ===")
         Config.ensure_dirs()
         all_data = {}
         errors   = []
 
-        # 1. Energy Breadth
-        try:
-            all_data["energy_breadth"] = self.get_energy_breadth()
-        except Exception as e:
-            errors.append(f"energy_breadth: {e}")
-            all_data["energy_breadth"] = {"energy_breadth": 0.5, "data_gap": True}
+        # Unabhängige Fetches parallel ausführen (5-8x Speedup)
+        parallel_tasks = {
+            "energy_breadth":    (self.get_energy_breadth,         [],
+                                  {"energy_breadth": 0.5, "data_gap": True}),
+            "eia":               (self.get_eia_electricity_growth, [],
+                                  {"growth_yoy": None, "empirical_point": 0, "data_gap": True}),
+            "fred":              (self.get_fred_data,              [],
+                                  {"data_gap": True}),
+            "hyperscaler_capex": (self.get_hyperscaler_capex,      [],
+                                  {"capex_trend": "unknown", "empirical_point": 0, "data_gap": True}),
+            "nvda_revenue":      (self.get_nvda_revenue_growth,    [],
+                                  {"empirical_point": 0, "data_gap": True}),
+            "rss":               (self.fetch_rss,                  [],
+                                  []),
+        }
 
-        # 2. EIA
-        try:
-            all_data["eia"] = self.get_eia_electricity_growth()
-        except Exception as e:
-            errors.append(f"eia: {e}")
-            all_data["eia"] = {"growth_yoy": None, "empirical_point": 0, "data_gap": True}
-
-        # 3. FRED Makro
-        try:
-            all_data["fred"] = self.get_fred_data()
-        except Exception as e:
-            errors.append(f"fred: {e}")
-            all_data["fred"] = {"data_gap": True}
-
-        # 4. CapEx
-        try:
-            all_data["hyperscaler_capex"] = self.get_hyperscaler_capex()
-        except Exception as e:
-            errors.append(f"capex: {e}")
-            all_data["hyperscaler_capex"] = {
-                "capex_trend": "unknown", "empirical_point": 0, "data_gap": True
+        with ThreadPoolExecutor(max_workers=6) as executor:
+            futures = {
+                executor.submit(fn, *args): key
+                for key, (fn, args, _) in parallel_tasks.items()
             }
+            for future in as_completed(futures):
+                key = futures[future]
+                _, _, fallback = parallel_tasks[key]
+                try:
+                    all_data[key] = future.result()
+                except Exception as e:
+                    errors.append(f"{key}: {e}")
+                    all_data[key] = fallback
+                    logger.error(f"fetch_all parallel error [{key}]: {e}")
 
-        # 5. NVDA Revenue
-        try:
-            all_data["nvda_revenue"] = self.get_nvda_revenue_growth()
-        except Exception as e:
-            errors.append(f"nvda: {e}")
-            all_data["nvda_revenue"] = {"empirical_point": 0, "data_gap": True}
-
-        # 6. RSS
-        try:
-            all_data["rss"] = self.fetch_rss()
-        except Exception as e:
-            errors.append(f"rss: {e}")
-            all_data["rss"] = []
-
-        # 7. Options
+        # Options sequenziell (benötigt state_manager, nicht thread-safe)
         try:
             all_data["options"] = self.fetch_options_data(
                 state_manager, laufzeit_months
