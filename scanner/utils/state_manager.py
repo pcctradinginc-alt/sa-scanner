@@ -110,6 +110,12 @@ class StateManager:
                 errors          TEXT,
                 git_committed   INTEGER DEFAULT 0
             );
+            CREATE TABLE IF NOT EXISTS oi_snapshots (
+                date    TEXT,
+                ticker  TEXT,
+                total_oi INTEGER,
+                PRIMARY KEY (date, ticker)
+            );
             CREATE INDEX IF NOT EXISTS idx_iv_ticker_date
                 ON iv_history(ticker, date);
             CREATE INDEX IF NOT EXISTS idx_signals_date
@@ -173,6 +179,29 @@ class StateManager:
             "iv_max_52w":  round(max(ivs), 3),
             "current_iv":  current_iv,
         }
+
+    # ── OI SNAPSHOTS ─────────────────────────────────────────────
+
+    def store_oi_snapshot(self, ticker: str, total_oi: int):
+        today = datetime.utcnow().date().isoformat()
+        self.conn.execute(
+            "INSERT OR REPLACE INTO oi_snapshots (date, ticker, total_oi) VALUES (?, ?, ?)",
+            (today, ticker, total_oi)
+        )
+        self.conn.commit()
+
+    def get_oi_change_pct(self, ticker: str, current_oi: int) -> Optional[float]:
+        cutoff = (datetime.utcnow() - timedelta(days=30)).date().isoformat()
+        rows = self.conn.execute(
+            "SELECT total_oi FROM oi_snapshots WHERE ticker = ? AND date >= ? ORDER BY date",
+            (ticker, cutoff)
+        ).fetchall()
+        if not rows:
+            return None
+        avg_oi = sum(r["total_oi"] for r in rows) / len(rows)
+        if avg_oi == 0:
+            return None
+        return (current_oi - avg_oi) / avg_oi
 
     # ── REGIME ───────────────────────────────────────────────────
 
