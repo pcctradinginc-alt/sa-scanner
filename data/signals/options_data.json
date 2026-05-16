@@ -497,8 +497,8 @@
     "options_flow": {
       "ticker": "VST",
       "call_volume": 3791,
-      "put_volume": 5556,
-      "put_call_volume": 1.466,
+      "put_volume": 5586,
+      "put_call_volume": 1.473,
       "call_oi": 8228,
       "put_oi": 12930,
       "put_call_oi": 1.571,
@@ -508,7 +508,7 @@
     "oi_delta_pct": 0.0,
     "oi_unusual": false,
     "laufzeit_months": 6,
-    "fetched_at": "2026-05-16T07:16:37.190472",
+    "fetched_at": "2026-05-16T08:06:03.749719",
     "rsi": 25.5
   },
   "CEG": {
@@ -1264,8 +1264,8 @@
     "options_flow": {
       "ticker": "CEG",
       "call_volume": 1743,
-      "put_volume": 2602,
-      "put_call_volume": 1.493,
+      "put_volume": 2604,
+      "put_call_volume": 1.494,
       "call_oi": 5482,
       "put_oi": 11417,
       "put_call_oi": 2.083,
@@ -1275,7 +1275,7 @@
     "oi_delta_pct": 0.0,
     "oi_unusual": false,
     "laufzeit_months": 6,
-    "fetched_at": "2026-05-16T07:16:51.194455",
+    "fetched_at": "2026-05-16T08:06:17.751213",
     "rsi": 28.7
   },
   "NRG": {
@@ -2008,7 +2008,7 @@
     "oi_delta_pct": 0.0,
     "oi_unusual": false,
     "laufzeit_months": 6,
-    "fetched_at": "2026-05-16T07:17:05.186511",
+    "fetched_at": "2026-05-16T08:06:31.759121",
     "rsi": 23.6
   },
   "PLTR": {
@@ -3001,8 +3001,8 @@
     },
     "options_flow": {
       "ticker": "PLTR",
-      "call_volume": 134329,
-      "put_volume": 55734,
+      "call_volume": 134333,
+      "put_volume": 55752,
       "put_call_volume": 0.415,
       "call_oi": 181038,
       "put_oi": 143322,
@@ -3013,7 +3013,7 @@
     "oi_delta_pct": 0.0,
     "oi_unusual": false,
     "laufzeit_months": 6,
-    "fetched_at": "2026-05-16T07:17:19.201379",
+    "fetched_at": "2026-05-16T08:06:45.752382",
     "rsi": 38.9
   },
   "NVDA": {
@@ -4159,9 +4159,9 @@
     },
     "options_flow": {
       "ticker": "NVDA",
-      "call_volume": 937094,
+      "call_volume": 938505,
       "put_volume": 417651,
-      "put_call_volume": 0.446,
+      "put_call_volume": 0.445,
       "call_oi": 757105,
       "put_oi": 374780,
       "put_call_oi": 0.495,
@@ -4171,7 +4171,7 @@
     "oi_delta_pct": 0.0,
     "oi_unusual": false,
     "laufzeit_months": 6,
-    "fetched_at": "2026-05-16T07:17:33.200360",
+    "fetched_at": "2026-05-16T08:06:59.758889",
     "rsi": 56.2
   },
   "TSM": {
@@ -5045,9 +5045,9 @@
     },
     "options_flow": {
       "ticker": "TSM",
-      "call_volume": 20470,
-      "put_volume": 42676,
-      "put_call_volume": 2.085,
+      "call_volume": 20485,
+      "put_volume": 42904,
+      "put_call_volume": 2.094,
       "call_oi": 51195,
       "put_oi": 95023,
       "put_call_oi": 1.856,
@@ -5057,7 +5057,7 @@
     "oi_delta_pct": 0.0,
     "oi_unusual": false,
     "laufzeit_months": 6,
-    "fetched_at": "2026-05-16T07:17:47.203596",
+    "fetched_at": "2026-05-16T08:07:13.758556",
     "rsi": 49.7
   },
   "AVGO": {
@@ -5926,7 +5926,7 @@
     "oi_delta_pct": 0.0,
     "oi_unusual": false,
     "laufzeit_months": 6,
-    "fetched_at": "2026-05-16T07:18:01.208298",
+    "fetched_at": "2026-05-16T08:07:27.757675",
     "rsi": 52.5
   },
   "LMT": {
@@ -7769,9 +7769,9 @@
     },
     "options_flow": {
       "ticker": "LMT",
-      "call_volume": 2196,
-      "put_volume": 610,
-      "put_call_volume": 0.278,
+      "call_volume": 2204,
+      "put_volume": 616,
+      "put_call_volume": 0.279,
       "call_oi": 3953,
       "put_oi": 3196,
       "put_call_oi": 0.808,
@@ -7781,7 +7781,7 @@
     "oi_delta_pct": 0.0,
     "oi_unusual": false,
     "laufzeit_months": 6,
-    "fetched_at": "2026-05-16T07:18:15.201887",
+    "fetched_at": "2026-05-16T08:07:41.761119",
     "rsi": 52.0
   },
   "RTX": {
@@ -8361,7 +8361,7 @@
     "oi_delta_pct": 0.0,
     "oi_unusual": false,
     "laufzeit_months": 6,
-    "fetched_at": "2026-05-16T07:18:29.210693",
+    "fetched_at": "2026-05-16T08:07:55.765083",
     "rsi": 45.9
   }
 }

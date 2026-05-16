@@ -1,33 +1,6 @@
 {
-  "new_filings_found": 2,
-  "new_filings": [
-    {
-      "entity": "thiel_capital",
-      "cik": "0001418819",
-      "filing_type": "8-K",
-      "filing_date": "2026-05-14T07:00:42-04:00",
-      "filing_url": "https://www.sec.gov/Archives/edgar/data/1418819/000141881926000032/0001418819-26-000032-index.htm",
-      "title": "8-K  - Current report",
-      "weight": 1.8,
-      "description": "Material Events (HIGHEST RELEVANCE)",
-      "signal_strength": "UNKNOWN",
-      "positions": [],
-      "classifications": []
-    },
-    {
-      "entity": "thiel_capital",
-      "cik": "0001418819",
-      "filing_type": "8-K",
-      "filing_date": "2026-04-23T07:00:47-04:00",
-      "filing_url": "https://www.sec.gov/Archives/edgar/data/1418819/000141881926000027/0001418819-26-000027-index.htm",
-      "title": "8-K  - Current report",
-      "weight": 1.8,
-      "description": "Material Events (HIGHEST RELEVANCE)",
-      "signal_strength": "UNKNOWN",
-      "positions": [],
-      "classifications": []
-    }
-  ],
+  "new_filings_found": 0,
+  "new_filings": [],
   "classifications": [],
   "new_tickers": [],
   "very_strong_signals": [],
@@ -49,7 +22,7 @@
     "8-K/A"
   ],
   "salp_score_override": 3.0,
-  "trigger_pipeline": true,
+  "trigger_pipeline": false,
   "date_filter_cutoff": "2026-02-15",
-  "checked_at": "2026-05-16T07:16:05.611227"
+  "checked_at": "2026-05-16T08:05:32.339269"
 }

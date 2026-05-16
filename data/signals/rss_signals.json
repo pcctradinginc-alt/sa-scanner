@@ -104,8 +104,8 @@
     },
     "signal_count": 1,
     "tickers": [
-      "META",
-      "GOOGL"
+      "GOOGL",
+      "META"
     ],
     "quality_score": 1.2233,
     "weighted_relevance": 1.2232988379545604
