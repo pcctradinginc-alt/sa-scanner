@@ -7,6 +7,8 @@ Verhindert geschlossene Überzeugungsschleifen.
 import logging
 from datetime import datetime
 
+import numpy as np  # R-15 FIX: Top-Level-Import statt konditionaler Import
+
 from ..utils.config import Config
 
 logger = logging.getLogger(__name__)
@@ -74,7 +76,6 @@ class ContrarianGate:
         hype_score  = 0.0
         hype_penalty = 0.0
         if relevant:
-            import numpy as np
             avg_cred   = float(np.mean([a.get("credibility", 0.5) for a in relevant]))
             hype_score = len(relevant) * (1 - avg_cred)
             hype_score = min(hype_score / 10, 1.0)
@@ -96,7 +97,9 @@ class ContrarianGate:
         )
         final_score = round(final_score, 1)
 
-        gate_blocked = final_score < Config.CONTRARIAN_BLOCK_THRESHOLD
+        # R-9 FIX: <= statt < — exakt -3.0 (1 Gegenszenario + volle Penalties)
+        # soll den Gate blockieren, nicht durchlassen.
+        gate_blocked = final_score <= Config.CONTRARIAN_BLOCK_THRESHOLD
 
         if gate_blocked:
             logger.warning(f"CONTRARIAN GATE BLOCKED {ticker}: score {final_score}")
