@@ -95,6 +95,36 @@ class Config:
     IV_RANK_HIGH_CONFIDENCE = 200
     IV_RANK_WARMUP_DEFAULT  = 50.0
 
+    # ── FILING-GEWICHTE (zentral, damit sec_edgar.py + pre_filter konsistent) ──
+    FILING_WEIGHT_13F       = 1.0
+    FILING_WEIGHT_13F_AMEND = 0.8
+    FILING_WEIGHT_SC13D     = 1.5
+    FILING_WEIGHT_SC13D_AMD = 1.3
+    FILING_WEIGHT_SC13G     = 0.8
+    FILING_WEIGHT_SC13G_AMD = 0.6
+    FILING_WEIGHT_FORM4     = 1.6   # erhöht: 2-Tage-Frist, deutlich aktueller als 13F
+    FILING_WEIGHT_8K        = 1.8   # Material Events — höchste Zeitrelevanz
+    FILING_WEIGHT_8K_AMEND  = 1.4
+
+    # ── FRED SERIES IDs ─────────────────────────────────────────
+    FRED_SERIES = {
+        "IPG2211A2N":   "electric_power_production",
+        "INDPRO":       "industrial_production",
+        "CPIAUCSL":     "cpi_inflation",
+        "T10Y2Y":       "yield_curve_spread",    # 10Y-2Y Spread — Inversion = Stress
+        "BAMLH0A0HYM2": "hy_credit_spread",      # High-Yield-Spreads — Kreditstress
+    }
+    YIELD_CURVE_INVERSION_THRESHOLD = -0.5   # < -50bps = invertiert = Stress
+    HY_SPREAD_STRESS_THRESHOLD      = 5.0    # > 500bps = Kreditstress
+
+    # ── OI-DELTA (Unusual Options Activity) ─────────────────────
+    OI_SPIKE_THRESHOLD = 0.50   # > 50% OI-Anstieg ggü. 30-Tage-Durchschnitt = unusual
+
+    # ── PRE-FILTER AUTO-THRESHOLD ────────────────────────────────
+    PRE_FILTER_THRESHOLD_INITIAL  = 2.0   # Warmup: kaum Filing-Daten
+    PRE_FILTER_THRESHOLD_ACTIVE   = 5.0   # Aktiv: regelmäßige 13F-Daten vorhanden
+    PRE_FILTER_FILING_COUNT_LIMIT = 50    # Ab dieser Anzahl gespeicherter Holdings → aktiver Threshold
+
     # ── RATE LIMITS & CACHE ─────────────────────────────────────
     RATE_LIMITS = { "tradier": 60, "finnhub": 60, "yfinance": 30, "sec_edgar": 10, "anthropic": 5, "fred": 120, "eia": 5000 }
     CACHE_EXPIRE = { "yfinance": 21600, "fred": 86400, "eia": 86400, "finnhub": 21600, "rss": 3600, "edgar": 21600, "tradier": 3600 }
