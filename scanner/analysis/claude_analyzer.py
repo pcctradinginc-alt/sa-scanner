@@ -28,10 +28,27 @@ client  = anthropic.Anthropic(api_key=Config.ANTHROPIC_API_KEY)
 mapper  = TickerMapper()
 
 
-MASTER_PROMPT = """Du bist der Analyse-Layer des Situational Awareness Scanner Systems.
-Deine Aufgabe ist eine strukturierte Analyse basierend auf Aschenbrenners "The Decade Ahead".
+# ── PROMPT A: Thesis-Analyse + Scoring (cacheable System-Teil) ────────────────
+# Statischer Kontext — wird bei jedem Run gecacht (Anthropic Prompt Caching).
+PROMPT_A_SYSTEM = """Du bist der Analyse-Layer des Situational Awareness Scanner Systems.
+Deine Aufgabe ist eine strukturierte Thesis-Analyse basierend auf Leopold Aschenbrenners
+"The Decade Ahead" (SALP-Framework: Situational Awareness LP).
 
-<analysis_request>
+Framework-Layer:
+- SALP: Portfoliobewegungen von Aschenbrenner / Situational Awareness LP (13F/SC13D/Form4)
+- THIEL: Peter Thiel Netzwerk-Signale (Katechon, Zero-to-One, Sovereign AI)
+- SHULMAN: Carl Shulman empirische Loops (Robot Doublings, Compute-Substitutability, IGE-Loop)
+- MULTIGATE: Qualitäts-gewichtete RSS/News-Signale
+- REGIME: Markt-Regime (Normal/Stress) basierend auf IV-Rank, CapEx, Energie-Breadth
+- CONTRARIAN: Aktive Gegenthesen (AI-Winter, Scaling-Plateau, Regulation)
+
+Scoring-Skala: 1.0–10.0 pro Layer. Conviction-Total = gewichteter Durchschnitt.
+Gate-Regeln: PASS >= 7.5 (Normal) / 8.0 (Stress) | WATCHLIST >= 6.5 | sonst NO_SIGNAL
+
+Antworte AUSSCHLIESSLICH mit einem validen JSON-Objekt ohne führenden oder nachfolgenden Text."""
+
+# ── PROMPT A: Variable Teil (per-ticker Analyse-Request) ──────────────────────
+PROMPT_A_TEMPLATE = """<analysis_request>
 
   <ticker>{ticker}</ticker>
   <sector>{sector}</sector>
@@ -53,19 +70,15 @@ Deine Aufgabe ist eine strukturierte Analyse basierend auf Aschenbrenners "The D
 {market_data_json}
   </market_data>
 
-  <!-- R5 FIX: Vollständiger RSS-Kontext der den Pre-Filter ausgelöst hat -->
   <pre_filter_trigger_articles>
-    Diese Artikel haben den Pre-Filter-Bonus für {ticker} ausgelöst.
-    Sie sind der primäre News-Kontext für die Analyse:
+    Diese Artikel haben den Pre-Filter-Bonus für {ticker} ausgelöst:
 {trigger_articles_json}
   </pre_filter_trigger_articles>
 
-  <!-- Zusätzlich: Ticker-spezifische Artikel falls vorhanden -->
   <ticker_specific_articles>
 {ticker_articles_json}
   </ticker_specific_articles>
 
-  <!-- Allgemeine Thiel/AI/Energie Signale aus RSS -->
   <general_signal_articles>
     Thiel-Artikel: {thiel_article_count}
     Energie-Artikel: {energy_article_count}
@@ -75,8 +88,7 @@ Deine Aufgabe ist eine strukturierte Analyse basierend auf Aschenbrenners "The D
 
   <step_1_bottleneck>
     Ist diese News primär eine Lösung für einen RECHEN-Flaschenhals
-    oder ENERGIE-Flaschenhals? Beziehe dich auf "The Decade Ahead".
-    Antworte: "RECHEN", "ENERGIE" oder "BEIDE".
+    oder ENERGIE-Flaschenhals? Antworte: "RECHEN", "ENERGIE" oder "BEIDE".
   </step_1_bottleneck>
 
   <step_2_salp_analysis>
@@ -86,46 +98,25 @@ Deine Aufgabe ist eine strukturierte Analyse basierend auf Aschenbrenners "The D
   </step_2_salp_analysis>
 
   <step_3_thiel_thesis>
-    Antichrist-Check: Ist die News eine ZENTRALISIERENDE KRAFT
-    (kommunistische KI / globale Regulation / AI-Safety-Frameworks) oder
-    eine DEZENTRALE/SOVEREIGN LÖSUNG (Katechon)?
+    Antichrist-Check: ZENTRALISIERENDE KRAFT oder DEZENTRALE/SOVEREIGN LÖSUNG (Katechon)?
     Zero to One: Baut {ticker} ein echtes Monopol auf?
-    Katechon: Wird {ticker} als "das Aufhaltende" positioniert?
     Aktive Netzwerk-Akteure: {active_actors}
     Deep Network Signal: {deep_network}
     Signal-Typ: {thiel_signal_type}
   </step_3_thiel_thesis>
 
   <step_4_shulman>
-    WICHTIG: Beachte die Datenqualität oben.
-    Bei Data Gaps: Score nicht als negatives Signal werten.
-    Empirischer Score: {empirical_score}/3
-    EIA Stromwachstum: {eia_growth}
-    CapEx-Trend: {capex_trend}
-    NVDA-Wachstum: {nvda_growth}
-    Prüfe ob {ticker} einen der Shulman-Loops bestätigt:
-    - Robot Doublings, Compute-Substitutability, IGE-Loop
+    WICHTIG: Bei Data Gaps Score nicht als negatives Signal werten.
+    EIA Stromwachstum: {eia_growth} | CapEx-Trend: {capex_trend} | NVDA-Wachstum: {nvda_growth}
   </step_4_shulman>
 
   <step_5_contrarian>
     Contrarian-Score: {contrarian_score}
     Aktive Gegenthesen: {gegenthesen}
     RSI: {rsi} | Put/Call-Ratio: {put_call}
-    Bei Score < -3: Gate bereits blockiert.
   </step_5_contrarian>
 
-  <step_6_call_recommendation>
-    Laufzeit basierend auf Conviction: {laufzeit_months} Monate
-    Optionsdaten (beste Calls nach Liquidität):
-{top_calls_json}
-    Empfehle Strike, Expiration, Entry, Target,
-    Stop Schicht 1 (Thesis-Event), Stop Schicht 2 (-40% in 30d / IV-Crush >15pt),
-    Positions-Checkpoints 90d / 180d / monatlich.
-  </step_6_call_recommendation>
-
-  <output_instructions>
-    Antworte NUR mit einem validen JSON-Objekt. KEIN Text davor oder danach.
-
+  <output_format>
     {{
       "ticker": "{ticker}",
       "company_name": "...",
@@ -144,28 +135,40 @@ Deine Aufgabe ist eine strukturierte Analyse basierend auf Aschenbrenners "The D
       "conviction_gate": "PASS|WATCHLIST|NO_SIGNAL|BLOCKED_CONTRARIAN",
       "deep_network_signal": bool,
       "laufzeit_months": int,
-      "option": {{
-        "type": "CALL",
-        "strike_pct_otm": float,
-        "strike_absolute": float,
-        "expiration": "YYYY-MM-DD",
-        "entry_premium": float,
-        "target_multiplier": float,
-        "laufzeit_begruendung": "...",
-        "stop_thesis_trigger": "Spezifisches Ereignis",
-        "stop_technical_trigger": "-40% Prämie in 30 Tagen ODER IV-Crush >15 Punkte",
-        "checkpoint_90d": "...",
-        "checkpoint_180d": "...",
-        "checkpoint_monthly": "..."
-      }},
       "rationale": "3-5 Sätze alle aktiven Layer",
       "gegen_szenario": "Spezifisches Widerlegungs-Ereignis",
-      "signal_tags": [],
-      "liquidity_flags": []
+      "signal_tags": []
     }}
-  </output_instructions>
+  </output_format>
 
 </analysis_request>"""
+
+# ── PROMPT B: Options-Parameter (nur bei PASS, separater API-Call) ─────────────
+PROMPT_B_TEMPLATE = """Du bist der Options-Parameter-Layer des SA Scanners.
+Conviction PASS für {ticker} ({conviction:.2f}/{threshold}). Laufzeit: {laufzeit_months} Monate.
+
+Optionsdaten (beste Calls nach Liquidität):
+{top_calls_json}
+
+Empfehle die optimale CALL-Option. Antworte NUR mit einem validen JSON-Objekt:
+
+{{
+  "option": {{
+    "type": "CALL",
+    "strike_pct_otm": float,
+    "strike_absolute": float,
+    "expiration": "YYYY-MM-DD",
+    "entry_premium": float,
+    "target_multiplier": float,
+    "laufzeit_begruendung": "...",
+    "stop_thesis_trigger": "Spezifisches Ereignis",
+    "stop_technical_trigger": "-40% Prämie in 30 Tagen ODER IV-Crush >15 Punkte",
+    "checkpoint_90d": "...",
+    "checkpoint_180d": "...",
+    "checkpoint_monthly": "..."
+  }},
+  "liquidity_flags": []
+}}"""
 
 
 class ClaudeAnalyzer:
@@ -243,9 +246,9 @@ class ClaudeAnalyzer:
 
         sector = mapper.get_sector(ticker)
 
-        # Pre-Filter
+        # Pre-Filter (state_manager für Auto-Threshold)
         should_call, pre_score = self.pre_filter.should_call_claude(
-            ticker, all_data, regime, sec_data
+            ticker, all_data, regime, sec_data, state_manager
         )
         if not should_call:
             return None
@@ -345,7 +348,7 @@ class ClaudeAnalyzer:
         capex_data  = all_data.get("hyperscaler_capex", {})
         nvda_data   = all_data.get("nvda_revenue", {})
 
-        prompt = MASTER_PROMPT.format(
+        prompt_a = PROMPT_A_TEMPLATE.format(
             ticker=ticker,
             sector=sector,
             regime_mode=regime.get("mode", "NORMAL"),
@@ -368,9 +371,10 @@ class ClaudeAnalyzer:
                     "mode":           regime.get("mode"),
                     "energy_breadth": regime.get("energy_breadth"),
                     "iv_rank_avg":    regime.get("iv_rank_avg"),
+                    "yield_curve":    regime.get("yield_curve"),
+                    "hy_credit_spread": regime.get("hy_credit_spread"),
                 },
             }, indent=6, default=str),
-            # R5 FIX: Trigger-Artikel
             trigger_articles_json=json.dumps(
                 trigger_articles, indent=8, default=str
             ),
@@ -412,14 +416,19 @@ class ClaudeAnalyzer:
                 "options_flow", {}
             ).get("put_call_volume", "N/A"),
             laufzeit_months=laufzeit,
-            top_calls_json=json.dumps(top_calls, indent=8, default=str),
         )
 
         try:
+            # Prompt A: Thesis + Scoring mit Prompt Caching (system-Block gecacht)
             response = client.messages.create(
                 model=Config.CLAUDE_MODEL,
                 max_tokens=Config.CLAUDE_MAX_TOKENS,
-                messages=[{"role": "user", "content": prompt}],
+                system=[{
+                    "type": "text",
+                    "text": PROMPT_A_SYSTEM,
+                    "cache_control": {"type": "ephemeral"},
+                }],
+                messages=[{"role": "user", "content": prompt_a}],
             )
             raw = response.content[0].text.strip()
 
@@ -494,6 +503,50 @@ class ClaudeAnalyzer:
 
             if not ok:
                 result["conviction_gate"] = f"PORTFOLIO_BLOCKED_{reason}"
+
+            # Prompt B: Options-Parameter — NUR bei PASS (spart Tokens bei WATCHLIST/NO_SIGNAL)
+            if result.get("conviction_gate") == "PASS":
+                try:
+                    prompt_b = PROMPT_B_TEMPLATE.format(
+                        ticker=ticker,
+                        conviction=result.get("conviction_total", 0),
+                        threshold=regime.get("conviction_threshold", 7.5),
+                        laufzeit_months=result.get("laufzeit_months", laufzeit),
+                        top_calls_json=json.dumps(top_calls, indent=4, default=str),
+                    )
+                    resp_b = client.messages.create(
+                        model=Config.CLAUDE_MODEL,
+                        max_tokens=1000,
+                        system=[{
+                            "type": "text",
+                            "text": PROMPT_A_SYSTEM,
+                            "cache_control": {"type": "ephemeral"},
+                        }],
+                        messages=[{"role": "user", "content": prompt_b}],
+                    )
+                    raw_b = resp_b.content[0].text.strip()
+                    if "```" in raw_b:
+                        for part in raw_b.split("```"):
+                            part = part.strip()
+                            if part.startswith("json"):
+                                part = part[4:].strip()
+                            if part.startswith("{"):
+                                raw_b = part
+                                break
+                    parsed_b = json.loads(raw_b)
+                    if "option" in parsed_b:
+                        result["option"] = parsed_b["option"]
+                    if "liquidity_flags" in parsed_b:
+                        result["liquidity_flags"] = parsed_b["liquidity_flags"]
+                    logger.info(
+                        f"Prompt B (options) OK for {ticker}: "
+                        f"strike={result.get('option', {}).get('strike_absolute')}"
+                    )
+                except Exception as e:
+                    logger.warning(
+                        f"Prompt B failed for {ticker}: {e} — "
+                        f"keeping Prompt A option data if present"
+                    )
 
             return result
 
