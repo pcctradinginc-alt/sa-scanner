@@ -44,13 +44,15 @@ HEADERS = {
 MAX_FILING_AGE_DAYS = 90
 
 FILING_TYPES = {
-    "13F-HR":   {"weight": 1.0, "description": "Quarterly Portfolio Holdings"},
-    "13F-HR/A": {"weight": 0.8, "description": "Amended Quarterly Holdings"},
-    "SC 13D":   {"weight": 1.5, "description": "Strategic Stake >5% (STRONGEST)"},
-    "SC 13D/A": {"weight": 1.3, "description": "Amended Strategic Stake"},
-    "SC 13G":   {"weight": 0.8, "description": "Passive Stake >5%"},
-    "SC 13G/A": {"weight": 0.6, "description": "Amended Passive Stake"},
-    "4":        {"weight": 1.2, "description": "Insider Transaction (REAL-TIME)"},
+    "13F-HR":   {"weight": Config.FILING_WEIGHT_13F,       "description": "Quarterly Portfolio Holdings"},
+    "13F-HR/A": {"weight": Config.FILING_WEIGHT_13F_AMEND, "description": "Amended Quarterly Holdings"},
+    "SC 13D":   {"weight": Config.FILING_WEIGHT_SC13D,     "description": "Strategic Stake >5% (STRONGEST)"},
+    "SC 13D/A": {"weight": Config.FILING_WEIGHT_SC13D_AMD, "description": "Amended Strategic Stake"},
+    "SC 13G":   {"weight": Config.FILING_WEIGHT_SC13G,     "description": "Passive Stake >5%"},
+    "SC 13G/A": {"weight": Config.FILING_WEIGHT_SC13G_AMD, "description": "Amended Passive Stake"},
+    "4":        {"weight": Config.FILING_WEIGHT_FORM4,     "description": "Insider Transaction (REAL-TIME, 2-day filing)"},
+    "8-K":      {"weight": Config.FILING_WEIGHT_8K,        "description": "Material Events (HIGHEST RELEVANCE)"},
+    "8-K/A":    {"weight": Config.FILING_WEIGHT_8K_AMEND,  "description": "Amended Material Events"},
 }
 
 EDGAR_RSS = (
@@ -224,7 +226,10 @@ def parse_13f_xml(xml_url: str) -> list:
                 ticker = _name_to_ticker(name)
 
             if not ticker:
-                logger.debug(f"No ticker: {name} (CUSIP: {cusip})")
+                logger.warning(
+                    f"CUSIP not mapped: '{cusip}' (name='{name}') "
+                    f"— add to CUSIP_TO_TICKER if relevant"
+                )
                 continue
 
             try:
