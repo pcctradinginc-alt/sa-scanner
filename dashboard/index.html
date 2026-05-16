@@ -46,6 +46,9 @@
   .mini-laufzeit{font-family:'IBM Plex Mono';font-size:10px;color:var(--amber)}
   .mini-date{font-family:'IBM Plex Mono';font-size:9px;color:var(--text-dim)}
   .no-cards{font-family:'IBM Plex Mono';font-size:11px;color:var(--text-dim);padding:10px}
+  .stale-badge{font-family:'IBM Plex Mono';font-size:8px;color:var(--amber);
+               border:1px solid var(--amber);padding:1px 4px;margin-left:4px;
+               vertical-align:middle}
   table{width:100%;border-collapse:collapse;font-family:'IBM Plex Mono';font-size:11px}
   th{color:var(--text-dim);font-weight:400;letter-spacing:1px;text-align:left;
       padding:4px 8px;border-bottom:1px solid var(--border)}
@@ -60,19 +63,19 @@
 <body>
 
 <h1>SITUATIONAL AWARENESS</h1>
-<div class="subtitle">SCANNER · CALL-OPTIONS INTELLIGENCE · v4.0 · 2026-05-16 06:27 UTC</div>
+<div class="subtitle">SCANNER · CALL-OPTIONS INTELLIGENCE · v4.0 · 2026-05-16 07:18 UTC</div>
 
 <div class="regime-banner">
   <span>REGIME: STRESS | IV-Rank Avg: N/A (warmup) |
-    Energy Breadth: 50% |
-    Stability: 0.26</span>
+    Energy Breadth: 60% |
+    Stability: 0.31</span>
   <span>CONVICTION THRESHOLD: 8.0</span>
 </div>
 
 <div class="grid-3">
   <div class="stat-box">
-    <div class="stat-num">0</div>
-    <div class="stat-label">TRADING CARDS (14 TAGE)</div>
+    <div class="stat-num">1</div>
+    <div class="stat-label">TRADING CARDS (30 TAGE)</div>
   </div>
   <div class="stat-box">
     <div class="stat-num">0</div>
@@ -85,8 +88,26 @@
 </div>
 
 <div class="section">
-  <div class="section-title">AKTIVE TRADING CARDS — PASS</div>
-  <div class="cards-grid"><div class="no-cards">Keine Trading Cards in den letzten 14 Tagen</div></div>
+  <div class="section-title">AKTIVE TRADING CARDS — PASS (30 TAGE)</div>
+  <div class="cards-grid">
+        <a href="cards/TSM.html" class="card-link">
+          <div class="mini-card" style="border-color:var(--text-dim)">
+            <div class="mini-ticker">TSM <span class="stale-badge">STALE &gt;14d</span></div>
+            <div class="mini-conviction">7.6</div>
+            <div class="mini-laufzeit">6M CALL</div>
+            <div class="mini-date">2026-04-16</div>
+          </div>
+        </a></div>
+</div>
+
+<div class="section">
+  <div class="section-title">OFFENE POSITIONEN</div>
+  <table>
+    <thead><tr>
+      <th>TICKER</th><th>CONVICTION</th><th>LAUFZEIT</th><th>EINSTIEG</th><th>ABLAUF (~)</th>
+    </tr></thead>
+    <tbody><tr><td colspan="5" style="color:var(--text-dim)">Keine offenen Positionen</td></tr></tbody>
+  </table>
 </div>
 
 <div class="section">
@@ -106,6 +127,34 @@
       <th>ZEIT</th><th>REGIME</th><th>KANDIDATEN</th><th>CLAUDE CALLS</th><th>CARDS</th>
     </tr></thead>
     <tbody>
+        <tr>
+          <td>2026-05-16T07:13</td>
+          <td style="color:#ff4444">STRESS</td>
+          <td>9</td>
+          <td>0</td>
+          <td style="color:var(--accent)">0</td>
+        </tr>
+        <tr>
+          <td>2026-05-16T07:03</td>
+          <td style="color:#ff4444">STRESS</td>
+          <td>9</td>
+          <td>0</td>
+          <td style="color:var(--accent)">0</td>
+        </tr>
+        <tr>
+          <td>2026-05-16T06:48</td>
+          <td style="color:#ff4444">STRESS</td>
+          <td>9</td>
+          <td>0</td>
+          <td style="color:var(--accent)">0</td>
+        </tr>
+        <tr>
+          <td>2026-05-16T06:28</td>
+          <td style="color:#ff4444">?</td>
+          <td>0</td>
+          <td>0</td>
+          <td style="color:var(--accent)">0</td>
+        </tr>
         <tr>
           <td>2026-05-16T06:23</td>
           <td style="color:#ff4444">STRESS</td>
@@ -147,34 +196,6 @@
           <td>9</td>
           <td>0</td>
           <td style="color:var(--accent)">0</td>
-        </tr>
-        <tr>
-          <td>2026-05-15T08:45</td>
-          <td style="color:#ff4444">?</td>
-          <td>0</td>
-          <td>0</td>
-          <td style="color:var(--accent)">0</td>
-        </tr>
-        <tr>
-          <td>2026-05-15T02:53</td>
-          <td style="color:#ff4444">?</td>
-          <td>0</td>
-          <td>0</td>
-          <td style="color:var(--accent)">0</td>
-        </tr>
-        <tr>
-          <td>2026-05-14T19:42</td>
-          <td style="color:#ff4444">?</td>
-          <td>0</td>
-          <td>0</td>
-          <td style="color:var(--accent)">0</td>
-        </tr>
-        <tr>
-          <td>2026-05-14T15:16</td>
-          <td style="color:#ff4444">STRESS</td>
-          <td>9</td>
-          <td>0</td>
-          <td style="color:var(--accent)">0</td>
         </tr></tbody>
   </table>
 </div>
@@ -189,7 +210,7 @@
 </div>
 
 <div class="footer">
-  SA SCANNER v4.0 · Anthropic API + Tradier (Vollzugriff) + yfinance + EIA + FRED + EDGAR · 2026-05-16 06:27 UTC
+  SA SCANNER v4.0 · Anthropic API + Tradier (Vollzugriff) + yfinance + EIA + FRED + EDGAR · 2026-05-16 07:18 UTC
 </div>
 
 </body>

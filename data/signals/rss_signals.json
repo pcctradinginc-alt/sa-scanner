@@ -1,1 +1,157 @@
-[]
+[
+  {
+    "source": "bloomberg_tech",
+    "credibility": 0.88,
+    "title": "Trump Discussed Nvidia Chips With Xi Jinping | Bloomberg Tech 5/15/2026",
+    "summary": "Bloomberg\u2019s Caroline Hyde and Ed Ludlow break down the latest from Beijing after President Trump says he discussed Nvidia's H200 chips with Xi Jinping. Plus, they speak with the CEO of Figma after its earnings results defy fears that AI would disrupt the design stack. And, Caroline's conversation with OpenAI CFO Sarah Friar, who says the startup may raise more capital after completing its recent fundraising round. (Source: Bloomberg)",
+    "url": "https://www.bloomberg.com/news/videos/2026-05-15/bloomberg-tech-5-15-2026-video",
+    "published": "2026-05-15T23:43:52",
+    "signals": {
+      "thiel": false,
+      "shulman": false,
+      "contrarian": false,
+      "bottleneck_compute": true,
+      "bottleneck_energy": false,
+      "salp": false
+    },
+    "signal_count": 1,
+    "tickers": [
+      "NVDA"
+    ],
+    "quality_score": 1.3112,
+    "weighted_relevance": 1.3111731766256216
+  },
+  {
+    "source": "bloomberg_tech",
+    "credibility": 0.88,
+    "title": "US Chip Sector Needs More Talent, Says SEMI",
+    "summary": "President Trump says he discussed guardrails on AI and Nvidia's H200 chips with Chinese leader Xi Jinping during a two-day summit in Beijing. Shari Liss, vice president of global workforce development and initiatives at SEMI, joins Bloomberg\u2019s Caroline Hyde and Ed Ludlow on \"Bloomberg Tech\" to discuss what this means for the US semiconductor sector. (Source: Bloomberg)",
+    "url": "https://www.bloomberg.com/news/videos/2026-05-15/us-chip-sector-needs-more-talent-says-semi-video",
+    "published": "2026-05-15T20:38:42",
+    "signals": {
+      "thiel": false,
+      "shulman": false,
+      "contrarian": false,
+      "bottleneck_compute": true,
+      "bottleneck_energy": false,
+      "salp": false
+    },
+    "signal_count": 1,
+    "tickers": [
+      "NVDA"
+    ],
+    "quality_score": 1.3112,
+    "weighted_relevance": 1.3111731766256216
+  },
+  {
+    "source": "bloomberg_tech",
+    "credibility": 0.88,
+    "title": "Cerebras CEO Is Worth $3.2 Billion After Year\u2019s Largest IPO",
+    "summary": "Shares of Cerebras Systems Inc. soared about 68% in Nasdaq trading in New York. It\u2019s the year\u2019s biggest initial public offering and gives the company a market value of roughly $67 billion.\u00a0\nBailey Lipschultz, Bloomberg News Senior Equities Reporter, discusses the initial offering and how the company is differentiating itself from incumbents like Nvidia. (Source: Bloomberg)",
+    "url": "https://www.bloomberg.com/news/videos/2026-05-15/cerebras-ceo-worth-3-2-billion-after-year-s-largest-ipo-video",
+    "published": "2026-05-15T17:07:19",
+    "signals": {
+      "thiel": false,
+      "shulman": false,
+      "contrarian": false,
+      "bottleneck_compute": true,
+      "bottleneck_energy": false,
+      "salp": false
+    },
+    "signal_count": 1,
+    "tickers": [
+      "NVDA"
+    ],
+    "quality_score": 1.3112,
+    "weighted_relevance": 1.3111731766256216
+  },
+  {
+    "source": "lesswrong",
+    "credibility": 0.85,
+    "title": "Incriminating misaligned AI models via distillation",
+    "summary": "<p><span>Suppose we have a dangerous misaligned AI that can fool alignment audits, and distill it into a student model. Two things can happen:</span></p><ol><li value=\"1\"><span>Misalignment fails to transfer to the student. If so, we get a fairly capable benign model.</span></li><li value=\"2\"><span>Misalignment transfers to the student. The student might also be worse than the teacher at hiding its misalignment (e.g., due to being less capable). If so, we might get indirect evidence about the te",
+    "url": "https://www.lesswrong.com/posts/BYH6ebmfZb3Eggzer/incriminating-misaligned-ai-models-via-distillation",
+    "published": "2026-05-15T21:43:35",
+    "signals": {
+      "thiel": false,
+      "shulman": false,
+      "contrarian": false,
+      "bottleneck_compute": false,
+      "bottleneck_energy": false,
+      "salp": true
+    },
+    "signal_count": 1,
+    "tickers": [
+      "GOOGL"
+    ],
+    "quality_score": 1.2233,
+    "weighted_relevance": 1.2232988379545604
+  },
+  {
+    "source": "lesswrong",
+    "credibility": 0.85,
+    "title": "Clarifying the Darwinian Honeymoon",
+    "summary": "<p><span>A few days ago, I published </span><a href=\"https://www.lesswrong.com/posts/FxHzT6jeTRhbkzSX3/the-darwinian-honeymoon-why-i-am-not-as-impressed-by-human-1\" rel=\"noreferrer\"><span>The Darwinian Honeymoon - why I am not as impressed by human progress as I used to be</span></a><span>. To my gratification, it was quite well-received on </span><a href=\"https://x.com/reconfigurthing/status/2053106425405051285\"><span>Twitter</span></a><span>, </span><a href=\"https://eliasschmied.substack.com/p",
+    "url": "https://www.lesswrong.com/posts/sFMrzD58Cnjo7tSqb/clarifying-the-darwinian-honeymoon",
+    "published": "2026-05-15T16:23:28",
+    "signals": {
+      "thiel": false,
+      "shulman": true,
+      "contrarian": false,
+      "bottleneck_compute": false,
+      "bottleneck_energy": false,
+      "salp": false
+    },
+    "signal_count": 1,
+    "tickers": [
+      "META",
+      "GOOGL"
+    ],
+    "quality_score": 1.2233,
+    "weighted_relevance": 1.2232988379545604
+  },
+  {
+    "source": "arxiv_cs_ai",
+    "credibility": 0.8,
+    "title": "Optimizing PyTorch Inference with LLM-Based Multi-Agent Systems",
+    "summary": "arXiv:2511.16964v2 Announce Type: replace-cross \nAbstract: Maximizing performance on available GPU hardware is an ongoing challenge for modern AI inference systems. Traditional approaches include writing custom GPU kernels and using specialized model compilers to tune high-level code for specific GPU targets. Recent work shows that LLM-based multi-agent systems can effectively perform such tuning, often outperforming existing compilers and eliminating the need for manual kernel development. Howe",
+    "url": "https://arxiv.org/abs/2511.16964",
+    "published": "2026-05-16T04:00:00",
+    "signals": {
+      "thiel": false,
+      "shulman": false,
+      "contrarian": false,
+      "bottleneck_compute": true,
+      "bottleneck_energy": false,
+      "salp": false
+    },
+    "signal_count": 1,
+    "tickers": [
+      "NVDA"
+    ],
+    "quality_score": 1.0836,
+    "weighted_relevance": 1.0836141955583654
+  },
+  {
+    "source": "arxiv_cs_ai",
+    "credibility": 0.8,
+    "title": "RoboLab: A High-Fidelity Simulation Benchmark for Analysis of Task Generalist Policies",
+    "summary": "arXiv:2604.09860v3 Announce Type: replace-cross \nAbstract: The pursuit of general-purpose robotics has yielded impressive foundation models, yet simulation-based benchmarking remains a bottleneck due to rapid performance saturation and a lack of true generalization testing. Existing benchmarks often exhibit significant domain overlap between training and evaluation, trivializing success rates and obscuring insights into robustness. We introduce RoboLab, a simulation benchmarking framework design",
+    "url": "https://arxiv.org/abs/2604.09860",
+    "published": "2026-05-16T04:00:00",
+    "signals": {
+      "thiel": false,
+      "shulman": false,
+      "contrarian": false,
+      "bottleneck_compute": true,
+      "bottleneck_energy": false,
+      "salp": false
+    },
+    "signal_count": 1,
+    "tickers": [
+      "NVDA"
+    ],
+    "quality_score": 1.0836,
+    "weighted_relevance": 1.0836141955583654
+  }
+]
