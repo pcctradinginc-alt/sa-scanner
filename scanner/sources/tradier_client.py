@@ -349,13 +349,28 @@ class TradierClient:
         # Quote
         quote = self.get_quote(ticker)
 
+        # OI Snapshot + Delta für unusual activity detection
+        total_oi = (flow.get("call_oi", 0) or 0) + (flow.get("put_oi", 0) or 0)
+        oi_delta_pct = None
+        if total_oi > 0 and state_manager:
+            state_manager.store_oi_snapshot(ticker, total_oi)
+            oi_delta_pct = state_manager.get_oi_change_pct(ticker, total_oi)
+            if oi_delta_pct is not None and oi_delta_pct > Config.OI_SPIKE_THRESHOLD:
+                logger.info(
+                    f"OI SPIKE {ticker}: +{oi_delta_pct:.0%} vs 30d avg "
+                    f"(total_oi={total_oi:,})"
+                )
+
         return {
-            "ticker":       ticker,
-            "current_price":quote.get("last") or quote.get("close"),
-            "current_iv":   current_iv,
-            "iv_rank":      iv_rank_data,
-            "target_calls": target_calls,
-            "options_flow": flow,
+            "ticker":        ticker,
+            "current_price": quote.get("last") or quote.get("close"),
+            "current_iv":    current_iv,
+            "iv_rank":       iv_rank_data,
+            "target_calls":  target_calls,
+            "options_flow":  flow,
+            "total_oi":      total_oi,
+            "oi_delta_pct":  round(oi_delta_pct, 3) if oi_delta_pct is not None else None,
+            "oi_unusual":    (oi_delta_pct or 0) > Config.OI_SPIKE_THRESHOLD,
             "laufzeit_months": laufzeit_months,
-            "fetched_at":   datetime.utcnow().isoformat(),
+            "fetched_at":    datetime.utcnow().isoformat(),
         }
