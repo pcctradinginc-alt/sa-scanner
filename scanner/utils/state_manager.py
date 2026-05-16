@@ -177,12 +177,14 @@ class StateManager:
     # ── REGIME ───────────────────────────────────────────────────
 
     def store_regime(self, regime: dict):
+        # R-7 FIX: iv_rank_avg kann während Warmup None sein — kein Default 50,
+        # da das die historische IV-Historie mit synthetischen Werten kontaminiert.
         self.conn.execute(
             "INSERT OR REPLACE INTO regime_history VALUES (?, ?, ?, ?, ?, ?, ?, ?)",
             (
                 datetime.utcnow().date().isoformat(),
                 regime["mode"],
-                regime.get("iv_rank_avg", 50),
+                regime.get("iv_rank_avg"),          # None während Warmup — kein Fallback
                 regime.get("energy_breadth", 0.5),
                 regime.get("capex_trend", "unknown"),
                 regime.get("regime_stability", 0.5),
@@ -300,6 +302,29 @@ class StateManager:
                 laufzeit, json.dumps(card_data), html_path,
             )
         )
+        # R-2 FIX: PASS-Karten als aktive Positionen tracken, damit
+        # check_portfolio_limits() die Risikogrenzen tatsächlich durchsetzen kann.
+        if gate_status == "PASS":
+            option = card_data.get("option", {})
+            self.conn.execute(
+                """INSERT OR REPLACE INTO active_positions
+                   (ticker, sector, open_date, conviction_at_open, laufzeit_months,
+                    strike_pct_otm, entry_premium, expiration_date, status,
+                    stop_thesis_trigger, updated_at)
+                   VALUES (?, ?, ?, ?, ?, ?, ?, ?, 'OPEN', ?, ?)""",
+                (
+                    ticker,
+                    card_data.get("sector", "unknown"),
+                    datetime.utcnow().date().isoformat(),
+                    conviction,
+                    laufzeit,
+                    option.get("strike_pct_otm", 0.0),
+                    option.get("entry_premium", 0.0),
+                    option.get("expiration", ""),
+                    option.get("stop_thesis_trigger", ""),
+                    datetime.utcnow().isoformat(),
+                )
+            )
         self.conn.commit()
 
     def get_active_positions(self) -> list:
