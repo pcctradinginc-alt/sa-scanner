@@ -505,7 +505,6 @@ class DataFetcher:
     # ── NVDA REVENUE ─────────────────────────────────────────────
 
     def get_nvda_revenue_growth(self) -> dict:
-        """R6: Schwellenwert 10% statt 20%."""
         try:
             rate_limiter.wait("finnhub")
             data   = self.fh.company_basic_financials("NVDA", "all")
@@ -527,19 +526,20 @@ class DataFetcher:
             if previous == 0:
                 return {"growth_yoy": None, "empirical_point": 0, "data_gap": True}
 
-            growth      = (latest - previous) / abs(previous)
-            THRESHOLD   = 0.10
-            empirical_p = 1 if growth > THRESHOLD else 0
+            growth = (latest - previous) / abs(previous)
+            # R-5 FIX: Config.SHULMAN_NVDA_GROWTH_THRESHOLD statt hardcodiertem 0.10
+            threshold   = Config.SHULMAN_NVDA_GROWTH_THRESHOLD
+            empirical_p = 1 if growth > threshold else 0
 
             logger.info(
                 f"NVDA Revenue: {growth:.1%} | "
-                f"threshold={THRESHOLD:.0%} | "
+                f"threshold={threshold:.0%} | "
                 f"empirical_point={empirical_p}"
             )
             return {
                 "growth_yoy":      round(growth, 4),
                 "empirical_point": empirical_p,
-                "threshold_used":  THRESHOLD,
+                "threshold_used":  threshold,
                 "data_gap":        False,
             }
 
@@ -584,7 +584,9 @@ class DataFetcher:
         """R7: Credibility-dominantes Scoring."""
         logger.info("Fetching RSS feeds")
         results = []
-        cutoff  = datetime.utcnow() - timedelta(hours=36)
+        # R-14 FIX: 25h statt 36h — verhindert Doppelverarbeitung bei täglichem
+        # Cron-Run, lässt aber genug Puffer für Timing-Variationen.
+        cutoff  = datetime.utcnow() - timedelta(hours=25)
 
         for feed_name, (url, credibility) in Config.RSS_FEEDS.items():
             try:
@@ -645,7 +647,8 @@ class DataFetcher:
     def fetch_options_data(self, state_manager,
                            laufzeit_months: int = 6) -> dict:
         logger.info(f"Fetching Tradier option data ({laufzeit_months}M)")
-        results = {}
+        results       = {}
+        failed_tickers = []
         for ticker in Config.TARGET_TICKERS:
             try:
                 data = self.tradier.analyze_ticker_options(
@@ -656,7 +659,14 @@ class DataFetcher:
             except Exception as e:
                 logger.error(f"Options {ticker}: {e}")
                 results[ticker] = {"error": str(e)}
-        self.quality["tradier"] = "OK"
+                failed_tickers.append(ticker)
+        # R-11 FIX: Quality-Flag spiegelt tatsächlichen Fetch-Status wider.
+        if not failed_tickers:
+            self.quality["tradier"] = "OK"
+        elif len(failed_tickers) < len(Config.TARGET_TICKERS):
+            self.quality["tradier"] = f"PARTIAL_{len(failed_tickers)}_failed"
+        else:
+            self.quality["tradier"] = "ALL_FAILED"
         return results
 
     # ── MAIN ORCHESTRATION ───────────────────────────────────────
