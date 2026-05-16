@@ -136,8 +136,23 @@ class Config:
         "LMT", "RTX",
     ]
 
+    # ── ENERGIE-BREADTH TICKERS ─────────────────────────────────
+    ENERGY_TICKERS = [
+        "VST", "CEG", "NRG", "NEE", "SO", "D",
+        "XEL", "AEE", "ETR", "EXC",
+    ]
+
     # ── RSS, SEC CIK, CLAUDE ────────────────────────────────────
-    RSS_FEEDS = { ... }  # (unverändert – bleibt wie bisher)
+    RSS_FEEDS = {
+        "lesswrong":    ("https://www.lesswrong.com/feed.xml",                    0.85),
+        "alignment_forum": ("https://www.alignmentforum.org/feed.xml",            0.90),
+        "arxiv_cs_ai":  ("https://rss.arxiv.org/rss/cs.AI",                      0.80),
+        "ft_tech":      ("https://www.ft.com/technology?format=rss",              0.85),
+        "bloomberg_tech": ("https://feeds.bloomberg.com/technology/news.rss",     0.88),
+        "reuters_tech": ("https://feeds.reuters.com/reuters/technologyNews",      0.85),
+        "eia_news":     ("https://www.eia.gov/rss/news.xml",                      0.80),
+        "defenseone":   ("https://www.defenseone.com/rss/all/",                   0.80),
+    }
 
     SEC_CIK_TARGETS = {
         "situational_awareness_lp": "0002014020",
