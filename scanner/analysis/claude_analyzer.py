@@ -16,7 +16,8 @@ import anthropic
 from ..utils.config import Config
 from ..utils.ticker_mapper import TickerMapper
 from .pre_filter import PreFilter
-from .scoring_engine import ScoringEngine, ConvictionResult
+# R-17 FIX: ConvictionResult war importiert aber nie verwendet — entfernt.
+from .scoring_engine import ScoringEngine
 from ..signals.regime_detector import RegimeDetector
 from ..signals.contrarian_gate import ContrarianGate
 from ..signals.shulman_layer import ShulmanLayer
@@ -329,12 +330,12 @@ class ClaudeAnalyzer:
             "katechon_bonus": thiel_data["katechon_bonus"],
         }
 
-        pre_conviction = sum(
-            pre_scores[k] * v
-            for k, v in regime.get("weights", Config.WEIGHTS_NORMAL).items()
-            if k in pre_scores
-        )
-        laufzeit = (
+        # R-3 FIX: ScoringEngine.calculate() statt manueller Gewichtsberechnung.
+        # Damit sind Shulman-Surplus-Umverteilung, Contrarian-Malus und
+        # Katechon-Additivbonus (R-16) korrekt angewendet.
+        scorer_result  = self.scorer.calculate(ticker, pre_scores, regime, shulman_data)
+        pre_conviction = scorer_result.conviction_total
+        laufzeit       = scorer_result.laufzeit_months or (
             12 if pre_conviction >= 9.0 else
             9  if pre_conviction >= 8.0 else
             6
@@ -462,8 +463,9 @@ class ClaudeAnalyzer:
                     f"Claude schema violation {ticker}: {e} | "
                     f"raw[:200]={raw[:200]}"
                 )
-                # R-01 KORREKTUR: Fallback mit conviction_total=0.0
-                # NICHT pre_score — unterschiedliche Skalen!
+                # R-4 FIX: store_signal hier NICHT aufrufen — run_daily_analysis
+                # ruft es für jedes non-None result bereits auf. Doppelschreibung
+                # würde zwei Einträge pro Parse-Fehler in signals erzeugen.
                 result = {
                     "ticker":           ticker,
                     "sector":           sector,
@@ -483,12 +485,6 @@ class ClaudeAnalyzer:
                     "signal_tags": ["PARSE_ERROR"],
                     "analyzed_at": datetime.utcnow().isoformat(),
                 }
-                # Post-Condition: store_signal immer aufrufen
-                state_manager.store_signal(
-                    ticker, 0.0, "CLAUDE_PARSE_FAILED",
-                    regime.get("mode", "NORMAL"),
-                    "UNKNOWN", result,
-                )
                 return result
 
             ok, reason = state_manager.check_portfolio_limits(ticker, sector)
