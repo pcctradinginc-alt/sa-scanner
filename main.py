@@ -11,6 +11,7 @@ Usage:
     python main.py --edgar-only         # Nur EDGAR-Check
     python main.py --ticker VST PLTR    # Spezifische Ticker
     python main.py --no-claude          # Nur Daten, kein Claude
+    python main.py --backtest           # Backtest-Modus (kein Claude, kein Email)
 """
 
 import argparse
@@ -37,6 +38,7 @@ def run_full_pipeline(args=None):
     from scanner.sources.sec_edgar import run_edgar_monitor
     from scanner.signals.regime_detector import RegimeDetector
     from scanner.analysis.claude_analyzer import ClaudeAnalyzer
+    from scanner.analysis.position_monitor import PositionMonitor
     from scanner.output.trading_card_generator import generate_all_cards
     from scanner.output.dashboard_generator import build_dashboard
     from scanner.output.email_notifier import (
@@ -143,16 +145,33 @@ def run_full_pipeline(args=None):
                 f"Threshold: {regime.get('conviction_threshold', 7.5)}"
             )
 
+            # ── 5b. POSITION MONITOR ──────────────────────────────
+            logger.info("Step 5b: Position monitor")
+            try:
+                pos_monitor = PositionMonitor()
+                pos_alerts  = pos_monitor.run(sm, all_data, regime)
+                if pos_alerts:
+                    logger.warning(
+                        f"Position Monitor: {len(pos_alerts)} alert(s) — "
+                        f"check open positions before trading"
+                    )
+            except Exception as e:
+                logger.error(f"Position monitor error (non-fatal): {e}")
+                errors.append(f"position_monitor: {e}")
+
             # ── 6. CLAUDE ANALYSE ─────────────────────────────────
             cards = []
-            if not (args and args.no_claude):
-                logger.info("Step 5: Claude analysis")
+            backtest_mode = args and getattr(args, "backtest", False)
+            if not (args and args.no_claude) and not backtest_mode:
+                logger.info("Step 6: Claude analysis")
                 analyzer = ClaudeAnalyzer()
                 cards    = analyzer.run_daily_analysis(
                     all_data, regime, sec_data, sm
                 )
+            elif backtest_mode:
+                logger.info("Step 6: Skipped (--backtest mode)")
             else:
-                logger.info("Step 5: Skipped (--no-claude)")
+                logger.info("Step 6: Skipped (--no-claude)")
 
             # ── 7. TRADING CARDS GENERIEREN ───────────────────────
             logger.info("Step 6: Trading card generation")
@@ -183,17 +202,19 @@ def run_full_pipeline(args=None):
                 c for c in all_cards
                 if c.get("conviction_gate") == "PASS"
             ]
-            if pass_cards:
+            if pass_cards and not backtest_mode:
                 logger.info(
-                    f"Step 8: Sending email for {len(pass_cards)} PASS cards"
+                    f"Step 9: Sending email for {len(pass_cards)} PASS cards"
                 )
                 try:
                     send_email(pass_cards, regime)
                 except Exception as e:
                     logger.error(f"Email error (non-fatal): {e}")
                     errors.append(f"email: {e}")
+            elif backtest_mode:
+                logger.info("Step 9: Email skipped (--backtest mode)")
             else:
-                logger.info("Step 8: No PASS cards — email skipped")
+                logger.info("Step 9: No PASS cards — email skipped")
 
             # ── 10. SUMMARY ────────────────────────────────────────
             duration = (datetime.utcnow() - start).total_seconds()
@@ -256,14 +277,38 @@ def run_edgar_only():
             sm.commit_state("EDGAR check — no new filings")
 
 
+def run_backtest(args=None):
+    """
+    Backtest-Modus: Daten fetchen + Regime erkennen, kein Claude, kein Email.
+    Nützlich um historische Regime-Daten zu sammeln ohne API-Kosten.
+    """
+    logger.info("=== BACKTEST MODE START ===")
+    if args is None:
+        import argparse
+        args = argparse.Namespace(
+            edgar_only=False, no_claude=False, ticker=None, backtest=True
+        )
+    else:
+        args.backtest = True
+    run_full_pipeline(args)
+    logger.info("=== BACKTEST MODE DONE ===")
+
+
 if __name__ == "__main__":
     parser = argparse.ArgumentParser(description="SA Scanner")
-    parser.add_argument("--edgar-only", action="store_true", help="Run only EDGAR 13F check")
-    parser.add_argument("--no-claude", action="store_true", help="Skip Claude analysis (data fetch only)")
-    parser.add_argument("--ticker", nargs="+", help="Analyze specific tickers only")
+    parser.add_argument("--edgar-only", action="store_true",
+                        help="Run only EDGAR check")
+    parser.add_argument("--no-claude", action="store_true",
+                        help="Skip Claude analysis (data fetch only)")
+    parser.add_argument("--backtest", action="store_true",
+                        help="Backtest mode: fetch + regime, no Claude, no email")
+    parser.add_argument("--ticker", nargs="+",
+                        help="Analyze specific tickers only")
     args = parser.parse_args()
 
     if args.edgar_only:
         run_edgar_only()
+    elif args.backtest:
+        run_backtest(args)
     else:
         run_full_pipeline(args)
