@@ -20,8 +20,12 @@ Erhöhe auf 5.0 wenn regelmäßige 13F-Filings vorliegen.
 
 import logging
 from ..utils.config import Config
+# R-12 FIX: TickerMapper statt lokaler _get_sector()-Kopie, damit
+# Sektorzuordnungen an einer einzigen Stelle gepflegt werden.
+from ..utils.ticker_mapper import TickerMapper
 
-logger = logging.getLogger(__name__)
+logger  = logging.getLogger(__name__)
+_mapper = TickerMapper()
 
 
 class PreFilter:
@@ -174,18 +178,4 @@ class PreFilter:
 
 
 def _get_sector(ticker: str) -> str:
-    """Hilfsfunktion für Sektor-Lookup ohne TickerMapper-Import."""
-    sector_map = {
-        "VST":  "energy_infrastructure",
-        "CEG":  "energy_infrastructure",
-        "NRG":  "energy_infrastructure",
-        "XEL":  "energy_infrastructure",
-        "NEE":  "energy_infrastructure",
-        "PLTR": "sovereign_ai_defense",
-        "LMT":  "sovereign_ai_defense",
-        "RTX":  "sovereign_ai_defense",
-        "NVDA": "compute_hardware",
-        "TSM":  "compute_hardware",
-        "AVGO": "compute_hardware",
-    }
-    return sector_map.get(ticker, "unknown")
+    return _mapper.get_sector(ticker)
