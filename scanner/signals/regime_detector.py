@@ -62,6 +62,13 @@ class RegimeDetector:
         # Regime-Stabilitäts-Faktor
         regime_stability = (energy_breadth + grid_growth) / 2
 
+        # Yield Curve + HY Credit Spread aus FRED-Daten
+        fred_data   = all_data.get("fred", {})
+        yc_data     = fred_data.get("yield_curve_spread", {})
+        hy_data     = fred_data.get("hy_credit_spread", {})
+        yc_latest   = yc_data.get("latest") if isinstance(yc_data, dict) else None
+        hy_latest   = hy_data.get("latest") if isinstance(hy_data, dict) else None
+
         # Stress-Bedingungen prüfen
         stress_reasons = []
         # R-03: avg_iv_rank kann None sein — kein Stress-Signal bei Warmup
@@ -71,6 +78,16 @@ class RegimeDetector:
             stress_reasons.append("Hyperscaler CapEx falling two quarters")
         if regime_stability < Config.REGIME_STABILITY_STRESS:
             stress_reasons.append(f"Regime stability {regime_stability:.2f} < {Config.REGIME_STABILITY_STRESS}")
+        if yc_latest is not None and yc_latest < Config.YIELD_CURVE_INVERSION_THRESHOLD:
+            stress_reasons.append(
+                f"Yield curve inverted: {yc_latest:.2f}% "
+                f"< {Config.YIELD_CURVE_INVERSION_THRESHOLD}%"
+            )
+        if hy_latest is not None and hy_latest > Config.HY_SPREAD_STRESS_THRESHOLD:
+            stress_reasons.append(
+                f"HY credit spread: {hy_latest:.1f}% "
+                f"> {Config.HY_SPREAD_STRESS_THRESHOLD}%"
+            )
 
         mode     = "STRESS" if stress_reasons else "NORMAL"
         weights  = Config.WEIGHTS_STRESS if mode == "STRESS" else Config.WEIGHTS_NORMAL
@@ -89,6 +106,8 @@ class RegimeDetector:
             "energy_breadth":     round(energy_breadth, 3),
             "capex_trend":        capex_trend,
             "regime_stability":   round(regime_stability, 3),
+            "yield_curve":        round(yc_latest, 3) if yc_latest is not None else None,
+            "hy_credit_spread":   round(hy_latest, 3) if hy_latest is not None else None,
             "conviction_threshold": threshold,
             "weights":            weights,
             "stress_reasons":     stress_reasons,
