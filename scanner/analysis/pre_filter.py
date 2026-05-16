@@ -156,24 +156,41 @@ class PreFilter:
             reasons.append(f"PC_ratio={pc_vol:.2f}>1.5_BEARISH")
 
         final_score = round(score, 1)
+        return final_score
 
-        if final_score >= Config.PRE_FILTER_THRESHOLD:
+    def _get_threshold(self, state_manager=None) -> float:
+        """
+        Auto-Threshold: INITIAL (2.0) bis genug Filing-Daten vorhanden,
+        dann ACTIVE (5.0). Verhindert false positives im Warmup.
+        """
+        if state_manager is None:
+            return Config.PRE_FILTER_THRESHOLD_INITIAL
+        try:
+            count = state_manager.get_filing_holdings_count()
+            if count >= Config.PRE_FILTER_FILING_COUNT_LIMIT:
+                return Config.PRE_FILTER_THRESHOLD_ACTIVE
+        except Exception:
+            pass
+        return Config.PRE_FILTER_THRESHOLD_INITIAL
+
+    def should_call_claude(self, ticker: str, all_data: dict,
+                           regime: dict, sec_data: dict,
+                           state_manager=None) -> tuple:
+        score     = self.quick_score(ticker, all_data, regime, sec_data)
+        threshold = self._get_threshold(state_manager)
+        should    = score >= threshold
+
+        if should:
             logger.info(
-                f"Pre-Filter PASS: {ticker} score={final_score} | "
-                f"{' | '.join(reasons)}"
+                f"Pre-Filter PASS: {ticker} score={score} "
+                f">= threshold={threshold}"
             )
         else:
             logger.info(
-                f"Pre-Filter: {ticker} score={final_score} "
-                f"< {Config.PRE_FILTER_THRESHOLD} — skip"
+                f"Pre-Filter: {ticker} score={score} "
+                f"< threshold={threshold} — skip"
             )
 
-        return final_score
-
-    def should_call_claude(self, ticker: str, all_data: dict,
-                           regime: dict, sec_data: dict) -> tuple:
-        score  = self.quick_score(ticker, all_data, regime, sec_data)
-        should = score >= Config.PRE_FILTER_THRESHOLD
         return should, score
 
 
