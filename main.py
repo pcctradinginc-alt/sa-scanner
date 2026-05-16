@@ -73,12 +73,18 @@ def run_full_pipeline(args=None):
                 ticker = cls.get("ticker", "").strip()
                 if not ticker:
                     continue
-                if cls.get("class") in ["A", "B"]:                    # NEW oder INCREASED
-                    if ticker not in filing_tickers:
-                        filing_tickers.append(ticker)
-                elif cls.get("class") == "CLOSED_POSITION" or "CLOSED" in cls.get("description", "").upper():
+                description = cls.get("description", "").upper()
+                cls_class   = cls.get("class")
+                # R-1 FIX: CLOSED_POSITION hat class="A" — Description zuerst prüfen,
+                # sonst wird jeder Verkauf fälschlich als Neukauf eingetragen.
+                is_closed = "CLOSED" in description
+
+                if is_closed:
                     if ticker not in closed_tickers:
                         closed_tickers.append(ticker)
+                elif cls_class in ["A", "B"]:                         # Nur echte Neukäufe / Aufstockungen
+                    if ticker not in filing_tickers:
+                        filing_tickers.append(ticker)
 
             # Dynamische Liste persistent aktualisieren
             if filing_tickers or closed_tickers:
@@ -154,11 +160,13 @@ def run_full_pipeline(args=None):
             conn = sqlite3.connect(str(Config.DB_PATH))
             conn.row_factory = sqlite3.Row
             today    = datetime.utcnow().date().isoformat()
+            # R-6 FIX: run_id-Filter verhindert Duplikate bei Mehrfach-Runs am selben Tag.
             db_cards = conn.execute(
                 """SELECT card_json FROM trading_cards
                    WHERE date = ?
+                   AND run_id = ?
                    AND gate_status IN ('PASS', 'WATCHLIST')""",
-                (today,)
+                (today, sm._run_id)
             ).fetchall()
             conn.close()
 
