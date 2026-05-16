@@ -54,48 +54,49 @@ NAME_TO_TICKER = {
     "Thiel Capital":        None,
 }
 
-# R8 FIX: Synonyme und generische Beschreibungen
-# Deutsch + Englisch — häufig in Finanzmedien
+# R-10 FIX: Nur produktspezifische Synonyme die eindeutig einem Unternehmen
+# zuzuordnen sind. Generische Begriffe (z.B. "nuclear energy", "ai warfare",
+# "nuclear power plant") wurden entfernt — sie erzeugen falsch-positive Signale
+# für geopolitische oder Regulierungs-Artikel ohne Firmenbezug.
 SYNONYM_TO_TICKER = {
-    # NVDA Synonyme
-    "gpu-hersteller":           "NVDA",
-    "ki-chip":                  "NVDA",
-    "ai chip":                  "NVDA",
-    "gpu maker":                "NVDA",
-    "chip giant":               "NVDA",
-    "graphics chip":            "NVDA",
-    "ki-prozessor":             "NVDA",
-    "datacenter chip":          "NVDA",
-    "data center chip":         "NVDA",
+    # NVDA — Produktnamen sind eindeutig
     "h100":                     "NVDA",
     "h200":                     "NVDA",
     "blackwell":                "NVDA",
     "hopper":                   "NVDA",
-    # VST / CEG Synonyme
-    "nuclear power plant":      "VST",
-    "kernkraftwerk":            "VST",
-    "atomkraftwerk":            "VST",
-    "nuclear energy":           "CEG",
-    "kernenergie":              "CEG",
-    "zero-carbon power":        "CEG",
-    "carbon-free energy":       "CEG",
-    # PLTR Synonyme
+    "gb200":                    "NVDA",
+    # Entfernt: "gpu maker", "chip giant", "ai chip", "graphics chip"
+    # — zu generisch, trifft auf AMD, Intel, etc. zu
+
+    # PLTR — plattformspezifische Begriffe
     "palantir software":        "PLTR",
-    "ai warfare":               "PLTR",
     "sovereign ai platform":    "PLTR",
-    "government ai":            "PLTR",
-    "defense ai":               "PLTR",
-    # Energie allgemein → beide
-    "hyperscaler power":        "VST",
-    "data center energy":       "VST",
-    "rechenzentrum energie":    "VST",
-    "stromversorgung ki":       "VST",
-    "energy infrastructure":    "VST",
-    # Defense
-    "autonomous weapons":       "LMT",
-    "defense contractor":       "LMT",
+    "palantir gotham":          "PLTR",
+    "palantir foundry":         "PLTR",
+    # Entfernt: "ai warfare", "government ai", "defense ai"
+    # — trifft auf jeden Defense-Contractor zu
+
+    # Defense — vertragsgebundene Begriffe
     "pentagon contract":        "PLTR",
     "dod contract":             "PLTR",
+    # Entfernt: "autonomous weapons", "defense contractor" → LMT
+    # — zu generisch, trifft auf RTX, PLTR, etc. zu
+
+    # VST — Vistra spezifisch (Kernkraftwerksbetreiber mit bekannten Standorten)
+    "comanche peak":            "VST",
+    "vistra nuclear":           "VST",
+    # Entfernt: "nuclear power plant", "kernkraftwerk", "atomkraftwerk",
+    # "nuclear energy", "kernenergie" — treffen Fukushima/Zaporizhzhia genauso
+
+    # CEG — Constellation spezifisch
+    "constellation nuclear":    "CEG",
+    "nine mile point":          "CEG",
+    "calvert cliffs":           "CEG",
+    # Entfernt: "zero-carbon power", "carbon-free energy" — zu generisch
+
+    # Datacenter-Energie → VST (Vistra ist primärer Versorger)
+    "data center energy":       "VST",
+    "rechenzentrum energie":    "VST",
 }
 
 TICKER_TO_SECTOR = {
