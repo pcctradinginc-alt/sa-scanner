@@ -8,5 +8,6 @@ venv/
 config_local.py
 data/cache/
 *.cache
+data/scanner.db
 data/historical/raw_*.json
 .DS_Store
