@@ -50,8 +50,8 @@ class ScoringEngine:
             weights_used=weights,
         )
 
-        # Contrarian Gate — binär
-        if result.contrarian_score < Config.CONTRARIAN_BLOCK_THRESHOLD:
+        # R-9 FIX: <= statt < — konsistent mit contrarian_gate.py
+        if result.contrarian_score <= Config.CONTRARIAN_BLOCK_THRESHOLD:
             result.gate_status      = "BLOCKED_CONTRARIAN"
             result.conviction_total = 0.0
             logger.warning(f"{ticker}: BLOCKED by Contrarian Gate (score={result.contrarian_score})")
