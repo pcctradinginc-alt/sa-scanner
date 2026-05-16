@@ -28,16 +28,18 @@ def build_dashboard(state_manager: StateManager, regime: dict):
         (cutoff,)
     ).fetchall()
 
-    cutoff14 = (datetime.utcnow() - timedelta(days=14)).date().isoformat()
+    cutoff30 = (datetime.utcnow() - timedelta(days=30)).date().isoformat()
     cards = conn.execute(
         """SELECT ticker, conviction, gate_status, laufzeit_months, date, html_path
            FROM trading_cards WHERE date >= ? AND gate_status = 'PASS'
            ORDER BY conviction DESC""",
-        (cutoff14,)
+        (cutoff30,)
     ).fetchall()
 
     positions = conn.execute(
-        "SELECT * FROM active_positions WHERE status = 'OPEN'"
+        """SELECT ticker, conviction_at_open, laufzeit_months, opened_at
+           FROM active_positions WHERE status = 'OPEN'
+           ORDER BY conviction_at_open DESC"""
     ).fetchall()
 
     runs = conn.execute(
@@ -64,13 +66,22 @@ def build_dashboard(state_manager: StateManager, regime: dict):
     stability_raw     = regime.get("regime_stability", 0.5)
     stability_display = f"{stability_raw:.2f}" if stability_raw is not None else "N/A"
 
+    today_str  = datetime.utcnow().date().isoformat()
+    stale_cutoff = (datetime.utcnow() - timedelta(days=14)).date().isoformat()
+
     cards_html = ""
     for c in cards:
-        fname = Path(c["html_path"]).name if c["html_path"] else f"{c['ticker']}.html"
+        fname   = Path(c["html_path"]).name if c["html_path"] else f"{c['ticker']}.html"
+        is_stale = c["date"] < stale_cutoff
+        stale_badge = (
+            ' <span class="stale-badge">STALE &gt;14d</span>'
+            if is_stale else ""
+        )
+        card_border = "var(--text-dim)" if is_stale else "var(--accent)"
         cards_html += f"""
         <a href="cards/{fname}" class="card-link">
-          <div class="mini-card">
-            <div class="mini-ticker">{c['ticker']}</div>
+          <div class="mini-card" style="border-color:{card_border}">
+            <div class="mini-ticker">{c['ticker']}{stale_badge}</div>
             <div class="mini-conviction">{c['conviction']:.1f}</div>
             <div class="mini-laufzeit">{c['laufzeit_months']}M CALL</div>
             <div class="mini-date">{c['date']}</div>
@@ -78,7 +89,7 @@ def build_dashboard(state_manager: StateManager, regime: dict):
         </a>"""
 
     if not cards_html:
-        cards_html = '<div class="no-cards">Keine Trading Cards in den letzten 14 Tagen</div>'
+        cards_html = '<div class="no-cards">Keine Trading Cards in den letzten 30 Tagen</div>'
 
     signals_html = ""
     for s in recent_signals[:20]:
@@ -108,6 +119,37 @@ def build_dashboard(state_manager: StateManager, regime: dict):
           <td>{r['claude_calls'] or 0}</td>
           <td style="color:var(--accent)">{r['cards_generated'] or 0}</td>
         </tr>"""
+
+    positions_html = ""
+    for p in positions:
+        opened_at  = p["opened_at"][:10] if p["opened_at"] else "?"
+        laufzeit   = p["laufzeit_months"] or 6
+        # Geschätztes Ablaufdatum
+        try:
+            exp_date = (
+                datetime.fromisoformat(opened_at) + timedelta(days=int(laufzeit) * 30)
+            ).date().isoformat()
+            days_left = (
+                datetime.fromisoformat(exp_date) - datetime.utcnow()
+            ).days
+            exp_color = "#ff4444" if days_left <= 14 else (
+                "#ffd166" if days_left <= 30 else "var(--text)"
+            )
+        except Exception:
+            exp_date  = "?"
+            exp_color = "var(--text)"
+            days_left = "?"
+        positions_html += f"""
+        <tr>
+          <td style="color:var(--accent)">{p['ticker']}</td>
+          <td style="color:var(--green)">{p['conviction_at_open']:.1f}</td>
+          <td>{laufzeit}M</td>
+          <td>{opened_at}</td>
+          <td style="color:{exp_color}">{exp_date} (~{days_left}d)</td>
+        </tr>"""
+
+    if not positions_html:
+        positions_html = '<tr><td colspan="5" style="color:var(--text-dim)">Keine offenen Positionen</td></tr>'
 
     html = f"""<!DOCTYPE html>
 <html lang="de">
@@ -157,6 +199,9 @@ def build_dashboard(state_manager: StateManager, regime: dict):
   .mini-laufzeit{{font-family:'IBM Plex Mono';font-size:10px;color:var(--amber)}}
   .mini-date{{font-family:'IBM Plex Mono';font-size:9px;color:var(--text-dim)}}
   .no-cards{{font-family:'IBM Plex Mono';font-size:11px;color:var(--text-dim);padding:10px}}
+  .stale-badge{{font-family:'IBM Plex Mono';font-size:8px;color:var(--amber);
+               border:1px solid var(--amber);padding:1px 4px;margin-left:4px;
+               vertical-align:middle}}
   table{{width:100%;border-collapse:collapse;font-family:'IBM Plex Mono';font-size:11px}}
   th{{color:var(--text-dim);font-weight:400;letter-spacing:1px;text-align:left;
       padding:4px 8px;border-bottom:1px solid var(--border)}}
@@ -183,7 +228,7 @@ def build_dashboard(state_manager: StateManager, regime: dict):
 <div class="grid-3">
   <div class="stat-box">
     <div class="stat-num">{len(cards)}</div>
-    <div class="stat-label">TRADING CARDS (14 TAGE)</div>
+    <div class="stat-label">TRADING CARDS (30 TAGE)</div>
   </div>
   <div class="stat-box">
     <div class="stat-num">{len(recent_signals)}</div>
@@ -196,8 +241,18 @@ def build_dashboard(state_manager: StateManager, regime: dict):
 </div>
 
 <div class="section">
-  <div class="section-title">AKTIVE TRADING CARDS — PASS</div>
+  <div class="section-title">AKTIVE TRADING CARDS — PASS (30 TAGE)</div>
   <div class="cards-grid">{cards_html}</div>
+</div>
+
+<div class="section">
+  <div class="section-title">OFFENE POSITIONEN</div>
+  <table>
+    <thead><tr>
+      <th>TICKER</th><th>CONVICTION</th><th>LAUFZEIT</th><th>EINSTIEG</th><th>ABLAUF (~)</th>
+    </tr></thead>
+    <tbody>{positions_html}</tbody>
+  </table>
 </div>
 
 <div class="section">
