@@ -37,7 +37,7 @@ def build_dashboard(state_manager: StateManager, regime: dict):
     ).fetchall()
 
     positions = conn.execute(
-        """SELECT ticker, conviction_at_open, laufzeit_months, opened_at
+        """SELECT ticker, conviction_at_open, laufzeit_months, open_date
            FROM active_positions WHERE status = 'OPEN'
            ORDER BY conviction_at_open DESC"""
     ).fetchall()
@@ -122,7 +122,7 @@ def build_dashboard(state_manager: StateManager, regime: dict):
 
     positions_html = ""
     for p in positions:
-        opened_at  = p["opened_at"][:10] if p["opened_at"] else "?"
+        opened_at  = p["open_date"][:10] if p["open_date"] else "?"
         laufzeit   = p["laufzeit_months"] or 6
         # Geschätztes Ablaufdatum
         try:
