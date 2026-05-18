@@ -6,7 +6,7 @@
   "capex_trend": "rising",
   "regime_stability": 0.314,
   "yield_curve": 0.5,
-  "hy_credit_spread": 2.76,
+  "hy_credit_spread": 2.8,
   "conviction_threshold": 8.0,
   "weights": {
     "salp": 0.5,
@@ -20,5 +20,5 @@
     "Regime stability 0.31 < 0.4"
   ],
   "regime_score": 7.5,
-  "determined_at": "2026-05-18T10:17:19.081290"
+  "determined_at": "2026-05-18T16:25:47.702104"
 }

@@ -1,5 +1,47 @@
 [
   {
+    "source": "bloomberg_tech",
+    "credibility": 0.88,
+    "title": "NextEra-Dominion Deal Signals New Era of AI Utility Mega-Mergers",
+    "summary": "NextEra Energy Inc. just announced the largest utility acquisition in US history, a $67 billion deal for rival Dominion Energy Inc., suggesting even the industry\u2019s biggest companies need to grow in order to accommodate the power demand driven by artificial intelligence.",
+    "url": "https://www.bloomberg.com/news/articles/2026-05-18/nextera-dominion-deal-signals-new-era-of-ai-utility-mega-mergers",
+    "published": "2026-05-18T15:56:25",
+    "signals": {
+      "thiel": false,
+      "shulman": false,
+      "contrarian": false,
+      "bottleneck_compute": false,
+      "bottleneck_energy": true,
+      "salp": false
+    },
+    "signal_count": 1,
+    "tickers": [],
+    "quality_score": 1.3112,
+    "weighted_relevance": 1.3111731766256216
+  },
+  {
+    "source": "bloomberg_tech",
+    "credibility": 0.88,
+    "title": "Nvidia Q1 Revenue Expected to Reach Record $79 Billion",
+    "summary": "Nvidia is expected to set another revenue record when it reports quarterly earnings on Wednesday. Investors are looking for updates on its $1 trillion data-center revenue target. Bloomberg's Caroline Hyde has a preview.  (Source: Bloomberg)",
+    "url": "https://www.bloomberg.com/news/videos/2026-05-18/nvidia-q1-revenue-expected-to-reach-record-79-billion-video",
+    "published": "2026-05-18T14:47:01",
+    "signals": {
+      "thiel": false,
+      "shulman": false,
+      "contrarian": false,
+      "bottleneck_compute": true,
+      "bottleneck_energy": false,
+      "salp": false
+    },
+    "signal_count": 1,
+    "tickers": [
+      "NVDA"
+    ],
+    "quality_score": 1.3112,
+    "weighted_relevance": 1.3111731766256216
+  },
+  {
     "source": "lesswrong",
     "credibility": 0.85,
     "title": "Links #1: 2026/05 Part 1",
@@ -16,11 +58,11 @@
     },
     "signal_count": 1,
     "tickers": [
-      "GOOGL",
+      "PLTR",
       "NVDA",
       "AMZN",
-      "META",
-      "PLTR"
+      "GOOGL",
+      "META"
     ],
     "quality_score": 1.2233,
     "weighted_relevance": 1.2232988379545604
