@@ -1,111 +1,26 @@
 [
   {
-    "source": "bloomberg_tech",
-    "credibility": 0.88,
-    "title": "Trump Discussed Nvidia Chips With Xi Jinping | Bloomberg Tech 5/15/2026",
-    "summary": "Bloomberg\u2019s Caroline Hyde and Ed Ludlow break down the latest from Beijing after President Trump says he discussed Nvidia's H200 chips with Xi Jinping. Plus, they speak with the CEO of Figma after its earnings results defy fears that AI would disrupt the design stack. And, Caroline's conversation with OpenAI CFO Sarah Friar, who says the startup may raise more capital after completing its recent fundraising round. (Source: Bloomberg)",
-    "url": "https://www.bloomberg.com/news/videos/2026-05-15/bloomberg-tech-5-15-2026-video",
-    "published": "2026-05-15T23:43:52",
-    "signals": {
-      "thiel": false,
-      "shulman": false,
-      "contrarian": false,
-      "bottleneck_compute": true,
-      "bottleneck_energy": false,
-      "salp": false
-    },
-    "signal_count": 1,
-    "tickers": [
-      "NVDA"
-    ],
-    "quality_score": 1.3112,
-    "weighted_relevance": 1.3111731766256216
-  },
-  {
-    "source": "bloomberg_tech",
-    "credibility": 0.88,
-    "title": "US Chip Sector Needs More Talent, Says SEMI",
-    "summary": "President Trump says he discussed guardrails on AI and Nvidia's H200 chips with Chinese leader Xi Jinping during a two-day summit in Beijing. Shari Liss, vice president of global workforce development and initiatives at SEMI, joins Bloomberg\u2019s Caroline Hyde and Ed Ludlow on \"Bloomberg Tech\" to discuss what this means for the US semiconductor sector. (Source: Bloomberg)",
-    "url": "https://www.bloomberg.com/news/videos/2026-05-15/us-chip-sector-needs-more-talent-says-semi-video",
-    "published": "2026-05-15T20:38:42",
-    "signals": {
-      "thiel": false,
-      "shulman": false,
-      "contrarian": false,
-      "bottleneck_compute": true,
-      "bottleneck_energy": false,
-      "salp": false
-    },
-    "signal_count": 1,
-    "tickers": [
-      "NVDA"
-    ],
-    "quality_score": 1.3112,
-    "weighted_relevance": 1.3111731766256216
-  },
-  {
-    "source": "bloomberg_tech",
-    "credibility": 0.88,
-    "title": "Cerebras CEO Is Worth $3.2 Billion After Year\u2019s Largest IPO",
-    "summary": "Shares of Cerebras Systems Inc. soared about 68% in Nasdaq trading in New York. It\u2019s the year\u2019s biggest initial public offering and gives the company a market value of roughly $67 billion.\u00a0\nBailey Lipschultz, Bloomberg News Senior Equities Reporter, discusses the initial offering and how the company is differentiating itself from incumbents like Nvidia. (Source: Bloomberg)",
-    "url": "https://www.bloomberg.com/news/videos/2026-05-15/cerebras-ceo-worth-3-2-billion-after-year-s-largest-ipo-video",
-    "published": "2026-05-15T17:07:19",
-    "signals": {
-      "thiel": false,
-      "shulman": false,
-      "contrarian": false,
-      "bottleneck_compute": true,
-      "bottleneck_energy": false,
-      "salp": false
-    },
-    "signal_count": 1,
-    "tickers": [
-      "NVDA"
-    ],
-    "quality_score": 1.3112,
-    "weighted_relevance": 1.3111731766256216
-  },
-  {
     "source": "lesswrong",
     "credibility": 0.85,
-    "title": "Incriminating misaligned AI models via distillation",
-    "summary": "<p><span>Suppose we have a dangerous misaligned AI that can fool alignment audits, and distill it into a student model. Two things can happen:</span></p><ol><li value=\"1\"><span>Misalignment fails to transfer to the student. If so, we get a fairly capable benign model.</span></li><li value=\"2\"><span>Misalignment transfers to the student. The student might also be worse than the teacher at hiding its misalignment (e.g., due to being less capable). If so, we might get indirect evidence about the te",
-    "url": "https://www.lesswrong.com/posts/BYH6ebmfZb3Eggzer/incriminating-misaligned-ai-models-via-distillation",
-    "published": "2026-05-15T21:43:35",
+    "title": "Links #1: 2026/05 Part 1",
+    "summary": "<h2><span>Preface</span></h2><ul><li value=\"1\"><span>^means articles I read in full, otherwise assume I skimmed it</span></li><li value=\"2\"><span>I show my discovery graph in (via \u2026) blocks, those without (via \u2026) usually come from my RSS reader, or the algorithm in the corresponding website</span></li><li value=\"3\"><span>This is approximately a 1 in 20 filter of content</span></li><li value=\"4\"><span>This is very disorganized, but hopefully still useful. </span></li><li class=\"nested-list-item\" ",
+    "url": "https://www.lesswrong.com/posts/7EBNE2gfxpySXiREs/links-1-2026-05-part-1",
+    "published": "2026-05-18T05:04:14",
     "signals": {
       "thiel": false,
       "shulman": false,
       "contrarian": false,
-      "bottleneck_compute": false,
-      "bottleneck_energy": false,
-      "salp": true
-    },
-    "signal_count": 1,
-    "tickers": [
-      "GOOGL"
-    ],
-    "quality_score": 1.2233,
-    "weighted_relevance": 1.2232988379545604
-  },
-  {
-    "source": "lesswrong",
-    "credibility": 0.85,
-    "title": "Clarifying the Darwinian Honeymoon",
-    "summary": "<p><span>A few days ago, I published </span><a href=\"https://www.lesswrong.com/posts/FxHzT6jeTRhbkzSX3/the-darwinian-honeymoon-why-i-am-not-as-impressed-by-human-1\" rel=\"noreferrer\"><span>The Darwinian Honeymoon - why I am not as impressed by human progress as I used to be</span></a><span>. To my gratification, it was quite well-received on </span><a href=\"https://x.com/reconfigurthing/status/2053106425405051285\"><span>Twitter</span></a><span>, </span><a href=\"https://eliasschmied.substack.com/p",
-    "url": "https://www.lesswrong.com/posts/sFMrzD58Cnjo7tSqb/clarifying-the-darwinian-honeymoon",
-    "published": "2026-05-15T16:23:28",
-    "signals": {
-      "thiel": false,
-      "shulman": true,
-      "contrarian": false,
-      "bottleneck_compute": false,
+      "bottleneck_compute": true,
       "bottleneck_energy": false,
       "salp": false
     },
     "signal_count": 1,
     "tickers": [
       "GOOGL",
-      "META"
+      "NVDA",
+      "AMZN",
+      "META",
+      "PLTR"
     ],
     "quality_score": 1.2233,
     "weighted_relevance": 1.2232988379545604
@@ -113,10 +28,30 @@
   {
     "source": "arxiv_cs_ai",
     "credibility": 0.8,
-    "title": "Optimizing PyTorch Inference with LLM-Based Multi-Agent Systems",
-    "summary": "arXiv:2511.16964v2 Announce Type: replace-cross \nAbstract: Maximizing performance on available GPU hardware is an ongoing challenge for modern AI inference systems. Traditional approaches include writing custom GPU kernels and using specialized model compilers to tune high-level code for specific GPU targets. Recent work shows that LLM-based multi-agent systems can effectively perform such tuning, often outperforming existing compilers and eliminating the need for manual kernel development. Howe",
-    "url": "https://arxiv.org/abs/2511.16964",
-    "published": "2026-05-16T04:00:00",
+    "title": "Verifiable Agentic Infrastructure: Proof-Derived Authorization for Sovereign AI Systems",
+    "summary": "arXiv:2605.15228v1 Announce Type: new \nAbstract: Modern cloud and enterprise systems rely on identity-centric authorization, assuming that callers possessing valid credentials are safe to execute commands. The emergence of autonomous AI agents invalidates this assumption: agents can generate syntactically valid but semantically unsafe actions, making standing privileges a significant operational risk. This risk becomes especially acute in sovereign AI systems, where autonomous agents may interac",
+    "url": "https://arxiv.org/abs/2605.15228",
+    "published": "2026-05-18T04:00:00",
+    "signals": {
+      "thiel": true,
+      "shulman": false,
+      "contrarian": false,
+      "bottleneck_compute": false,
+      "bottleneck_energy": false,
+      "salp": false
+    },
+    "signal_count": 1,
+    "tickers": [],
+    "quality_score": 1.0836,
+    "weighted_relevance": 1.0836141955583654
+  },
+  {
+    "source": "arxiv_cs_ai",
+    "credibility": 0.8,
+    "title": "GQLA: Group-Query Latent Attention for Hardware-Adaptive Large Language Model Decoding",
+    "summary": "arXiv:2605.15250v1 Announce Type: cross \nAbstract: Multi-head Latent Attention (MLA), the attention used in DeepSeek-V2/V3, jointly compresses keys and values into a low-rank latent and matches the H100 roofline almost perfectly. Its trained weights, however, expose only one decoding path - an absorbed MQA form - which ties efficient inference to H100-class compute-bandwidth ratios, forfeits tensor parallelism along the head axis, and yields no Multi-Token Prediction (MTP) gain on commodity infe",
+    "url": "https://arxiv.org/abs/2605.15250",
+    "published": "2026-05-18T04:00:00",
     "signals": {
       "thiel": false,
       "shulman": false,
@@ -135,10 +70,74 @@
   {
     "source": "arxiv_cs_ai",
     "credibility": 0.8,
-    "title": "RoboLab: A High-Fidelity Simulation Benchmark for Analysis of Task Generalist Policies",
-    "summary": "arXiv:2604.09860v3 Announce Type: replace-cross \nAbstract: The pursuit of general-purpose robotics has yielded impressive foundation models, yet simulation-based benchmarking remains a bottleneck due to rapid performance saturation and a lack of true generalization testing. Existing benchmarks often exhibit significant domain overlap between training and evaluation, trivializing success rates and obscuring insights into robustness. We introduce RoboLab, a simulation benchmarking framework design",
-    "url": "https://arxiv.org/abs/2604.09860",
-    "published": "2026-05-16T04:00:00",
+    "title": "AgriMind: An Ensemble Deep Learning Framework for Multi-Class Plant Disease Classification",
+    "summary": "arXiv:2605.16076v1 Announce Type: cross \nAbstract: Plant disease detection is still largely manual in Bangladesh, where extension workers eyeball leaf samples across millions of smallholdings. We built AgriMind to automate this: an ensemble of ResNet50, EfficientNet-B0, and DenseNet121 trained on 20,638 PlantVillage images across 15 pepper, potato, and tomato disease classes. Transfer learning with frozen ImageNet backbones and 10 epochs of head-only training keeps the pipeline lightweight. Indi",
+    "url": "https://arxiv.org/abs/2605.16076",
+    "published": "2026-05-18T04:00:00",
+    "signals": {
+      "thiel": false,
+      "shulman": false,
+      "contrarian": false,
+      "bottleneck_compute": true,
+      "bottleneck_energy": false,
+      "salp": false
+    },
+    "signal_count": 1,
+    "tickers": [
+      "NVDA"
+    ],
+    "quality_score": 1.0836,
+    "weighted_relevance": 1.0836141955583654
+  },
+  {
+    "source": "arxiv_cs_ai",
+    "credibility": 0.8,
+    "title": "A Unified Generative-AI Framework for Smart Energy Infrastructure: Intelligent Gas Distribution, Utility Billing, Carbon Analytics, and Quantum-Inspired Optimisation",
+    "summary": "arXiv:2605.16232v1 Announce Type: cross \nAbstract: The accelerating convergence of smart metering, generative artificial intelligence, and quantum-inspired combinatorial optimisation is reshaping how energy utilities manage physical infrastructure, customer engagement, and environmental accountability",
+    "url": "https://arxiv.org/abs/2605.16232",
+    "published": "2026-05-18T04:00:00",
+    "signals": {
+      "thiel": false,
+      "shulman": false,
+      "contrarian": false,
+      "bottleneck_compute": false,
+      "bottleneck_energy": true,
+      "salp": false
+    },
+    "signal_count": 1,
+    "tickers": [],
+    "quality_score": 1.0836,
+    "weighted_relevance": 1.0836141955583654
+  },
+  {
+    "source": "arxiv_cs_ai",
+    "credibility": 0.8,
+    "title": "DMax: Aggressive Parallel Decoding for dLLMs",
+    "summary": "arXiv:2604.08302v3 Announce Type: replace-cross \nAbstract: We present DMax, a new paradigm for efficient diffusion language models (dLLMs). It mitigates error accumulation in parallel decoding, enabling aggressive decoding parallelism while preserving generation quality. Unlike conventional masked dLLMs that decode through a binary mask-to-token transition, DMax reformulates decoding as a progressive self-refinement from mask embeddings to token embeddings. At the core of our approach is On-Poli",
+    "url": "https://arxiv.org/abs/2604.08302",
+    "published": "2026-05-18T04:00:00",
+    "signals": {
+      "thiel": false,
+      "shulman": false,
+      "contrarian": false,
+      "bottleneck_compute": true,
+      "bottleneck_energy": false,
+      "salp": false
+    },
+    "signal_count": 1,
+    "tickers": [
+      "NVDA"
+    ],
+    "quality_score": 1.0836,
+    "weighted_relevance": 1.0836141955583654
+  },
+  {
+    "source": "arxiv_cs_ai",
+    "credibility": 0.8,
+    "title": "Hardware Utilization and Inference Performance of Edge Object Detection Under Fault Injection",
+    "summary": "arXiv:2604.09631v2 Announce Type: replace-cross \nAbstract: As deep learning models are deployed on resource constrained edge platforms in autonomous driving systems, reli able knowledge of hardware behavior under resource degradation becomes an essential requirement. Therefore, we introduce a systematic characterization of CPU load, GPU utilization, RAM consumption, power draw, throughput, and thermal behaviour of TensorRT-optimized YOLOv10s, YOLOv11s and YOLO2026n pipelines running on NVIDIA Je",
+    "url": "https://arxiv.org/abs/2604.09631",
+    "published": "2026-05-18T04:00:00",
     "signals": {
       "thiel": false,
       "shulman": false,
