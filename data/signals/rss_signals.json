@@ -2,30 +2,10 @@
   {
     "source": "bloomberg_tech",
     "credibility": 0.88,
-    "title": "NextEra-Dominion Deal Signals New Era of AI Utility Mega-Mergers",
-    "summary": "NextEra Energy Inc. just announced the largest utility acquisition in US history, a $67 billion deal for rival Dominion Energy Inc., suggesting even the industry\u2019s biggest companies need to grow in order to accommodate the power demand driven by artificial intelligence.",
-    "url": "https://www.bloomberg.com/news/articles/2026-05-18/nextera-dominion-deal-signals-new-era-of-ai-utility-mega-mergers",
-    "published": "2026-05-18T15:56:25",
-    "signals": {
-      "thiel": false,
-      "shulman": false,
-      "contrarian": false,
-      "bottleneck_compute": false,
-      "bottleneck_energy": true,
-      "salp": false
-    },
-    "signal_count": 1,
-    "tickers": [],
-    "quality_score": 1.3112,
-    "weighted_relevance": 1.3111731766256216
-  },
-  {
-    "source": "bloomberg_tech",
-    "credibility": 0.88,
-    "title": "Nvidia Q1 Revenue Expected to Reach Record $79 Billion",
-    "summary": "Nvidia is expected to set another revenue record when it reports quarterly earnings on Wednesday. Investors are looking for updates on its $1 trillion data-center revenue target. Bloomberg's Caroline Hyde has a preview.  (Source: Bloomberg)",
-    "url": "https://www.bloomberg.com/news/videos/2026-05-18/nvidia-q1-revenue-expected-to-reach-record-79-billion-video",
-    "published": "2026-05-18T14:47:01",
+    "title": "Nvidia\u2019s CEO Sees China Opening Market to AI Chips From US",
+    "summary": "Nvidia Corp. Chief Executive Officer Jensen Huang, speaking days after he joined President Donald Trump\u2019s summit in China, said he expects Chinese authorities to eventually allow the import of artificial intelligence chips from the US.",
+    "url": "https://www.bloomberg.com/news/articles/2026-05-18/nvidia-s-ceo-says-china-will-open-its-market-to-ai-chips-from-us",
+    "published": "2026-05-18T19:25:18",
     "signals": {
       "thiel": false,
       "shulman": false,
@@ -42,12 +22,12 @@
     "weighted_relevance": 1.3111731766256216
   },
   {
-    "source": "lesswrong",
-    "credibility": 0.85,
-    "title": "Links #1: 2026/05 Part 1",
-    "summary": "<h2><span>Preface</span></h2><ul><li value=\"1\"><span>^means articles I read in full, otherwise assume I skimmed it</span></li><li value=\"2\"><span>I show my discovery graph in (via \u2026) blocks, those without (via \u2026) usually come from my RSS reader, or the algorithm in the corresponding website</span></li><li value=\"3\"><span>This is approximately a 1 in 20 filter of content</span></li><li value=\"4\"><span>This is very disorganized, but hopefully still useful. </span></li><li class=\"nested-list-item\" ",
-    "url": "https://www.lesswrong.com/posts/7EBNE2gfxpySXiREs/links-1-2026-05-part-1",
-    "published": "2026-05-18T05:04:14",
+    "source": "bloomberg_tech",
+    "credibility": 0.88,
+    "title": "AI Chip Startup Tenstorrent Draws Takeover Interest From Intel, Qualcomm",
+    "summary": "Artificial intelligence chip startup Tenstorrent Inc. is drawing early takeover interest from prospective buyers at a moment of renewed momentum for upstarts looking to challenge Nvidia Corp. and Advanced Micro Devices Inc.",
+    "url": "https://www.bloomberg.com/news/articles/2026-05-18/ai-chip-startup-tenstorrent-draws-takeover-interest-from-intel-qualcomm",
+    "published": "2026-05-18T21:19:36",
     "signals": {
       "thiel": false,
       "shulman": false,
@@ -58,14 +38,32 @@
     },
     "signal_count": 1,
     "tickers": [
-      "PLTR",
-      "NVDA",
-      "AMZN",
-      "GOOGL",
-      "META"
+      "NVDA"
     ],
-    "quality_score": 1.2233,
-    "weighted_relevance": 1.2232988379545604
+    "quality_score": 1.3112,
+    "weighted_relevance": 1.3111731766256216
+  },
+  {
+    "source": "bloomberg_tech",
+    "credibility": 0.88,
+    "title": "Dell Scales Up the AI Supply Chain to Meet Demand",
+    "summary": "Dell Technologies Inc. Chief Executive Officer Michael Dell and Nvidia CEO Jensen Huang talk about how they work together on Dell's AI Factory which uses servers with Nvidia chips, software and services. They speak to Bloomberg's Ed Ludlow at the Dell World conference in Las Vegas. (Source: Bloomberg)",
+    "url": "https://www.bloomberg.com/news/videos/2026-05-18/dell-scales-up-the-ai-supply-chain-to-meet-demand-video",
+    "published": "2026-05-18T20:35:41",
+    "signals": {
+      "thiel": false,
+      "shulman": false,
+      "contrarian": false,
+      "bottleneck_compute": true,
+      "bottleneck_energy": false,
+      "salp": false
+    },
+    "signal_count": 1,
+    "tickers": [
+      "NVDA"
+    ],
+    "quality_score": 1.3112,
+    "weighted_relevance": 1.3111731766256216
   },
   {
     "source": "arxiv_cs_ai",
@@ -73,7 +71,7 @@
     "title": "Verifiable Agentic Infrastructure: Proof-Derived Authorization for Sovereign AI Systems",
     "summary": "arXiv:2605.15228v1 Announce Type: new \nAbstract: Modern cloud and enterprise systems rely on identity-centric authorization, assuming that callers possessing valid credentials are safe to execute commands. The emergence of autonomous AI agents invalidates this assumption: agents can generate syntactically valid but semantically unsafe actions, making standing privileges a significant operational risk. This risk becomes especially acute in sovereign AI systems, where autonomous agents may interac",
     "url": "https://arxiv.org/abs/2605.15228",
-    "published": "2026-05-18T04:00:00",
+    "published": "2026-05-19T04:00:00",
     "signals": {
       "thiel": true,
       "shulman": false,
@@ -93,7 +91,7 @@
     "title": "GQLA: Group-Query Latent Attention for Hardware-Adaptive Large Language Model Decoding",
     "summary": "arXiv:2605.15250v1 Announce Type: cross \nAbstract: Multi-head Latent Attention (MLA), the attention used in DeepSeek-V2/V3, jointly compresses keys and values into a low-rank latent and matches the H100 roofline almost perfectly. Its trained weights, however, expose only one decoding path - an absorbed MQA form - which ties efficient inference to H100-class compute-bandwidth ratios, forfeits tensor parallelism along the head axis, and yields no Multi-Token Prediction (MTP) gain on commodity infe",
     "url": "https://arxiv.org/abs/2605.15250",
-    "published": "2026-05-18T04:00:00",
+    "published": "2026-05-19T04:00:00",
     "signals": {
       "thiel": false,
       "shulman": false,
@@ -115,7 +113,7 @@
     "title": "AgriMind: An Ensemble Deep Learning Framework for Multi-Class Plant Disease Classification",
     "summary": "arXiv:2605.16076v1 Announce Type: cross \nAbstract: Plant disease detection is still largely manual in Bangladesh, where extension workers eyeball leaf samples across millions of smallholdings. We built AgriMind to automate this: an ensemble of ResNet50, EfficientNet-B0, and DenseNet121 trained on 20,638 PlantVillage images across 15 pepper, potato, and tomato disease classes. Transfer learning with frozen ImageNet backbones and 10 epochs of head-only training keeps the pipeline lightweight. Indi",
     "url": "https://arxiv.org/abs/2605.16076",
-    "published": "2026-05-18T04:00:00",
+    "published": "2026-05-19T04:00:00",
     "signals": {
       "thiel": false,
       "shulman": false,
@@ -137,7 +135,7 @@
     "title": "A Unified Generative-AI Framework for Smart Energy Infrastructure: Intelligent Gas Distribution, Utility Billing, Carbon Analytics, and Quantum-Inspired Optimisation",
     "summary": "arXiv:2605.16232v1 Announce Type: cross \nAbstract: The accelerating convergence of smart metering, generative artificial intelligence, and quantum-inspired combinatorial optimisation is reshaping how energy utilities manage physical infrastructure, customer engagement, and environmental accountability",
     "url": "https://arxiv.org/abs/2605.16232",
-    "published": "2026-05-18T04:00:00",
+    "published": "2026-05-19T04:00:00",
     "signals": {
       "thiel": false,
       "shulman": false,
@@ -157,7 +155,7 @@
     "title": "DMax: Aggressive Parallel Decoding for dLLMs",
     "summary": "arXiv:2604.08302v3 Announce Type: replace-cross \nAbstract: We present DMax, a new paradigm for efficient diffusion language models (dLLMs). It mitigates error accumulation in parallel decoding, enabling aggressive decoding parallelism while preserving generation quality. Unlike conventional masked dLLMs that decode through a binary mask-to-token transition, DMax reformulates decoding as a progressive self-refinement from mask embeddings to token embeddings. At the core of our approach is On-Poli",
     "url": "https://arxiv.org/abs/2604.08302",
-    "published": "2026-05-18T04:00:00",
+    "published": "2026-05-19T04:00:00",
     "signals": {
       "thiel": false,
       "shulman": false,
@@ -179,7 +177,7 @@
     "title": "Hardware Utilization and Inference Performance of Edge Object Detection Under Fault Injection",
     "summary": "arXiv:2604.09631v2 Announce Type: replace-cross \nAbstract: As deep learning models are deployed on resource constrained edge platforms in autonomous driving systems, reli able knowledge of hardware behavior under resource degradation becomes an essential requirement. Therefore, we introduce a systematic characterization of CPU load, GPU utilization, RAM consumption, power draw, throughput, and thermal behaviour of TensorRT-optimized YOLOv10s, YOLOv11s and YOLO2026n pipelines running on NVIDIA Je",
     "url": "https://arxiv.org/abs/2604.09631",
-    "published": "2026-05-18T04:00:00",
+    "published": "2026-05-19T04:00:00",
     "signals": {
       "thiel": false,
       "shulman": false,
