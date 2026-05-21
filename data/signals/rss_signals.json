@@ -2,6 +2,72 @@
   {
     "source": "bloomberg_tech",
     "credibility": 0.88,
+    "title": "Taiwan Seeks to Detain Three in AI Chip Smuggling Crackdown",
+    "summary": "Taiwanese officials are seeking to detain three individuals for forging documents in order to export Nvidia Corp. AI chips to China, the island democracy\u2019s first such crackdown on semiconductor smuggling.",
+    "url": "https://www.bloomberg.com/news/articles/2026-05-21/taiwan-seeks-to-detain-three-in-ai-chip-smuggling-crackdown",
+    "published": "2026-05-21T07:39:11",
+    "signals": {
+      "thiel": false,
+      "shulman": false,
+      "contrarian": false,
+      "bottleneck_compute": true,
+      "bottleneck_energy": false,
+      "salp": false
+    },
+    "signal_count": 1,
+    "tickers": [
+      "NVDA"
+    ],
+    "quality_score": 1.3112,
+    "weighted_relevance": 1.3111731766256216
+  },
+  {
+    "source": "bloomberg_tech",
+    "credibility": 0.88,
+    "title": "AMD Commits More Than $10 Billion to Taiwan AI Investments",
+    "summary": "Advanced Micro Devices Inc., the leading challenger to Nvidia Corp. in AI computing chips, pledged to invest more than $10 billion in Taiwan to expand partnerships and add packaging capacity.",
+    "url": "https://www.bloomberg.com/news/articles/2026-05-21/amd-commits-more-than-10-billion-to-taiwan-ai-investments",
+    "published": "2026-05-21T06:14:37",
+    "signals": {
+      "thiel": false,
+      "shulman": false,
+      "contrarian": false,
+      "bottleneck_compute": true,
+      "bottleneck_energy": false,
+      "salp": false
+    },
+    "signal_count": 1,
+    "tickers": [
+      "NVDA"
+    ],
+    "quality_score": 1.3112,
+    "weighted_relevance": 1.3111731766256216
+  },
+  {
+    "source": "bloomberg_tech",
+    "credibility": 0.88,
+    "title": "Nvidia Targets New Revenue Engine Beyond Hyperscalers",
+    "summary": "Nvidia beat analysts\u2019 estimates with its latest results and forecast, and used its latest quarterly report to tout progress in diversifying the company. Though investment in artificial intelligence has continued to surge from large data center clients, Nvidia predicted that a vast array of other businesses and governments would soon become a bigger source of revenue. Bloomberg's Neil Campling reports. (Source: Bloomberg)",
+    "url": "https://www.bloomberg.com/news/videos/2026-05-21/nvidia-targets-new-revenue-engine-beyond-hyperscalers-video",
+    "published": "2026-05-21T05:37:14",
+    "signals": {
+      "thiel": false,
+      "shulman": false,
+      "contrarian": false,
+      "bottleneck_compute": true,
+      "bottleneck_energy": false,
+      "salp": false
+    },
+    "signal_count": 1,
+    "tickers": [
+      "NVDA"
+    ],
+    "quality_score": 1.3112,
+    "weighted_relevance": 1.3111731766256216
+  },
+  {
+    "source": "bloomberg_tech",
+    "credibility": 0.88,
     "title": "Nvidia Tells Skeptical Investors AI Is Ready to Go Mainstream",
     "summary": "Nvidia Corp., facing more investor skepticism, used its latest quarterly report to tout progress in diversifying the company, which aims to rely less on the giant data center operators that have fueled its runaway growth.",
     "url": "https://www.bloomberg.com/news/articles/2026-05-20/nvidia-gives-disappointing-forecast-as-chip-competition-mounts",
@@ -66,232 +132,12 @@
     "weighted_relevance": 1.3111731766256216
   },
   {
-    "source": "bloomberg_tech",
-    "credibility": 0.88,
-    "title": "The Key Takeaways From Nvidia's Earnings and Forecast",
-    "summary": "Gabelli Funds Growth Portfolios Managing Director John Belton gives his initial reaction to Nvidia's first-quarter earnings report and forecast on \"Bloomberg The Close.\" (Source: Bloomberg)",
-    "url": "https://www.bloomberg.com/news/videos/2026-05-20/the-key-takeaways-from-nvidia-s-earnings-and-forecast-video",
-    "published": "2026-05-20T21:06:27",
-    "signals": {
-      "thiel": false,
-      "shulman": false,
-      "contrarian": false,
-      "bottleneck_compute": true,
-      "bottleneck_energy": false,
-      "salp": false
-    },
-    "signal_count": 1,
-    "tickers": [
-      "NVDA"
-    ],
-    "quality_score": 1.3112,
-    "weighted_relevance": 1.3111731766256216
-  },
-  {
-    "source": "bloomberg_tech",
-    "credibility": 0.88,
-    "title": "Nvidia Beats on\u00a0Earnings, Revenue Projected at $91 Billion",
-    "summary": "Nvidia reports earnings of $1.87 per share for the fiscal 1Q topping estimates of $1.77. Revenue for the quarter ending in July is projected to be $91 billion, compared with Wall Street estimates of about $87.4 billion. Bloomberg's Romaine Bostick and Matt Bryson of Wedbush Securities discuss.  (Source: Bloomberg)",
-    "url": "https://www.bloomberg.com/news/videos/2026-05-20/nvidia-beats-on-1q-eps-revenue-projected-at-91-billion-video",
-    "published": "2026-05-20T20:49:56",
-    "signals": {
-      "thiel": false,
-      "shulman": false,
-      "contrarian": false,
-      "bottleneck_compute": true,
-      "bottleneck_energy": false,
-      "salp": false
-    },
-    "signal_count": 1,
-    "tickers": [
-      "NVDA"
-    ],
-    "quality_score": 1.3112,
-    "weighted_relevance": 1.3111731766256216
-  },
-  {
-    "source": "bloomberg_tech",
-    "credibility": 0.88,
-    "title": "Nvidia Gives Lackluster Forecast as Chip Competition Mounts",
-    "summary": "Nvidia, the world\u2019s most valuable company, disappointed investors with its latest sales forecast, adding to concerns about growing competition in the AI chip industry. Bloomberg's Ed Ludlow joins to discuss. (Source: Bloomberg)",
-    "url": "https://www.bloomberg.com/news/videos/2026-05-20/nvidia-gives-lackluster-forecast-video",
-    "published": "2026-05-20T20:45:23",
-    "signals": {
-      "thiel": false,
-      "shulman": false,
-      "contrarian": false,
-      "bottleneck_compute": true,
-      "bottleneck_energy": false,
-      "salp": false
-    },
-    "signal_count": 1,
-    "tickers": [
-      "NVDA"
-    ],
-    "quality_score": 1.3112,
-    "weighted_relevance": 1.3111731766256216
-  },
-  {
-    "source": "bloomberg_tech",
-    "credibility": 0.88,
-    "title": "Nvidia's Growth Is Sustainable, Redpoint's Brescia Says",
-    "summary": "Erica Brescia, Redpoint Ventures managing director, reacts to Nvidia's first-quarter earnings report and explains why she is still bullish on the stock. She speaks on \"Bloomberg The Close.\" (Source: Bloomberg)",
-    "url": "https://www.bloomberg.com/news/videos/2026-05-20/nvidia-s-growth-is-sustainable-redpoint-s-brescia-says-video",
-    "published": "2026-05-20T20:44:00",
-    "signals": {
-      "thiel": false,
-      "shulman": false,
-      "contrarian": false,
-      "bottleneck_compute": true,
-      "bottleneck_energy": false,
-      "salp": false
-    },
-    "signal_count": 1,
-    "tickers": [
-      "NVDA"
-    ],
-    "quality_score": 1.3112,
-    "weighted_relevance": 1.3111731766256216
-  },
-  {
-    "source": "bloomberg_tech",
-    "credibility": 0.88,
-    "title": "China Chips Still Behind US, Nvidia in Performance: Baillie Gifford",
-    "summary": "Paulina McPadden, investment manager of international concentrated growth strategy at Baillie Gifford, discusses where Nvidia sits in the global chip ecosystem and why US-based AI researchers and companies still have a leg up for the long-term over China, while still seeing a \"rich hunting ground\" for AI investment outside of the US. She joins Ed Ludlow on \"Bloomberg Tech.\" (Source: Bloomberg)",
-    "url": "https://www.bloomberg.com/news/videos/2026-05-20/china-chips-still-behind-us-nvidia-baillie-gifford-video",
-    "published": "2026-05-20T20:12:08",
-    "signals": {
-      "thiel": false,
-      "shulman": false,
-      "contrarian": false,
-      "bottleneck_compute": true,
-      "bottleneck_energy": false,
-      "salp": false
-    },
-    "signal_count": 1,
-    "tickers": [
-      "NVDA"
-    ],
-    "quality_score": 1.3112,
-    "weighted_relevance": 1.3111731766256216
-  },
-  {
-    "source": "bloomberg_tech",
-    "credibility": 0.88,
-    "title": "Nvidia Earnings in Focus; SpaceX Eyes Historic IPO | Bloomberg Tech 5/20/2026",
-    "summary": "Bloomberg\u2019s Ed Ludlow breaks down what to expect from Nvidia's earnings report, as investors anxiously await for the world\u2019s most valuable company to show whether it can continue delivering the explosive growth fueling the AI boom. Plus, SpaceX inches closer to launch with an imminent IPO filing. And, a deep dive into SoftBank's bet on OpenAI as insiders grow worried that Masayoshi Son is too tied to the AI giant. (Source: Bloomberg)",
-    "url": "https://www.bloomberg.com/news/videos/2026-05-20/bloomberg-tech-5-20-2026-video",
-    "published": "2026-05-20T20:10:36",
-    "signals": {
-      "thiel": false,
-      "shulman": false,
-      "contrarian": false,
-      "bottleneck_compute": true,
-      "bottleneck_energy": false,
-      "salp": false
-    },
-    "signal_count": 1,
-    "tickers": [
-      "NVDA"
-    ],
-    "quality_score": 1.3112,
-    "weighted_relevance": 1.3111731766256216
-  },
-  {
     "source": "ft_tech",
     "credibility": 0.85,
-    "title": "Nvidia lifts dividend as investors fret about growth prospects",
-    "summary": "Shares in the world\u2019s most valuable company dip despite better than expected revenue and forecasts",
+    "title": "Nvidia fails to dazzle investors despite lifting dividends",
+    "summary": "Shares in world\u2019s most valuable company dip after announcing better than expected revenue and forecasts",
     "url": "https://www.ft.com/content/a7aa26d1-1bad-407f-8bff-4ae491cb8ce0",
     "published": "2026-05-21T00:43:11",
-    "signals": {
-      "thiel": false,
-      "shulman": false,
-      "contrarian": false,
-      "bottleneck_compute": true,
-      "bottleneck_energy": false,
-      "salp": false
-    },
-    "signal_count": 1,
-    "tickers": [
-      "NVDA"
-    ],
-    "quality_score": 1.2233,
-    "weighted_relevance": 1.2232988379545604
-  },
-  {
-    "source": "ft_tech",
-    "credibility": 0.85,
-    "title": "FirstFT: Nvidia reports better than expected revenue and forecasts in Q1 earnings",
-    "summary": "Also in today\u2019s newsletter: OpenAI\u2019s IPO could come as early as this week and Xi warns of \u2018the law of the jungle\u2019 to Putin",
-    "url": "https://www.ft.com/content/51e089e9-b195-4b4c-ab9e-913513aaa137",
-    "published": "2026-05-20T21:20:45",
-    "signals": {
-      "thiel": false,
-      "shulman": false,
-      "contrarian": false,
-      "bottleneck_compute": true,
-      "bottleneck_energy": false,
-      "salp": false
-    },
-    "signal_count": 1,
-    "tickers": [
-      "NVDA"
-    ],
-    "quality_score": 1.2233,
-    "weighted_relevance": 1.2232988379545604
-  },
-  {
-    "source": "ft_tech",
-    "credibility": 0.85,
-    "title": "China banned Nvidia\u2019s gaming chip during Jensen Huang\u2019s visit",
-    "summary": "Beijing aims to support domestic players including Huawei and Cambricon as they catch up to US rivals",
-    "url": "https://www.ft.com/content/a30c3dd5-9383-4606-a649-fdf19c41c308",
-    "published": "2026-05-20T08:08:34",
-    "signals": {
-      "thiel": false,
-      "shulman": false,
-      "contrarian": false,
-      "bottleneck_compute": true,
-      "bottleneck_energy": false,
-      "salp": false
-    },
-    "signal_count": 1,
-    "tickers": [
-      "NVDA"
-    ],
-    "quality_score": 1.2233,
-    "weighted_relevance": 1.2232988379545604
-  },
-  {
-    "source": "ft_tech",
-    "credibility": 0.85,
-    "title": "Is Nvidia too big to fail?",
-    "summary": "\u2018You\u2019re clearly at the centre of everything\u2019",
-    "url": "https://www.ft.com/content/29adbaf8-f21a-4bd5-aed9-1c2d6a8216cc",
-    "published": "2026-05-20T05:00:20",
-    "signals": {
-      "thiel": false,
-      "shulman": false,
-      "contrarian": false,
-      "bottleneck_compute": true,
-      "bottleneck_energy": false,
-      "salp": false
-    },
-    "signal_count": 1,
-    "tickers": [
-      "NVDA"
-    ],
-    "quality_score": 1.2233,
-    "weighted_relevance": 1.2232988379545604
-  },
-  {
-    "source": "ft_tech",
-    "credibility": 0.85,
-    "title": "Nvidia\u2019s Huang bankrolls AI boom with $90bn deal spree",
-    "summary": "Chipmaker\u2019s spending rivals Big Tech\u2019s biggest venture operations, tying customers and start-ups to its technology",
-    "url": "https://www.ft.com/content/c6b362b8-ab6b-4723-af48-28082bdfcac2",
-    "published": "2026-05-20T04:00:12",
     "signals": {
       "thiel": false,
       "shulman": false,
@@ -313,7 +159,7 @@
     "title": "Real-Time Parallel Counterfactual Regret Minimization",
     "summary": "arXiv:2605.19928v1 Announce Type: cross \nAbstract: Counterfactual Regret Minimization (CFR) is the dominant algorithmic family for solving large imperfect-information games, underpinning breakthroughs such as Libratus and Pluribus in No-Limit Texas Hold'em poker. In real-time game-playing systems, the solver must compute a near-equilibrium strategy within a strict time budget of only a few seconds per decision, and the number of CFR iterations completed in this window directly determines play st",
     "url": "https://arxiv.org/abs/2605.19928",
-    "published": "2026-05-20T04:00:00",
+    "published": "2026-05-21T04:00:00",
     "signals": {
       "thiel": false,
       "shulman": false,
@@ -335,7 +181,7 @@
     "title": "2.5-D Decomposition for LLM-Based Spatial Construction",
     "summary": "arXiv:2605.07066v2 Announce Type: replace \nAbstract: Autonomous systems that build structures from natural-language instructions need reliable spatial reasoning, yet large language models (LLMs) make systematic coordinate errors when generating three-dimensional block placements. We present a neuro-symbolic pipeline based on \\emph{2.5-D decomposition}: the LLM plans in the two-dimensional horizontal plane while a deterministic executor computes all vertical placement from column occupancy, elimi",
     "url": "https://arxiv.org/abs/2605.07066",
-    "published": "2026-05-20T04:00:00",
+    "published": "2026-05-21T04:00:00",
     "signals": {
       "thiel": false,
       "shulman": false,
@@ -357,7 +203,7 @@
     "title": "SuperInfer: SLO-Aware Rotary Scheduling and Memory Management for LLM Inference on Superchips",
     "summary": "arXiv:2601.20309v2 Announce Type: replace-cross \nAbstract: Large Language Model (LLM) serving faces a fundamental tension between stringent latency Service Level Objectives (SLOs) and limited GPU memory capacity. When high request rates exhaust the KV cache budget, existing LLM inference systems often suffer severe head-of-line (HOL) blocking. While prior work explored PCIe-based offloading, these approaches cannot sustain responsiveness under high request rates, often failing to meet tight Time",
     "url": "https://arxiv.org/abs/2601.20309",
-    "published": "2026-05-20T04:00:00",
+    "published": "2026-05-21T04:00:00",
     "signals": {
       "thiel": false,
       "shulman": false,
@@ -379,7 +225,7 @@
     "title": "Motif-Video 2B: Technical Report",
     "summary": "arXiv:2604.16503v2 Announce Type: replace-cross \nAbstract: Training strong video generation models usually requires massive datasets, large parameter counts, and substantial compute. In this work, we ask whether strong text-to-video quality is possible at a much smaller budget: fewer than 10M clips and less than 100,000 H200 GPU hours. Our core claim is that part of the answer lies in how model capacity is organized, not only in how much of it is used. In video generation, prompt alignment, temp",
     "url": "https://arxiv.org/abs/2604.16503",
-    "published": "2026-05-20T04:00:00",
+    "published": "2026-05-21T04:00:00",
     "signals": {
       "thiel": false,
       "shulman": false,
@@ -401,7 +247,7 @@
     "title": "Addressing the Reality Gap: A Three-Tension Framework for Agentic AI Adoption",
     "summary": "arXiv:2604.27245v2 Announce Type: replace-cross \nAbstract: Generative AI has rapidly entered education through free consumer tools, outpacing the ability of schools and universities to respond. Now a new wave of more autonomous agentic AI systems--with the capacity to plan and act towards goals--promises both greater educational personalization and greater disruption. This chapter argues that successfully navigating these innovations requires balancing three core tensions: (1) Implementation Fea",
     "url": "https://arxiv.org/abs/2604.27245",
-    "published": "2026-05-20T04:00:00",
+    "published": "2026-05-21T04:00:00",
     "signals": {
       "thiel": false,
       "shulman": false,
