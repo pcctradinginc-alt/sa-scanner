@@ -2,10 +2,10 @@
   {
     "source": "bloomberg_tech",
     "credibility": 0.88,
-    "title": "What to Watch for In Nvidia Earnings After the Bell",
-    "summary": "Nvidia, the world's most valuable company, reports first-quarter earnings after the bell on Wednesday. Wall Street is waiting to get a read on the state of the artificial intelligence economy. Investors will also look for guidance on its long-term sales forecast and trying to sell AI processors in China. Bloomberg's Ed Ludlow reports on \"Bloomberg Open Interest.\" (Source: Bloomberg)",
-    "url": "https://www.bloomberg.com/news/videos/2026-05-20/what-to-watch-for-in-nvidia-earnings-after-the-bell-video",
-    "published": "2026-05-20T14:15:26",
+    "title": "Nvidia Tells Skeptical Investors AI Is Ready to Go Mainstream",
+    "summary": "Nvidia Corp., facing more investor skepticism, used its latest quarterly report to tout progress in diversifying the company, which aims to rely less on the giant data center operators that have fueled its runaway growth.",
+    "url": "https://www.bloomberg.com/news/articles/2026-05-20/nvidia-gives-disappointing-forecast-as-chip-competition-mounts",
+    "published": "2026-05-20T20:23:51",
     "signals": {
       "thiel": false,
       "shulman": false,
@@ -24,10 +24,10 @@
   {
     "source": "bloomberg_tech",
     "credibility": 0.88,
-    "title": "Liontrust Focused on Nvidia Suppliers Ahead of Earnings",
-    "summary": "Clare Pleydell-Bouverie, Liontrust Fund manager, talks about why she is focused on what Nvidia is buying from suppliers ahead of their earnings report. She speaks on \"Bloomberg The Opening Trade.\" (Source: Bloomberg)",
-    "url": "https://www.bloomberg.com/news/videos/2026-05-20/liontrust-focused-on-nvidia-suppliers-ahead-of-earnings-video",
-    "published": "2026-05-20T14:05:52",
+    "title": "Nvidia Earnings Report & SpaceX Prepares for IPO | The Close 5/20/2026",
+    "summary": "Bloomberg Television brings you the latest news and analysis leading up to the final minutes and seconds before and after the closing bell on Wall Street. Today's guests are BNP Paribas\u2019 Greg Boutle, UBS\u2019 Michael Lasser, Airbnb CEO & Co-Founder Brian Chesky, Cava CEO & Co-Founder Bret Schulman, Research Affiliates CIO of Equities Que Nguyen, Redpoint Ventures Managing Director Erica Brescia, Wedbush Securities\u2019 Matt Bryson, Gabelli Funds\u2019 John Belton, University of Tennessee at Knoxville Profess",
+    "url": "https://www.bloomberg.com/news/videos/2026-05-20/the-close-5-20-2026-video",
+    "published": "2026-05-20T23:43:57",
     "signals": {
       "thiel": false,
       "shulman": false,
@@ -42,6 +42,204 @@
     ],
     "quality_score": 1.3112,
     "weighted_relevance": 1.3111731766256216
+  },
+  {
+    "source": "bloomberg_tech",
+    "credibility": 0.88,
+    "title": "Nvidia Beats Expectations, But Fails to Impress Investors",
+    "summary": "Nvidia delivered a sales forecast of about $91 billion for the three months ending in July, but drew a lukewarm reaction from investors. Ed Ludlow breaks down the company's earnings. (Source: Bloomberg)",
+    "url": "https://www.bloomberg.com/news/videos/2026-05-20/nvidia-beats-expectations-fails-to-impress-investors-video",
+    "published": "2026-05-20T23:24:07",
+    "signals": {
+      "thiel": false,
+      "shulman": false,
+      "contrarian": false,
+      "bottleneck_compute": true,
+      "bottleneck_energy": false,
+      "salp": false
+    },
+    "signal_count": 1,
+    "tickers": [
+      "NVDA"
+    ],
+    "quality_score": 1.3112,
+    "weighted_relevance": 1.3111731766256216
+  },
+  {
+    "source": "bloomberg_tech",
+    "credibility": 0.88,
+    "title": "The Key Takeaways From Nvidia's Earnings and Forecast",
+    "summary": "Gabelli Funds Growth Portfolios Managing Director John Belton gives his initial reaction to Nvidia's first-quarter earnings report and forecast on \"Bloomberg The Close.\" (Source: Bloomberg)",
+    "url": "https://www.bloomberg.com/news/videos/2026-05-20/the-key-takeaways-from-nvidia-s-earnings-and-forecast-video",
+    "published": "2026-05-20T21:06:27",
+    "signals": {
+      "thiel": false,
+      "shulman": false,
+      "contrarian": false,
+      "bottleneck_compute": true,
+      "bottleneck_energy": false,
+      "salp": false
+    },
+    "signal_count": 1,
+    "tickers": [
+      "NVDA"
+    ],
+    "quality_score": 1.3112,
+    "weighted_relevance": 1.3111731766256216
+  },
+  {
+    "source": "bloomberg_tech",
+    "credibility": 0.88,
+    "title": "Nvidia Beats on\u00a0Earnings, Revenue Projected at $91 Billion",
+    "summary": "Nvidia reports earnings of $1.87 per share for the fiscal 1Q topping estimates of $1.77. Revenue for the quarter ending in July is projected to be $91 billion, compared with Wall Street estimates of about $87.4 billion. Bloomberg's Romaine Bostick and Matt Bryson of Wedbush Securities discuss.  (Source: Bloomberg)",
+    "url": "https://www.bloomberg.com/news/videos/2026-05-20/nvidia-beats-on-1q-eps-revenue-projected-at-91-billion-video",
+    "published": "2026-05-20T20:49:56",
+    "signals": {
+      "thiel": false,
+      "shulman": false,
+      "contrarian": false,
+      "bottleneck_compute": true,
+      "bottleneck_energy": false,
+      "salp": false
+    },
+    "signal_count": 1,
+    "tickers": [
+      "NVDA"
+    ],
+    "quality_score": 1.3112,
+    "weighted_relevance": 1.3111731766256216
+  },
+  {
+    "source": "bloomberg_tech",
+    "credibility": 0.88,
+    "title": "Nvidia Gives Lackluster Forecast as Chip Competition Mounts",
+    "summary": "Nvidia, the world\u2019s most valuable company, disappointed investors with its latest sales forecast, adding to concerns about growing competition in the AI chip industry. Bloomberg's Ed Ludlow joins to discuss. (Source: Bloomberg)",
+    "url": "https://www.bloomberg.com/news/videos/2026-05-20/nvidia-gives-lackluster-forecast-video",
+    "published": "2026-05-20T20:45:23",
+    "signals": {
+      "thiel": false,
+      "shulman": false,
+      "contrarian": false,
+      "bottleneck_compute": true,
+      "bottleneck_energy": false,
+      "salp": false
+    },
+    "signal_count": 1,
+    "tickers": [
+      "NVDA"
+    ],
+    "quality_score": 1.3112,
+    "weighted_relevance": 1.3111731766256216
+  },
+  {
+    "source": "bloomberg_tech",
+    "credibility": 0.88,
+    "title": "Nvidia's Growth Is Sustainable, Redpoint's Brescia Says",
+    "summary": "Erica Brescia, Redpoint Ventures managing director, reacts to Nvidia's first-quarter earnings report and explains why she is still bullish on the stock. She speaks on \"Bloomberg The Close.\" (Source: Bloomberg)",
+    "url": "https://www.bloomberg.com/news/videos/2026-05-20/nvidia-s-growth-is-sustainable-redpoint-s-brescia-says-video",
+    "published": "2026-05-20T20:44:00",
+    "signals": {
+      "thiel": false,
+      "shulman": false,
+      "contrarian": false,
+      "bottleneck_compute": true,
+      "bottleneck_energy": false,
+      "salp": false
+    },
+    "signal_count": 1,
+    "tickers": [
+      "NVDA"
+    ],
+    "quality_score": 1.3112,
+    "weighted_relevance": 1.3111731766256216
+  },
+  {
+    "source": "bloomberg_tech",
+    "credibility": 0.88,
+    "title": "China Chips Still Behind US, Nvidia in Performance: Baillie Gifford",
+    "summary": "Paulina McPadden, investment manager of international concentrated growth strategy at Baillie Gifford, discusses where Nvidia sits in the global chip ecosystem and why US-based AI researchers and companies still have a leg up for the long-term over China, while still seeing a \"rich hunting ground\" for AI investment outside of the US. She joins Ed Ludlow on \"Bloomberg Tech.\" (Source: Bloomberg)",
+    "url": "https://www.bloomberg.com/news/videos/2026-05-20/china-chips-still-behind-us-nvidia-baillie-gifford-video",
+    "published": "2026-05-20T20:12:08",
+    "signals": {
+      "thiel": false,
+      "shulman": false,
+      "contrarian": false,
+      "bottleneck_compute": true,
+      "bottleneck_energy": false,
+      "salp": false
+    },
+    "signal_count": 1,
+    "tickers": [
+      "NVDA"
+    ],
+    "quality_score": 1.3112,
+    "weighted_relevance": 1.3111731766256216
+  },
+  {
+    "source": "bloomberg_tech",
+    "credibility": 0.88,
+    "title": "Nvidia Earnings in Focus; SpaceX Eyes Historic IPO | Bloomberg Tech 5/20/2026",
+    "summary": "Bloomberg\u2019s Ed Ludlow breaks down what to expect from Nvidia's earnings report, as investors anxiously await for the world\u2019s most valuable company to show whether it can continue delivering the explosive growth fueling the AI boom. Plus, SpaceX inches closer to launch with an imminent IPO filing. And, a deep dive into SoftBank's bet on OpenAI as insiders grow worried that Masayoshi Son is too tied to the AI giant. (Source: Bloomberg)",
+    "url": "https://www.bloomberg.com/news/videos/2026-05-20/bloomberg-tech-5-20-2026-video",
+    "published": "2026-05-20T20:10:36",
+    "signals": {
+      "thiel": false,
+      "shulman": false,
+      "contrarian": false,
+      "bottleneck_compute": true,
+      "bottleneck_energy": false,
+      "salp": false
+    },
+    "signal_count": 1,
+    "tickers": [
+      "NVDA"
+    ],
+    "quality_score": 1.3112,
+    "weighted_relevance": 1.3111731766256216
+  },
+  {
+    "source": "ft_tech",
+    "credibility": 0.85,
+    "title": "Nvidia lifts dividend as investors fret about growth prospects",
+    "summary": "Shares in the world\u2019s most valuable company dip despite better than expected revenue and forecasts",
+    "url": "https://www.ft.com/content/a7aa26d1-1bad-407f-8bff-4ae491cb8ce0",
+    "published": "2026-05-21T00:43:11",
+    "signals": {
+      "thiel": false,
+      "shulman": false,
+      "contrarian": false,
+      "bottleneck_compute": true,
+      "bottleneck_energy": false,
+      "salp": false
+    },
+    "signal_count": 1,
+    "tickers": [
+      "NVDA"
+    ],
+    "quality_score": 1.2233,
+    "weighted_relevance": 1.2232988379545604
+  },
+  {
+    "source": "ft_tech",
+    "credibility": 0.85,
+    "title": "FirstFT: Nvidia reports better than expected revenue and forecasts in Q1 earnings",
+    "summary": "Also in today\u2019s newsletter: OpenAI\u2019s IPO could come as early as this week and Xi warns of \u2018the law of the jungle\u2019 to Putin",
+    "url": "https://www.ft.com/content/51e089e9-b195-4b4c-ab9e-913513aaa137",
+    "published": "2026-05-20T21:20:45",
+    "signals": {
+      "thiel": false,
+      "shulman": false,
+      "contrarian": false,
+      "bottleneck_compute": true,
+      "bottleneck_energy": false,
+      "salp": false
+    },
+    "signal_count": 1,
+    "tickers": [
+      "NVDA"
+    ],
+    "quality_score": 1.2233,
+    "weighted_relevance": 1.2232988379545604
   },
   {
     "source": "ft_tech",
