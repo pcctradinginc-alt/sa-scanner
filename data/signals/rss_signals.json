@@ -2,10 +2,10 @@
   {
     "source": "bloomberg_tech",
     "credibility": 0.88,
-    "title": "Taiwan Seeks to Detain Three in AI Chip Smuggling Crackdown",
-    "summary": "Taiwanese officials are seeking to detain three individuals for forging documents in order to export Nvidia Corp. AI chips to China, the island democracy\u2019s first such crackdown on semiconductor smuggling.",
-    "url": "https://www.bloomberg.com/news/articles/2026-05-21/taiwan-seeks-to-detain-three-in-ai-chip-smuggling-crackdown",
-    "published": "2026-05-21T07:39:11",
+    "title": "Nvidia's Next AI Growth Driver",
+    "summary": "Nvidia's latest earnings reveal a major shift in AI demand. TD Cowen analyst Joshua Buchalter explains why hyperscalers are no longer the whole story, how AI is moving beyond data centers into the real world, and why the company's massive supply chain commitments could cement its dominance for years. (Source: Bloomberg)",
+    "url": "https://www.bloomberg.com/news/videos/2026-05-21/nvidia-s-next-ai-growth-driver-video",
+    "published": "2026-05-21T15:36:26",
     "signals": {
       "thiel": false,
       "shulman": false,
@@ -24,32 +24,10 @@
   {
     "source": "bloomberg_tech",
     "credibility": 0.88,
-    "title": "AMD Commits More Than $10 Billion to Taiwan AI Investments",
-    "summary": "Advanced Micro Devices Inc., the leading challenger to Nvidia Corp. in AI computing chips, pledged to invest more than $10 billion in Taiwan to expand partnerships and add packaging capacity.",
-    "url": "https://www.bloomberg.com/news/articles/2026-05-21/amd-commits-more-than-10-billion-to-taiwan-ai-investments",
-    "published": "2026-05-21T06:14:37",
-    "signals": {
-      "thiel": false,
-      "shulman": false,
-      "contrarian": false,
-      "bottleneck_compute": true,
-      "bottleneck_energy": false,
-      "salp": false
-    },
-    "signal_count": 1,
-    "tickers": [
-      "NVDA"
-    ],
-    "quality_score": 1.3112,
-    "weighted_relevance": 1.3111731766256216
-  },
-  {
-    "source": "bloomberg_tech",
-    "credibility": 0.88,
-    "title": "Nvidia Targets New Revenue Engine Beyond Hyperscalers",
-    "summary": "Nvidia beat analysts\u2019 estimates with its latest results and forecast, and used its latest quarterly report to tout progress in diversifying the company. Though investment in artificial intelligence has continued to surge from large data center clients, Nvidia predicted that a vast array of other businesses and governments would soon become a bigger source of revenue. Bloomberg's Neil Campling reports. (Source: Bloomberg)",
-    "url": "https://www.bloomberg.com/news/videos/2026-05-21/nvidia-targets-new-revenue-engine-beyond-hyperscalers-video",
-    "published": "2026-05-21T05:37:14",
+    "title": "Nvidia's Huang Is 'Dunking' on Competition, Luria Says",
+    "summary": "Gil Luria, DA Davidson head of technology research, says Nvidia CEO Jensen Huang is \"dunking\" on all the competition. Joe Kaiser of Switchyard Partners also reacts to Nvidia's earnings and SpaceX going public. They are on \"Bloomberg Open Interest.\" (Source: Bloomberg)",
+    "url": "https://www.bloomberg.com/news/videos/2026-05-21/nvidia-s-huang-is-dunking-on-competition-luria-says-video",
+    "published": "2026-05-21T15:35:12",
     "signals": {
       "thiel": false,
       "shulman": false,
@@ -90,10 +68,10 @@
   {
     "source": "bloomberg_tech",
     "credibility": 0.88,
-    "title": "Nvidia Earnings Report & SpaceX Prepares for IPO | The Close 5/20/2026",
-    "summary": "Bloomberg Television brings you the latest news and analysis leading up to the final minutes and seconds before and after the closing bell on Wall Street. Today's guests are BNP Paribas\u2019 Greg Boutle, UBS\u2019 Michael Lasser, Airbnb CEO & Co-Founder Brian Chesky, Cava CEO & Co-Founder Bret Schulman, Research Affiliates CIO of Equities Que Nguyen, Redpoint Ventures Managing Director Erica Brescia, Wedbush Securities\u2019 Matt Bryson, Gabelli Funds\u2019 John Belton, University of Tennessee at Knoxville Profess",
-    "url": "https://www.bloomberg.com/news/videos/2026-05-20/the-close-5-20-2026-video",
-    "published": "2026-05-20T23:43:57",
+    "title": "Nvidia\u2019s Huang Tries to Get Investors to See the Future of AI",
+    "summary": "The chipmaker\u2019s CEO argues another big wave of AI demand is coming",
+    "url": "https://www.bloomberg.com/news/newsletters/2026-05-21/nvidia-ceo-jensen-huang-urges-investors-to-see-the-future-of-ai",
+    "published": "2026-05-21T11:02:01",
     "signals": {
       "thiel": false,
       "shulman": false,
@@ -112,10 +90,10 @@
   {
     "source": "bloomberg_tech",
     "credibility": 0.88,
-    "title": "Nvidia Beats Expectations, But Fails to Impress Investors",
-    "summary": "Nvidia delivered a sales forecast of about $91 billion for the three months ending in July, but drew a lukewarm reaction from investors. Ed Ludlow breaks down the company's earnings. (Source: Bloomberg)",
-    "url": "https://www.bloomberg.com/news/videos/2026-05-20/nvidia-beats-expectations-fails-to-impress-investors-video",
-    "published": "2026-05-20T23:24:07",
+    "title": "Taiwan Seeks to Detain Three in Nvidia Smuggling Crackdown",
+    "summary": "Taiwanese officials are seeking to detain three individuals for forging documents in order to export Nvidia Corp. AI chips to China, the island democracy\u2019s first such crackdown on semiconductor smuggling.",
+    "url": "https://www.bloomberg.com/news/articles/2026-05-21/taiwan-seeks-to-detain-three-in-ai-chip-smuggling-crackdown",
+    "published": "2026-05-21T07:39:11",
     "signals": {
       "thiel": false,
       "shulman": false,
@@ -132,12 +110,61 @@
     "weighted_relevance": 1.3111731766256216
   },
   {
+    "source": "lesswrong",
+    "credibility": 0.85,
+    "title": "Loss of Oversight: How AI Systems May Become Harder to Audit, Monitor, and Investigate",
+    "summary": "<p><i><span>Produced by </span></i><a href=\"https://www.aisi.gov.uk/\" rel=\"noreferrer\"><i><span>UK AISI</span></i></a><i><span> Model Transparency and Situational Awareness teams. If\u00a0you\u2019re\u00a0a\u00a0Research\u00a0Scientist or\u00a0Research Engineer,\u00a0we\u2019re\u00a0hiring \u2013 apply\u00a0</span></i><a href=\"https://job-boards.eu.greenhouse.io/aisi/jobs/4848454101\" rel=\"noreferrer noopener\" target=\"_blank\"><i><span>here</span></i></a><i><span>\u00a0and come and work with us!\u00a0</span></i></p><h3><b><span>TL;DR </span></b></h3><ul><li val",
+    "url": "https://www.lesswrong.com/posts/JvZxp554WxcZ8BQvM/loss-of-oversight-how-ai-systems-may-become-harder-to-audit-1",
+    "published": "2026-05-21T14:52:07",
+    "signals": {
+      "thiel": false,
+      "shulman": false,
+      "contrarian": false,
+      "bottleneck_compute": false,
+      "bottleneck_energy": false,
+      "salp": true
+    },
+    "signal_count": 1,
+    "tickers": [
+      "GOOGL"
+    ],
+    "quality_score": 1.2233,
+    "weighted_relevance": 1.2232988379545604
+  },
+  {
+    "source": "lesswrong",
+    "credibility": 0.85,
+    "title": "AI #169: New Knowledge",
+    "summary": "<p>Even in a relatively quiet period, AI is out there creating new knowledge. The new knowledge in question is OpenAI getting us the first truly impressive math result that comes from an AI, a solution to the unit distance problem.</p>\n<p>We\u2019re about to learn a different kind of knowledge later today when the White House issues its executive order, or when the judges rule in Anthropic\u2019s DC case.</p>\n<p>And then there\u2019s the other kind of new knowledge, which is the knowledge that things are fake ",
+    "url": "https://www.lesswrong.com/posts/xWsBwrboYDEMdj8TC/ai-169-new-knowledge",
+    "published": "2026-05-21T13:20:11",
+    "signals": {
+      "thiel": false,
+      "shulman": false,
+      "contrarian": false,
+      "bottleneck_compute": true,
+      "bottleneck_energy": false,
+      "salp": false
+    },
+    "signal_count": 1,
+    "tickers": [
+      "NVDA",
+      "MSFT",
+      "GOOGL",
+      "PLTR",
+      "META",
+      "RTX"
+    ],
+    "quality_score": 1.2233,
+    "weighted_relevance": 1.2232988379545604
+  },
+  {
     "source": "ft_tech",
     "credibility": 0.85,
     "title": "Nvidia fails to dazzle investors despite lifting dividends",
-    "summary": "Shares in world\u2019s most valuable company dip after announcing better than expected revenue and forecasts",
+    "summary": "Shares in world\u2019s most valuable company steady after announcing better than expected revenue and forecasts",
     "url": "https://www.ft.com/content/a7aa26d1-1bad-407f-8bff-4ae491cb8ce0",
-    "published": "2026-05-21T00:43:11",
+    "published": "2026-05-21T14:09:18",
     "signals": {
       "thiel": false,
       "shulman": false,
